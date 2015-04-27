@@ -45,12 +45,14 @@
 	<script type="text/javascript" src="contrib/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="contrib/sidr/jquery.sidr.min.js"></script>
 	<script type="text/javascript" src="contrib/leaflet/dist/leaflet.js"></script>
+	<script type="text/javascript" src="contrib/flot/jquery.flot.js"></script>
 	<script type="text/javascript" src="contrib/angular/angular.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-gettext/dist/angular-gettext.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-flot/angular-flot.js"></script>
 	<script type="text/javascript" src="app/common/services/data-service.js"></script>
 	<script type="text/javascript" src="app/terrain-overview/terrain-overview.js"></script>
 	<script type="text/javascript" src="app/machine-overview/machine-overview.js"></script>
@@ -62,11 +64,14 @@
 	
 		<div ng-controller="TerrainOverviewController as ctrl">
 			<form>
-				Latitude : <input type="number" step="any" ng-model="center.lat">
-				Longitude : <input type="number" step="any" ng-model="center.lng">
-				Zoom : <input type="number" step="any" ng-model="center.zoom">
+				Latitude : <input type="number" step="any" ng-model="ctrl.xcenter.lat">
+				Longitude : <input type="number" step="any" ng-model="ctrl.xcenter.lng">
+				Zoom : <input type="number" step="any" ng-model="ctrl.xcenter.zoom">
 			</form>
-			<leaflet center="center" width="800" height="400"></leaflet>
+			<leaflet center="ctrl.xcenter" width="800" height="400"></leaflet>
+
+			<flot dataset="ctrl.data2" options="ctrl.options2" width="800" height="400"></flot>
+
 		</div> 
 	</script>
 	

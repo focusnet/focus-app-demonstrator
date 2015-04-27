@@ -13,8 +13,9 @@
 	 */
 	angular.module(
 			'focusApp',
-			[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive', 'focusApp.dataService',
-					'focusApp.terrainOverview', 'focusApp.machineOverview' ])
+			[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive',
+					'angular-flot', 'focusApp.dataService', 'focusApp.terrainOverview',
+					'focusApp.machineOverview' ])
 
 	/**
 	 * Configuration of our application
