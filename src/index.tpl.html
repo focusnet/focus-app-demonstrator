@@ -1,17 +1,31 @@
-<html>
-
-
-<div translate>Hello!! {{name}}!</div>
-
-
-asdlkjfasd
-asd
-df
-asd
-f
-asd
-f
-<div translate>hi there!</div>
+<!DOCTYPE html>
+<!-- 
+ * @@source_header
+ -->
+<html xmlns:ng="http://angularjs.org" lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>FOCUS mobile application demonstrator</title>
+		<link href="contrib/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+	<!-- 	<link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" /> -->
+		<link href="css/focus-general.css" rel="stylesheet" />
+		<link href="css/focus-views.css" rel="stylesheet" />
+	</head>
+	
+	<body ng-app="focusApp" ng-cloak>
+		<div ng-view autoscroll="true"> </div>
+	</body>
+	
+	<script type="text/javascript" src="contrib/angular/angular.min.js"></script>
+		<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap.min.js"></script>
+		<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		<script type="text/javascript" src="app/config.js"></script>
+		<script type="text/javascript" src="app/focus.js"></script>
+		
+</html>	
+	
 
 
 <!-- @if NODE_ENV == 'DEVELOPMENT' -->
@@ -35,4 +49,3 @@ NODE_ENV
     <script src="http://cdn.foo.com/<!-- @echo name -->/<!-- @echo version -->/<!-- @echo now -->/<!-- @echo ver -->/js/<!-- @echo name -->.min.js"></script>
 
 <!-- @endif -->
-</html>

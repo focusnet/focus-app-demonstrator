@@ -3,32 +3,26 @@
  * 
  * Pre-requisite:
  * 
- * 1. Install a recent version of npm (works with npm 1.4.28)
- * 2. Install required npm packages with `npm install`
+ * 1. Install a recent version of npm (works with npm 1.4.28) 2. Install
+ * required npm packages with `npm install`
  * 
  * Tasks:
  * 
- * ./grunt extract-i18n-strings
- *	 Extract all translatable strings from the application
- *   
- * ./grunt dev
- *	 Build the current sources
+ * ./grunt extract-i18n-strings Extract all translatable strings from the
+ * application
  * 
- * ./grunt live
- *	 Build the current sources, open a browser and watch for 
- *	 modifications. When a modification is detected, the browser
- *	 is reloaded.
+ * ./grunt dev Build the current sources
  * 
- * ./grunt run-tests
- *	 Run all tests as defined in the *.spec.js files. Run the tests once 
- *	 and exit.
- *	 
- * ./grunt run-tests-live
- *	 Run all tests as defined in the *.spec.js files. Watch for 
- *	 modifications. If a modification is detected, re-run all tests.
+ * ./grunt live Build the current sources, open a browser and watch for
+ * modifications. When a modification is detected, the browser is reloaded.
  * 
- * ./grunt package
- *	Create a package for production deployment.
+ * ./grunt run-tests Run all tests as defined in the *.spec.js files. Run the
+ * tests once and exit.
+ * 
+ * ./grunt run-tests-live Run all tests as defined in the *.spec.js files. Watch
+ * for modifications. If a modification is detected, re-run all tests.
+ * 
+ * ./grunt package Create a package for production deployment.
  * 
  */
 
@@ -128,13 +122,30 @@ module.exports = function(grunt) {
 				destPrefix: '<%= project.buildtarget %>/contrib/'
 			},
 			files: {
-				files: {// dest: src
+				files : {// dest: src
+					// fontawesome
+					'fontawesome/css/font-awesome.min.css' : 'fontawesome/css/font-awesome.min.css',
+					'fontawesome/fonts/FontAwesome.otf' : 'fontawesome/fonts/FontAwesome.otf',
+					'fontawesome/fonts/fontawesome-webfont.svg' : 'fontawesome/fonts/fontawesome-webfont.svg',
+					'fontawesome/fonts/fontawesome-webfont.woff' : 'fontawesome/fonts/fontawesome-webfont.woff',
+					'fontawesome/fonts/fontawesome-webfont.eot' : 'fontawesome/fonts/fontawesome-webfont.eot',
+					'fontawesome/fonts/fontawesome-webfont.ttf' : 'fontawesome/fonts/fontawesome-webfont.ttf',
+					// bootstrap (without js)
+					'bootstrap/css/bootstrap.min.css' : 'bootstrap/dist/css/bootstrap.min.css',
+					'bootstrap/css/bootstrap-theme.min.css' : 'bootstrap/dist/css/bootstrap-theme.min.css',
+					'bootstrap/fonts/glyphicons-halflings-regular.eot' : 'bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
+					'bootstrap/fonts/glyphicons-halflings-regular.ttf' : 'bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
+					'bootstrap/fonts/glyphicons-halflings-regular.svg' : 'bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
+					'bootstrap/fonts/glyphicons-halflings-regular.woff' : 'bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
 					// angularjs
-					'angular/angular.min.js': 
-						'angular/angular.min.js',
-					// angular-gettext
-					'angular-gettext/dist/angular-gettext.min.js': 
-						'angular-gettext/dist/angular-gettext.min.js'
+					'angular/angular.min.js' : 'angular/angular.min.js',
+				// angular-gettext
+					'angular-gettext/dist/angular-gettext.min.js': 'angular-gettext/dist/angular-gettext.min.js'
+					// angular-route
+					'angular-route/angular-route.min.js' : 'angular-route/angular-route.min.js',
+					// angular-bootstrap
+					'angular-bootstrap/ui-bootstrap.min.js' : 'angular-bootstrap/ui-bootstrap.min.js',
+					'angular-bootstrap/ui-bootstrap-tpls.min.js' : 'angular-bootstrap/ui-bootstrap-tpls.min.js'
 				}
 			}
 		},
@@ -283,13 +294,14 @@ module.exports = function(grunt) {
 			},
 			production: {
 				files: {
-					'<%= project.buildtarget %>/app/focus.min.js': ['src/app/*.js']
+					'<%= project.buildtarget %>/app/focus.min.js': ['src/app/*.js'],
+					'<%= project.buildtarget %>/app/css/focus.css': ['src/app/css/*.css']
 				}
 			}
 		}
 	});
 
-	// Tasks 
+	// Tasks
 	grunt.registerTask('extract-i18n-strings', ['nggettext_extract:pot']);
 	
 	grunt.registerTask('build-dev', ['env:dev', 'sass:all', 'nggetext_compile:all', 'bowercopy', 'preprocess:dev']);
