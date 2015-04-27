@@ -1,0 +1,24 @@
+{
+  "name": "focus-mobile-application-demonstrator",
+  "version": "0.0.1",
+  "license": "Proprietary",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/contrib/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1",
+    "fontawesome": "^4",
+    "angular-gettext": "~2.0.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1",
+    "bourbon": "~4.2.2",
+    "neat": "~1.7.2"
+  }
+}

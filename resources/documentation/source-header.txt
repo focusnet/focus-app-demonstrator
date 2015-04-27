@@ -1,0 +1,5 @@
+
+@@iso_date
+@@timestamp
+@@pkg_name
+@@pkg_version

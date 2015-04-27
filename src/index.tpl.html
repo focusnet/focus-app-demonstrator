@@ -1,0 +1,38 @@
+<html>
+
+
+<div translate>Hello!! {{name}}!</div>
+
+
+asdlkjfasd
+asd
+df
+asd
+f
+asd
+f
+<div translate>hi there!</div>
+
+
+<!-- @if NODE_ENV == 'DEVELOPMENT' -->
+NODE_ENV
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="../src/js/foo1.js"></script>
+    <script src="../src/js/foo2.js"></script>
+    <script src="../src/js/jquery.blah.js"></script>
+    <script src="../src/js/jquery.billy.js"></script>
+    <script src="../src/js/jquery.jenkins.js"></script>
+    <script src="bower_components/angular-gettext/dist/angular-gettext.min.js"></script>
+
+    <script src="i18n.js"></script>
+
+<!-- @endif -->
+
+<!-- @if NODE_ENV == 'PRODUCTION' -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="http://cdn.foo.com/<!-- @echo name -->/<!-- @echo version -->/<!-- @echo now -->/<!-- @echo ver -->/js/<!-- @echo name -->.min.js"></script>
+
+<!-- @endif -->
+</html>

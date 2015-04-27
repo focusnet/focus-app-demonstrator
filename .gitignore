@@ -1,1 +1,7 @@
+./.project
 *~
+src/css/
+.sass-cache
+node_modules/
+src/contrib/
+build-*/

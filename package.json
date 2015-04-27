@@ -1,0 +1,44 @@
+{
+  "name": "focus-mobile-application-demonstrator",
+  "longname": "FOCUS mobile application demonstrator",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "prepublish": "./node_modules/.bin/bower install",
+    "test": "./grunt run-unit-tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:jlnknz/focus-mobile-application-demonstrator.git"
+  },
+  "author": "",
+  "license": "Proprietary",
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "connect-livereload": "^0.5.2",
+    "grunt": "^0.4.5",
+    "grunt-angular-gettext": "^2.0.1",
+    "grunt-bowercopy": "^1.2.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "^0.4.4",
+    "grunt-express": "^1.4.1",
+    "grunt-karma": "^0.10.1",
+    "grunt-open": "^0.2.3",
+    "grunt-preprocess": "^4.1.0",
+    "grunt-protractor-runner": "^1.2.1",
+    "grunt-replace": "^0.8.0",
+    "jasmine-core": "^2.2.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "^0.3.5",
+    "matchdep": "^0.3.0",
+    "protractor": "^1.7.0"
+  }
+}
