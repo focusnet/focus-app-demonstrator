@@ -7,45 +7,81 @@
 		<meta charset="UTF-8">
 		<title>FOCUS mobile application demonstrator</title>
 		<link href="contrib/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
-	<!-- 	<link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" /> -->
+		<link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+		<link href="contrib/leaflet/dist/leaflet.css" rel="stylesheet" />
 		<link href="css/focus-general.css" rel="stylesheet" />
 		<link href="css/focus-views.css" rel="stylesheet" />
 	</head>
 	
 	<body ng-app="focusApp" ng-cloak>
-		<div ng-view autoscroll="true"> </div>
+		
+		<div id="mobile-bar-top"> top bar </div>
+		
+		<div id="mobile-main-content">
+			<header>
+				header <button id="simple-menu" translate>OPEN MENU</button>
+			</header>
+			<article ng-view autoscroll="true">	</article>
+			<footer>
+				footer
+			</footer>
+		</div>
+		
+		<div id="mobile-bar-bottom"> bottom bar </div>
+    	
+		<nav id="sidr">
+			<h1>TITLE</h1>
+			<ul class="list-group" >
+				<li class="list-group-item"><a ng-href="#/" snap-close>index</a></li>
+				<li class="list-group-item"><a ng-href="#/machine/123" snap-close>Machine overview</a></li>
+			</ul>
+		</nav>
+	
 	</body>
 	
+	
+	<script type="text/javascript" src="contrib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="contrib/sidr/jquery.sidr.min.js"></script>
+	<script type="text/javascript" src="contrib/leaflet/dist/leaflet.js"></script>
 	<script type="text/javascript" src="contrib/angular/angular.min.js"></script>
-		<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
-		<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap.min.js"></script>
-		<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-		<script type="text/javascript" src="app/config.js"></script>
-		<script type="text/javascript" src="app/focus.js"></script>
+	<script type="text/javascript" src="contrib/angular-gettext/dist/angular-gettext.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
+	<script type="text/javascript" src="app/common/services/data-service.js"></script>
+	<script type="text/javascript" src="app/terrain-overview/terrain-overview.js"></script>
+	<script type="text/javascript" src="app/machine-overview/machine-overview.js"></script>
+	<script type="text/javascript" src="app/focus.js"></script>
+	
+	
+	<!--  templates for avoiding CORS issues -->
+	<script type="text/ng-template" id="app/terrain-overview/terrain-overview.tpl.html">
+	
+		<div ng-controller="TerrainOverviewController as ctrl">
+			<form>
+				Latitude : <input type="number" step="any" ng-model="center.lat">
+				Longitude : <input type="number" step="any" ng-model="center.lng">
+				Zoom : <input type="number" step="any" ng-model="center.zoom">
+			</form>
+			<leaflet center="center" width="800" height="400"></leaflet>
+		</div> 
+	</script>
+	
+	<!-- <script type="text/ng-template" id="app/machine-overview/machine-overview.tpl.html">
+<span translate>
+my test
+</span 
+	</script>
+	-->
+	<!-- end of templates -->
+	
+	
+	
+
 		
 </html>	
 	
 
-
-<!-- @if NODE_ENV == 'DEVELOPMENT' -->
-NODE_ENV
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="../src/js/foo1.js"></script>
-    <script src="../src/js/foo2.js"></script>
-    <script src="../src/js/jquery.blah.js"></script>
-    <script src="../src/js/jquery.billy.js"></script>
-    <script src="../src/js/jquery.jenkins.js"></script>
-    <script src="bower_components/angular-gettext/dist/angular-gettext.min.js"></script>
-
-    <script src="i18n.js"></script>
-
-<!-- @endif -->
-
-<!-- @if NODE_ENV == 'PRODUCTION' -->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <script src="http://cdn.foo.com/<!-- @echo name -->/<!-- @echo version -->/<!-- @echo now -->/<!-- @echo ver -->/js/<!-- @echo name -->.min.js"></script>
-
-<!-- @endif -->

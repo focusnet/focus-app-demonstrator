@@ -1,9 +1,5 @@
-// angular.module('myApp', ['gettext']);
 /**
- * @file workflow-editor.js
- * 
- * Angular main module definition for our Workflow Editor application. This is
- * the entry point.
+ * Entry point of the application
  * 
  * @@source_header
  */
@@ -12,58 +8,55 @@
 
 (function() {
 
-	angular.module('focusApp', [ 'ngRoute', 'gettext', 'ui.bootstrap' ])
+	/**
+	 * Main angularjs module definition
+	 */
+	angular.module(
+			'focusApp',
+			[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive', 'focusApp.dataService',
+					'focusApp.terrainOverview', 'focusApp.machineOverview' ])
 
 	/**
 	 * Configuration of our application
 	 */
 	.config([ '$routeProvider', function($routeProvider) {
-
 		// router configuration
 		$routeProvider.when('/', {
-			templateUrl : 'app/workflow-listing/workflow-listing.tpl.html'
-		}).when('/application/documentation', {
-			templateUrl : 'app/documentation/documentation.tpl.html'
-		}).when('/application/system-status', {
-			templateUrl : 'app/system-diagnosis/system-diagnosis.tpl.html'
-		}).when('/application/datafunction/list', {
-			templateUrl : 'app/datafunction-listing/datafunction-listing.tpl.html'
-		}).when('/application/datafunction/new', {
-			templateUrl : 'app/datafunction-new/datafunction-new.tpl.html'
-		}).when('/application/datafunction/:dfid/edit', {
-			templateUrl : 'app/datafunction-edit/datafunction-edit.tpl.html'
-		}).when('/application/datafunction/:dfid', {
-			redirectTo : '/application/datafunction/:dfid/edit'
-		}).when('/workflow/new', {
-			templateUrl : 'app/workflow-new/workflow-new.tpl.html'
-		}).when('/workflow/:wid/general', {
-			templateUrl : 'app/workflow-general/workflow-general.tpl.html'
-		}).when('/workflow/:wid', {
-			redirectTo : '/workflow/:wid/general'
-		}).when('/workflow/:wid/configure-steps', {
-			templateUrl : 'app/workflow-configure/workflow-configure.tpl.html'
-		})
-		/*
-		 * .when('/workflow/:wid/simulate', { templateUrl:
-		 * 'app/workflow-simulate/workflow-simulate.tpl.html', controller:
-		 * 'SimulateWorkflowController as simulCtrl' // FIXME TODO })
-		 */
-		.when('/workflow/:wid/execution', {
-			templateUrl : 'app/workflow-execution/workflow-execution.tpl.html'
-		}).when('/workflow/:wid/debug', {
-			templateUrl : 'app/workflow-debug/workflow-debug.tpl.html'
+			templateUrl : 'app/terrain-overview/terrain-overview.tpl.html'
+		}).when('/machine/:mid', {
+			templateUrl : 'app/machine-overview/machine-overview.tpl.html'
 		}).otherwise({
 			redirectTo : '/'
 		});
-
 	} ])
 
 	/**
 	 * Run
 	 */
-	.run(function(gettextCatalog) {
+	.run([ 'gettextCatalog', function(gettextCatalog) {
 		gettextCatalog.debug = true; // prepend MISSING if not translated
-		gettextCatalog.setCurrentLanguage('fr-FR');
+		gettextCatalog.setCurrentLanguage('de-CH');
+
+	} ]);
+
+	// put jquery-code here
+	$(document).ready(function() {
+		$('#simple-menu').sidr({
+			name : 'sidr',
+			body : '#mobile-main-content'
+		});
+		// allow closing when clicking outside of the menu
+		$("#mobile-main-content").on("click", function(e) { // was on body.
+			$.sidr('close', 'sidr');
+		});
+
+		$("#sidr").on("click", function(e) {
+			e.stopPropagation();
+		});
+
+		$("#sidr a").on('click', function(e) {
+			$.sidr('close', 'sidr');
+		});
 
 	});
 
