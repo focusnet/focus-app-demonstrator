@@ -7,3 +7,22 @@ body
 
 	
 }
+
+div#mobile-main-content
+{
+	article
+	{
+		// Terrain overview
+		div.terrain-overview
+		{
+			background: pink;
+		}
+		
+		// Machine overview
+		div.machine-overview
+		{
+			background: cyan;			
+		}
+	}
+	
+}

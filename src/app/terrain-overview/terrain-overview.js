@@ -2,8 +2,21 @@
  * Terrain overview dashboard
  * 
  * LIGNA scenario: step 1
- * inputs: 
- * output
+ * 
+ * General display:
+ * 		A map depicting the whole area of work
+ * 		The map is limited (cannot move to the whole world or zoom/unzoom)
+ * 		There is a situation minimap (e.g. Switzerland with administrative borders)
+ * 		The map presents layers:
+ * 			- aerial view (sattelite)
+ * 			- roads
+ * 			- woodpiles: markers -> click -> "More information" | "No information available"
+ * 			- Machines (4): markers -> click -> "More information" | "No information available"
+ * 				No need to draw the machine trace
+ * 		Legend: Machine types (1 icon per machine type)
+ * 
+ * Input:
+ * 		
  * 
  * @@source_header
  * 
