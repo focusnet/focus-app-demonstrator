@@ -2,12 +2,12 @@
 
 
 	<form>
-		Latitude : <input type="number" step="any" ng-model="terrainCtrl.xcenter.lat">
-		Longitude : <input type="number" step="any" ng-model="terrainCtrl.xcenter.lng">
-		Zoom : <input type="number" step="any" ng-model="terrainCtrl.xcenter.zoom">
+		Latitude : <input type="number" step="any" ng-model="terrainCtrl.center.lat">
+		Longitude : <input type="number" step="any" ng-model="terrainCtrl.center.lng">
+		Zoom : <input type="number" step="any" ng-model="terrainCtrl.center.zoom">
 	</form>
 	
-	<leaflet center="terrainCtrl.xcenter" width="800" height="400"></leaflet>
+	<leaflet defaults="terrainCtrl.defaults"  center="terrainCtrl.center" width="800" height="400"></leaflet>
 
-	<flot dataset="terrainCtrl.data2" options="terrainCtrl.options2" width="800" height="400"></flot>
+	<!-- <flot dataset="terrainCtrl.data2" options="terrainCtrl.options2" width="800" height="400"></flot> -->
 </div> 
