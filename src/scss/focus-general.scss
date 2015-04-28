@@ -10,6 +10,7 @@
 	margin-top: 2em;
 	
 }
+
 body
 {
 	background: black;
@@ -23,8 +24,10 @@ body
 #mobile-bar-top
 {
 	height: 2em;
+	width: 100%;
 	color: white;
 	position: fixed;
+	z-index: 99999;
 	top: 0;
 	left: 0;
 }
@@ -35,6 +38,7 @@ body
 	color: white;
 	position:fixed;
 	bottom: 0;
+	z-index: 99999;	
 	left: 0;
 }
 
@@ -45,5 +49,7 @@ body
 	position: fixed;
 	//height: 100%;
 	width: 100%;
-	margin: 4em 0;
 }
+
+// and eventually import content-specific styles
+@import "focus-contents";

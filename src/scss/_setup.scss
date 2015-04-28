@@ -1,0 +1,23 @@
+@import "../contrib/neat/app/assets/stylesheets/neat-helpers";
+
+// Font families
+$font-family-sans-serif: Arial, Helvetica, sans-serif;
+
+// Font sizes
+$font-size-reference: 15px;
+
+// Colors
+$blue: #fefefe;
+$red: #dd0000;
+
+
+// neat settings
+// Change the grid settings
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: em(1088);
+
+// Define your breakpoints
+// $tablet: new-breakpoint(max-width 768px 8);
+//$mobile: new-breakpoint(max-width 480px 4);

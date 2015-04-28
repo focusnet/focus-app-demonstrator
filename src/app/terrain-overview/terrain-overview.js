@@ -2,6 +2,8 @@
  * Terrain overview dashboard
  * 
  * LIGNA scenario: step 1
+ * inputs: 
+ * output
  * 
  * @@source_header
  * 
@@ -59,7 +61,6 @@
 
 				});
 
-				
 				// END OF FIXME DEBUG
 
 			} ]);
