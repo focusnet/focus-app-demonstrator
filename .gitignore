@@ -5,3 +5,5 @@ src/css/
 node_modules/
 src/contrib/
 build-*/
+index.html
+translations.js
