@@ -3,6 +3,14 @@
  * 
  * LIGNA scenario: step 7
  * 
+ * Display description:
+ * 		- Texts and tables
+ * 		- Somehow matching layout/logic of original docx files
+ * 
+ * Input variables:
+ * 		- none. We conditionnally display things in the template file, but no data come 
+ * 			from the data model
+ * 
  * @@source_header
  * 
  */

@@ -3,6 +3,12 @@
  * 
  * LIGNA scenario: step 8
  * 
+ * General description:
+ * 		- A simple list of tasks
+ * 
+ * Input variables: 
+ * 		machine[mid].tasks[]
+ *
  * @@source_header
  * 
  */

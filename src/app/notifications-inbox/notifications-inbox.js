@@ -3,6 +3,20 @@
  * 
  * LIGNA scenario: steps 5-6
  * 
+ * Display description:
+ * 		1. A list of notifications
+ * 		2. One of the notifications can be clicked, then a message is displayed:
+ * 			- Subject: Delay
+ * 			- Task: Forwarding, HSM208F
+ * 			- comment input field
+ * 			- Approve or Deny buttons
+ * 		3. When the user Approves or Denies, message is closed (like if sent) and 
+ * 				notification icon is removed from top bar
+ * 
+ * Input variables:
+ * 		inbox.delay_notification.subject
+ *		inbox.delay_notification.task
+ * 
  * @@source_header
  * 
  */
