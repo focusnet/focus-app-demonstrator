@@ -3,6 +3,14 @@
  * 
  * LIGNA scenario: step 14
  * 
+ * Display description:
+ * 		- A chart of the fuel consumption for the current day
+ * 		- a table of the average fuel consumption per hours for the past 8 hours
+ * 		- ??
+ * 
+ * Input variables:
+ * 		machine[3].technical_data.fuel_consumption
+ * 
  * @@source_header
  * 
  */
