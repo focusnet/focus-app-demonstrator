@@ -34,8 +34,19 @@
 		<nav id="sidr">
 			<h1>TITLE</h1>
 			<ul class="list-group" >
-				<li class="list-group-item"><a ng-href="#/" snap-close>index</a></li>
-				<li class="list-group-item"><a ng-href="#/machine/123" snap-close>Machine overview</a></li>
+				<li><a ng-href="#/">Terrain overview</a></li>
+				<li><a ng-href="#/inbox">Notifications inbox</a></li>
+				<li><a ng-href="#/machine/123">Machine overview</a></li>
+				<li><a ng-href="#/machine/123/order-status">Order status</a></li>
+				<li><a ng-href="#/machine/123/silvicultural-planning">Silvicultural planning</a></li>
+				<li><a ng-href="#/machine/123/timecontrol">Time control</a></li>
+				<li><a ng-href="#/machine/123/technical-data">Machine data overview</a></li>
+				<li><a ng-href="#/machine/123/technical-data/engine-revolution">Engine revolution</a></li>
+				<li><a ng-href="#/machine/123/technical-data/fuel-consumption">Fuel consumption</a></li>
+				<li><a ng-href="#/machine/123/technical-data/vehicle-payload">Vehicle payload</a></li>
+				<li><a ng-href="#/stand/45/information">Stand information</a></li>
+				<li><a ng-href="#/stand/45/map">Stand map</a></li>
+				<li><a ng-href="#/woodpile/12">Woodpile information</a></li>
 			</ul>
 		</nav>
 	
@@ -56,26 +67,29 @@
 	<script type="text/javascript" src="app/common/services/data-service.js"></script>
 	<script type="text/javascript" src="app/terrain-overview/terrain-overview.js"></script>
 	<script type="text/javascript" src="app/machine-overview/machine-overview.js"></script>
+	
+	<script type="text/javascript" src="app/order-status/order-status.js"></script>
+	<script type="text/javascript" src="app/notifications-inbox/notifications-inbox.js"></script>
+	<script type="text/javascript" src="app/stand-information/stand-information.js"></script>
+	<script type="text/javascript" src="app/silvicultural-planning/silvicultural-planning.js"></script>
+	<script type="text/javascript" src="app/stand-map/stand-map.js"></script>
+	<script type="text/javascript" src="app/woodpile-information/woodpile-information.js"></script>
+	<script type="text/javascript" src="app/timecontrol/timecontrol.js"></script>
+	<script type="text/javascript" src="app/machine-data-overview/machine-data-overview.js"></script>
+	<script type="text/javascript" src="app/engine-revolution/engine-revolution.js"></script>
+	<script type="text/javascript" src="app/fuel-consumption/fuel-consumption.js"></script>
+	<script type="text/javascript" src="app/vehicle-payload/vehicle-payload.js"></script>
+	
 	<script type="text/javascript" src="app/focus.js"></script>
 	
 	
-	<!--  templates for avoiding CORS issues -->
+	<!--  templates for avoiding CORS issues / but not likely to solve problems with leaflet tiles problems - to be checked
 	<script type="text/ng-template" id="app/terrain-overview/terrain-overview.tpl.html">
 	
-		<div ng-controller="TerrainOverviewController as ctrl">
-			<form>
-				Latitude : <input type="number" step="any" ng-model="ctrl.xcenter.lat">
-				Longitude : <input type="number" step="any" ng-model="ctrl.xcenter.lng">
-				Zoom : <input type="number" step="any" ng-model="ctrl.xcenter.zoom">
-			</form>
-			<leaflet center="ctrl.xcenter" width="800" height="400"></leaflet>
 
-			<flot dataset="ctrl.data2" options="ctrl.options2" width="800" height="400"></flot>
-
-		</div> 
 	</script>
 	
-	<!-- <script type="text/ng-template" id="app/machine-overview/machine-overview.tpl.html">
+	 <script type="text/ng-template" id="app/machine-overview/machine-overview.tpl.html">
 <span translate>
 my test
 </span 

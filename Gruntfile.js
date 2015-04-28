@@ -151,7 +151,7 @@ module.exports = function(grunt) {
 							'leaflet/dist/leaflet.js' : 'leaflet/dist/leaflet.js',
 							// angular-leaflet-directive
 							'angular-leaflet-directive/dist/angular-leaflet-directive.min.js' : 'angular-leaflet-directive/dist/angular-leaflet-directive.min.js',
-							// float
+							// flot
 							'src/contrib/flot/' : 'flot/jquery.flot.*',
 							// angular-flot
 							'angular-flot/angular-flot.js' : 'angular-flot/angular-flot.js'

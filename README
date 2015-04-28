@@ -1,8 +1,9 @@
 FOCUS mobile application demonstrator
+=====================================
 
-chromium-browser --disable-web-security --user-data-dir=/tmp/TESTasdflsdaf
+chromium-browser --disable-web-security --user-data-dir=/tmp/TESTrandom
 
-or firefix
+or firefox
 
 
 ----8<----

@@ -31,6 +31,7 @@
 					label : "Bar2",
 					data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
 				} ];
+				
 				_self.options2 = {
 					series : {
 						lines : {
@@ -58,8 +59,7 @@
 
 				});
 
-				// flot example
-
+				
 				// END OF FIXME DEBUG
 
 			} ]);
