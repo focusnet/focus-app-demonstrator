@@ -3,6 +3,12 @@
  * 
  * LIGNA scenario: step 15
  * 
+ * Display description:
+ * 		- A chart of the vehicle payload for the current day
+ * 
+ * Input variables:
+ * 		- machine[mid].technical_data.vehicle_payload
+ * 
  * @@source_header
  * 
  */

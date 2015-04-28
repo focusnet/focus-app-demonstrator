@@ -3,6 +3,12 @@
  * 
  * LIGNA scenario: step 13
  * 
+ * Display description:
+ * 		- A chart of engine revolutions for the current day
+ * 
+ * Input variables:
+ * 		- machine[mid].technical_data.engine_revolutions
+ * 
  * @@source_header
  * 
  */

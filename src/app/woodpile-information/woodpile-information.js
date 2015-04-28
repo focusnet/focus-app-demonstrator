@@ -17,7 +17,7 @@
  *		woodpile[wid].timber_pile_number
  *		woodpile[wid].timber_pile.quantity
  *		woodpile[wid].harvester_quantity
- *		woodpile[wid].tree_species[0]
+ *		woodpile[wid].tree_specie[0]
  *		woodpile[wid].length
  *		woodpile[wid].estimated_volume
  * 
