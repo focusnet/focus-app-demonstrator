@@ -10,18 +10,27 @@ body
 
 div#mobile-main-content
 {
-	article
+	div
 	{
+		height: 90%;
+		width: 100%;
+		// background: blue;
 		// Terrain overview
 		div.terrain-overview
 		{
-			background: pink;
+			height: 100%;
+			width: 100%;
+
+			leaflet.terrain-overview-map
+			{
+				height: 406px;
+				width: 100%;
+			}
 		}
 		
 		// Machine overview
 		div.machine-overview
-		{
-			background: cyan;			
+		{			
 		}
 	}
 	

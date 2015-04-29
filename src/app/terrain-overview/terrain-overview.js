@@ -46,7 +46,6 @@
 					label : "Bar2",
 					data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
 				} ];
-				
 				_self.options2 = {
 					series : {
 						lines : {
@@ -57,47 +56,75 @@
 						}
 					}
 				};
+				
 
-				// an example of leaflet
-				// var maxBounds = leafletBoundsHelpers.createBoundsFromArray([[-743, -407.5], [742, 407.5]]);
 				angular.extend(_self, {
-					center : {
-						// lat : 51.393662, 
-						// lng : 8.263858,
-						// zoom : 13
-						lat : 0, 
-						lng : 0,
-						zoom : 0
-					},
 					defaults : {
 						zoomControl: false,
 						attributionControl: false,
+						tileLayer: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+						tileLayerOptions: {
+                        	opacity: 0.9,
+                        	detectRetina: true,
+                        	reuseTiles: true,
+                    	},
+
 					},
-					// maxBounds: maxBounds,
-					layers: {
-						baselayers: {
-					    	gmap: {
-					           	name: 'gmaps',
-					        	type: 'imageOverlay',
-					        	url: 'content/map.jpg',
-					        	bounds: [[-1,1], [1,-1]],
-					        	// imageBounds: [[51.398457, 8.256500],[51.393421, 8.271267]]),
-					        	layerParams: {
-					        	    showOnSelector: false,
-					        	    noWrap: false,
-					        	    attribution: 'Google Maps'
-					        	
-					            // name: 'OpenStreetMap',
-					            // url: 'content/map.jpg',
-					            // type: 'xyz'
-					        	}
-					        }
+					center : {
+						lat : 51.393662, 
+						lng : 8.263858,
+						zoom : 13
+					},
+					markers: {
+					    Forloader: {
+					        lat: 51.393662,
+					        lng: 8.263858,
+					        message: "Forloader",
+					        // focus: true,
+					        draggable: false,
 					    }
-					}
+					},
+					// events = {
+					//     markers: {
+					//         enable: leafletEvents.getAvailableMarkerEvents(),
+					//     }
+					// },
+					// eventDetected = "No events yet...";
+					// 	var markerEvents = leafletEvents.getAvailableMarkerEvents();
+					// 	for (var k in markerEvents){
+					// 	    var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
+					// 	    $scope.$on(eventName, function(event, args){
+					// 	        $scope.eventDetected = event.name;
+					// 	    });
+					// 	},
+					// maxBounds: maxBounds,
+					// layers: {
+					//     osm: {
+					//     	name: 'OpenStreetMap',
+					//     	url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+					//     	type: 'xyz'
+					//     }
+
+					//          //   	name: 'gmaps',
+					//         	// type: 'imageOverlay',
+					//         	// url: 'content/map.jpg',
+					//         	// bounds: [[-1,1], [1,-1]],
+					//         	// // imageBounds: [[51.398457, 8.256500],[51.393421, 8.271267]]),
+					//         	// layerParams: {
+					//         	//     showOnSelector: false,
+					//         	//     noWrap: false,
+					//         	//     attribution: 'Google Maps'
+					        	
+					//          //    // name: 'OpenStreetMap',
+					//          //    // url: 'content/map.jpg',
+					//          //    // type: 'xyz'
+					        
+					    
+					// }
 				});
 
 				// END OF FIXME DEBUG
 
-			} ]);
+			}]);
 
 }());

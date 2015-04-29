@@ -6,8 +6,9 @@
 		Longitude : <input type="number" step="any" ng-model="terrainCtrl.center.lng">
 		Zoom : <input type="number" step="any" ng-model="terrainCtrl.center.zoom">
 	</form>
+
+	<leaflet event-broadcast="events" class="terrain-overview-map" defaults="terrainCtrl.defaults" center="terrainCtrl.center" markers="terrainCtrl.markers"></leaflet>
 	
-	<leaflet defaults="terrainCtrl.defaults" layers="terrainCtrl.layers" center="terrainCtrl.center" maxBounds="maxBounds" width="800" height="400"></leaflet>
 
 	<!-- <flot dataset="terrainCtrl.data2" options="terrainCtrl.options2" width="800" height="400"></flot> -->
 </div> 
