@@ -15,7 +15,9 @@
 			.module(
 					'focusApp',
 					[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive',
-							'angular-flot', 'focusApp.dataService',
+							'angular-flot', 'focusApp.dataService', 'focusApp.inboxService',
+							'focusApp.navigationService', 'focusApp.actionBar',
+							'focusApp.notifications', 'focusApp.dateDisplay',
 							'focusApp.terrainOverview', 'focusApp.machineOverview',
 							'focusApp.orderStatus', 'focusApp.notificationsInbox',
 							'focusApp.standInformation', 'focusApp.silviculturalPlanning',
@@ -103,12 +105,9 @@
 												'/stand/:sid/information',
 												{
 													templateUrl : 'app/stand-information/stand-information.tpl.html'
-												})
-										.when(
-												'/stand/:sid/map',
-												{
-													templateUrl : 'app/stand-map/stand-map.tpl.html'
-												})
+												}).when('/stand/:sid/map', {
+											templateUrl : 'app/stand-map/stand-map.tpl.html'
+										})
 
 										.otherwise({
 											redirectTo : '/'
@@ -122,26 +121,31 @@
 				gettextCatalog.debug = true; // prepend MISSING if not translated
 				gettextCatalog.setCurrentLanguage('de-CH');
 			} ]);
-
-	// put jquery-code here
-	$(document).ready(function() {
-		$('#simple-menu').sidr({
-			name : 'sidr',
-			body : '#mobile-main-content'
-		});
-		// allow closing when clicking outside of the menu
-		$("#mobile-main-content").on("click", function(e) { // was on body.
+	
+	
+	
+	
+	// jQuery
+		$('a.time-travel-machine').on('click', function(ev) {
+			ev.preventDefault();
 			$.sidr('close', 'sidr');
+			$('#time-travel-machine').slideToggle(100);
 		});
+		
+	// allow closing when clicking outside of the menu
+		$('body').on("click", function(e) {
+			$('#time-travel-machine').slideUp(100);
+		}); 
 
-		$("#sidr").on("click", function(e) {
+		$("#time-travel-machine, a.time-travel-machine").on("click", function(e) {
 			e.stopPropagation();
 		});
 
-		$("#sidr a").on('click', function(e) {
-			$.sidr('close', 'sidr');
+		$("#sidr FIXMEvalidate").on('click', function(e) {
+			$('#time-travel-machine').slideDown(100);
 		});
-
-	});
+		
+		
+		
 
 }());

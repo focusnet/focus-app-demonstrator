@@ -1,6 +1,7 @@
 ./.project
 *~
-src/css/
+src/css/*.css
+src/css/*.css.map
 .sass-cache
 node_modules/
 src/contrib/

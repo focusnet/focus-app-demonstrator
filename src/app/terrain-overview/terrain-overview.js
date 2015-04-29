@@ -40,10 +40,16 @@
 			[ 'leaflet-directive', 'angular-flot', 'focusApp.dataService' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'DataService', function($scope, DataService) {
+			[ '$scope', 'leafletData', 'DataService', function($scope, leafletData, DataService) {
 
 				var _self = this;
 
+				leafletData.getMap('mymap').then(function(map) {
+					// anything here
+					console.log(map);
+      //    L.GeoIP.centerMapOnPosition(map, 15);
+				});
+				
 				/**
 				 * Reference to the current data sample being rendered
 				 */

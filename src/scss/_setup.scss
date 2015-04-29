@@ -1,23 +1,45 @@
 @import "../contrib/neat/app/assets/stylesheets/neat-helpers";
 
+// ************************ general purpose variables
+
 // Font families
-$font-family-sans-serif: Arial, Helvetica, sans-serif;
+$font-family-sans-serif: open_sansregular, Arial, Helvetica, sans-serif;
 
 // Font sizes
-$font-size-reference: 15px;
+$font-size-reference: 16px;
+$font-size-normal: 30px;
 
 // Colors
-$blue: #fefefe;
+$black: black;
+$white: white;
+$grey-light: #efefef;
+$grey-middle: #dadada;
+$grey-dark: #7a7a7a;
+$blue: #0000fe;
 $red: #dd0000;
 
+// ************************ geometry
 
-// neat settings
+$mobile-decoration-top-height: 2.5vh;
+$mobile-decoration-bottom-height: 6vh;
+$mobile-content-height: 100vh - $mobile-decoration-top-height - $mobile-decoration-bottom-height;
+$mobile-navigation-height: 7vh;
+
+//
+
+$sidr-menu-width: 40vw;
+
+// ************************ neat settings
+
 // Change the grid settings
 $column: 90px;
-$gutter: 30px;
+$gutter: 20px;
 $grid-columns: 12;
-$max-width: em(1088);
+$max-width: 100%;
 
 // Define your breakpoints
 // $tablet: new-breakpoint(max-width 768px 8);
 //$mobile: new-breakpoint(max-width 480px 4);
+
+$visual-grid: false;
+$visual-grid-color: red;

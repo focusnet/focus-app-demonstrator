@@ -1,4 +1,39 @@
-.sidr {
+
+.sidr 
+{
+	display:none;
+	position:absolute;
+	position:fixed;
+	top:$mobile-decoration-top-height;
+	height: $mobile-content-height;
+	z-index:998; // was 999999
+	width:$sidr-menu-width;
+	overflow-x:none;
+	overflow-y:auto;
+//	-webkit-box-shadow:inset 0 0 5px 5px #ebebeb;
+//	-moz-box-shadow:inset 0 0 5px 5px #ebebeb;
+//	box-shadow:inset 0 0 5px 5px #ebebeb;
+	background: #fefefe;
+
+	&.left
+	{
+		left:-$sidr-menu-width;
+		right:auto
+	}
+	
+	&.right 
+	{
+		left:auto;
+		right:-$sidr-menu-width;
+	}
+
+}
+
+
+
+
+
+/* .sidr {
 	display:none;
 	position:absolute;
 	position:fixed;
@@ -172,4 +207,4 @@
 
 .sidr input[type=button]:hover,.sidr input[type=submit]:hover {
 	background:rgba(51,51,51,0.9)
-}
+}*/

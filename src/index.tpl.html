@@ -7,28 +7,38 @@
 		<meta charset="UTF-8">
 		<title>FOCUS mobile application demonstrator</title>
 		<link href="contrib/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
-		<link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-		<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+ 	<!-- 	<link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="contrib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+		-->
 		<link href="contrib/leaflet/dist/leaflet.css" rel="stylesheet" />
 		<link href="css/focus.css" rel="stylesheet" />
 	</head>
 	
 	<body ng-app="focusApp" ng-cloak>
 		
-		<div id="mobile-bar-top"> top bar </div>
-		
+		<div id="mobile-bar-top">
+			<div class="notifications" ng-controller="NotificationsController as notifCtrl">
+				<a ng-if="notifCtrl.enabled" href=""><i class="fa fa-tree"></i> FOCUS notification</a>
+			</div>
+			<div class="tools" ng-controller="DateDisplayController as dateCtrl">
+				<a href="#" ng-bind="dateCtrl.display_datetime" class="time-travel-machine"></a>
+				<i class="fa fa-wifi"></i>
+				<i class="fa fa-signal"></i>
+			</div>
+		</div>
+
 		<div id="mobile-main-content">
-			<header>
-				header <button id="simple-menu" translate>OPEN MENU</button>
-			</header>
+			<header ng-include="'app/common/controllers/action-bar-controller.tpl.html'"> </header>
 			<article ng-view autoscroll="true">	</article>
-			<footer>
-				footer
-			</footer>
 		</div>
 		
-		<div id="mobile-bar-bottom"> bottom bar </div>
+		<div id="mobile-bar-bottom"> 
+			<div class="controls">
+				<a href=""><i class="fa fa-fw fa-chevron-left"></i></a>
+				<a class="center" ng-href="#/"><i class="fa fa-fw fa-home"></i></a>
+				<a href="#" class="time-travel-machine"><i class="fa fa-fw fa-clock-o"></i></a>
+			</div>
+		</div>
     	
 		<nav id="sidr">
 			<h1>TITLE</h1>
@@ -48,6 +58,12 @@
 				<li><a ng-href="#/woodpile/12">Woodpile information</a></li>
 			</ul>
 		</nav>
+		
+		<aside id="time-travel-machine">
+			time travel machine
+		</aside>
+		
+		<div id="dark-overlay"> </div>
 	
 	</body>
 	
@@ -64,9 +80,13 @@
 	<script type="text/javascript" src="contrib/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-flot/angular-flot.js"></script>
 	<script type="text/javascript" src="app/common/services/data-service.js"></script>
+	<script type="text/javascript" src="app/common/services/inbox-service.js"></script>
+	<script type="text/javascript" src="app/common/services/navigation-service.js"></script>
+	<script type="text/javascript" src="app/common/controllers/action-bar-controller.js"></script>
+	<script type="text/javascript" src="app/common/controllers/date-display-controller.js"></script>
+	<script type="text/javascript" src="app/common/controllers/notifications-controller.js"></script>
 	<script type="text/javascript" src="app/terrain-overview/terrain-overview.js"></script>
 	<script type="text/javascript" src="app/machine-overview/machine-overview.js"></script>
-	
 	<script type="text/javascript" src="app/order-status/order-status.js"></script>
 	<script type="text/javascript" src="app/notifications-inbox/notifications-inbox.js"></script>
 	<script type="text/javascript" src="app/stand-information/stand-information.js"></script>
@@ -78,7 +98,6 @@
 	<script type="text/javascript" src="app/engine-revolution/engine-revolution.js"></script>
 	<script type="text/javascript" src="app/fuel-consumption/fuel-consumption.js"></script>
 	<script type="text/javascript" src="app/vehicle-payload/vehicle-payload.js"></script>
-	
 	<script type="text/javascript" src="app/focus.js"></script>
 	
 	

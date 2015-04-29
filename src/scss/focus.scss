@@ -1,54 +1,229 @@
+@import "reset";
 @import "../contrib/bourbon/app/assets/stylesheets/bourbon";
 @import "setup";
-@import "sidr";
 @import "../contrib/neat/app/assets/stylesheets/neat";
+@import "fonts";
+@import "sidr";
 
-.sidr
+
+
+
+
+
+@keyframes color-change 
 {
-		// add padding-top:
-	padding-top: 2em;
-	margin-top: 2em;
-	
+    0% { color: $grey-dark; }
+    40% { color: $grey-dark; }
+    50% { color: $black; }
+    60% { color: $grey-dark; }
+    100% { color: $grey-dark; }
 }
+
+
+
 
 body
 {
-	background: black;
-	position:absolute;
-	position:fixed;
-	top:0;
-	height:100%;
-	width:100%;
-}
-
-#mobile-bar-top
-{
-	height: 2em;
-	width: 100%;
-	color: white;
-	position: fixed;
-	z-index: 99999;
-	top: 0;
-	left: 0;
-}
-
-#mobile-bar-bottom
-{
-	height: 2em;
-	color: white;
-	position:fixed;
-	bottom: 0;
-	z-index: 99999;	
-	left: 0;
-}
-
-#mobile-main-content
-{
-	background: #fefefe;
-	margin: 2em 0;
-	position: fixed;
-	//height: 100%;
-	width: 100%;
+	font-family: $font-family-sans-serif;
+	font-size: em($font-size-normal, $font-size-reference);	
+	
+	// FIXME activate just to be safe // 
+	overflow: hidden;
+	
+	a
+	{
+		color: inherit;
+		text-decoration: none;
+	}
+	
+	#mobile-bar-top,
+	#mobile-bar-bottom
+	{
+		height: $mobile-decoration-top-height;
+		background: $black;
+		color: white;
+		
+		a
+		{
+			outline: none;
+		}
+	}
+	
+	#mobile-bar-top
+	{
+		font-size: $mobile-decoration-top-height * 0.5;
+		font-family: monospace; // FIXME chose a font
+		
+		line-height: $mobile-decoration-top-height * 0.5;
+		padding: $mobile-decoration-top-height * 0.25 0;
+		
+		.notifications
+		{
+			@include span-columns(6);
+			padding-left: 0.5em;
+			
+			i
+			{
+				margin-right: 0.25em;
+			}
+		}
+		
+		.tools
+		{
+			@include span-columns(6);
+			@include omega;
+			
+			text-align: right;
+			padding-right: 0.5em;
+			
+			a,
+			i
+			{
+				margin-left: 0.25em;
+			}
+		}
+	}
+	
+	#mobile-bar-bottom
+	{
+		height: $mobile-decoration-bottom-height;
+		
+		.controls
+		{
+			@include span-columns(6);
+			@include shift(3);
+		
+			padding: $mobile-decoration-bottom-height * 0.25 0;
+			font-size: $mobile-decoration-bottom-height * 0.5;
+			line-height: 1em;
+			
+			text-align: center;
+			
+			a.center
+			{
+				margin: 0 4em;
+			}
+		}
+	}
+	
+	aside#time-travel-machine
+	{
+		display: none; 
+		position: fixed;
+		bottom: $mobile-decoration-bottom-height;
+		width: 100vw;
+		background: $grey-dark;
+		z-index: 999;
+		padding: 0.8em;
+	}
+	
+	
+	#dark-overlay
+	{
+		display: none;
+		position: fixed;
+		top: $mobile-decoration-top-height;
+		left: 0;
+		width: 100vw;
+		height: $mobile-content-height;
+		z-index: 500;
+		background: $black;
+		opacity: 0.6;
+	}
+	
+	#mobile-main-content
+	{
+		@include outer-container;
+		height: $mobile-content-height;	
+		
+		background: $grey-light;
+	
+		header
+		{
+			height: $mobile-navigation-height;
+			font-size: $mobile-navigation-height/1.5;
+			line-height: $mobile-navigation-height - 2vh; // - vertical padding
+			padding: 1vh 0;
+			
+			@include linear-gradient($grey-light, $grey-middle);
+			
+			border-bottom: 1px solid $grey-dark;
+			
+			div.left-part
+			{
+				@include span-columns(9);
+				
+				a#simple-menu
+				{
+					margin-left: 0.8em;
+					margin-right: 0.8em;
+					outline: none;		
+				}
+				
+				h1
+				{
+					display: inline-block;
+				}
+			}
+			
+			div.right-part
+			{
+				@include span-columns(3);
+				@include omega();
+								
+				text-align: right;
+				
+				a
+				{
+					margin-right: 0.8em;
+					outline: none;
+					color: $grey-dark;
+				}
+				
+				a.active
+				{
+					position: relative;
+					color: $grey-dark;
+					animation: color-change 3s infinite;
+					
+					span.number-of-messages
+					{
+						position: absolute;
+						font-familiy: monospace; // FIXME perhaps remove this element, ugly
+						bottom: 1em;
+						right: 0.25em;
+						font-size: 0.3em;
+						line-height: 1em;
+						font-weight: bold;
+					}
+				}
+				
+			}
+		}
+		
+		article
+		{
+			background: $white;
+			
+			height: $mobile-content-height - $mobile-navigation-height;
+			overflow-x: hidden;
+			
+			padding: $mobile-navigation-height/1.5 * 0.4;
+			
+			div.leaflet-container,
+			div.widget-container
+			{
+			// FIXME no resize of flot charts
+				width: 100%;
+				height: 30vh;
+				min-height: 10vh;
+				max-height: $mobile-content-height - $mobile-navigation-height;
+			}
+				
+			
+			
+		}
+	}
 }
 
 // and eventually import content-specific styles
