@@ -106,7 +106,7 @@ body
 		}
 	}
 	
-	aside#time-travel-machine
+	aside#time-machine
 	{
 		display: none; 
 		position: fixed;
@@ -208,7 +208,8 @@ body
 			height: $mobile-content-height - $mobile-navigation-height;
 			overflow-x: hidden;
 			
-			padding: $mobile-navigation-height/1.5 * 0.4;
+			padding: $mobile-payload-padding;
+			// FIXME check bottom margin of payload when payload is full
 			
 			div.leaflet-container,
 			div.widget-container
@@ -216,6 +217,7 @@ body
 			// FIXME no resize of flot charts
 				width: 100%;
 				height: 30vh;
+			//	height: $mobile-payload-height;
 				min-height: 10vh;
 				max-height: $mobile-content-height - $mobile-navigation-height;
 			}

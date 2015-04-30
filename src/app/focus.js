@@ -117,35 +117,29 @@
 			/**
 			 * Run
 			 */
-			.run([ 'gettextCatalog', function(gettextCatalog) {
+			.run([ 'gettextCatalog', 'DataService', function(gettextCatalog, DataService) {
 				gettextCatalog.debug = true; // prepend MISSING if not translated
 				gettextCatalog.setCurrentLanguage('de-CH');
+				DataService.init();
 			} ]);
 	
 	
 	
 	
 	// jQuery
-		$('a.time-travel-machine').on('click', function(ev) {
+		$('a.time-machine').on('click', function(ev) {
 			ev.preventDefault();
 			$.sidr('close', 'sidr');
-			$('#time-travel-machine').slideToggle(100);
+			$('#time-machine').slideToggle(100);
 		});
 		
 	// allow closing when clicking outside of the menu
 		$('body').on("click", function(e) {
-			$('#time-travel-machine').slideUp(100);
+			$('#time-machine').slideUp(100);
 		}); 
 
-		$("#time-travel-machine, a.time-travel-machine").on("click", function(e) {
+		$("#time-machine, a.time-machine").on("click", function(e) {
 			e.stopPropagation();
-		});
-
-		$("#sidr FIXMEvalidate").on('click', function(e) {
-			$('#time-travel-machine').slideDown(100);
-		});
-		
-		
-		
+		});		
 
 }());

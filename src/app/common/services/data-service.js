@@ -11,7 +11,7 @@
 	/**
 	 * Data provider singleton definition
 	 */
-	function DataService() {
+	function DataService($http) {
 
 		var _self = this;
 		/**
@@ -27,11 +27,19 @@
 		/**
 		 * The current data increment being rendered by the application
 		 */
-		_self.dataIncrement = 0;
+		_self.currentIncrement = 0;
 
-		/** FIXME DEBUG test function */
-		_self.test = function() {
-			console.log('TEST');
+		/**
+		 * Initialize everything: 
+		 * 
+		 * - load the data of the scenario
+		 */
+		_self.init = function() {
+			$http.get('scenarios/ligna-001.json').success(function(data) {
+				_self.dataSet = data;
+				// set the initial increment
+				console.log(data);
+			});
 		};
 
 	}
@@ -44,6 +52,6 @@
 	/**
 	 * Service instantiation
 	 */
-	.service('DataService', [ DataService ])
+	.service('DataService', [ '$http', DataService ])
 
 }());

@@ -24,8 +24,8 @@ $mobile-decoration-top-height: 2.5vh;
 $mobile-decoration-bottom-height: 6vh;
 $mobile-content-height: 100vh - $mobile-decoration-top-height - $mobile-decoration-bottom-height;
 $mobile-navigation-height: 7vh;
-
-//
+$mobile-payload-padding: $mobile-navigation-height/1.5 * 0.4;
+$mobile-payload-height: $mobile-content-height - $mobile-navigation-height - 2 * $mobile-payload-padding; // FIXME tobias max available height
 
 $sidr-menu-width: 40vw;
 
@@ -43,3 +43,4 @@ $max-width: 100%;
 
 $visual-grid: false;
 $visual-grid-color: red;
+$visual-grid-index: front;
