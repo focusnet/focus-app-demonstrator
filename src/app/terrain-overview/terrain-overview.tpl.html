@@ -7,11 +7,7 @@
 	</form>	 
 	
 	<!--  you must set a widget-container around the leaflet -->
-	<div class="widget-container">
-		<leaflet id="mymap" center="terrainCtrl.xcenter"></leaflet>
-	</div>
-<!--  You must set a widget-container around the flot -->
-	<div class="widget-container">
-		<flot id="myflot" dataset="terrainCtrl.data2" options="terrainCtrl.options2"  ></flot>
+	<div class="widget-container-terrain-overview">
+		<leaflet id="mymap" center="terrainCtrl.xcenter" defaults="terrainCtrl.defaults"></leaflet>
 	</div>
 </div> 

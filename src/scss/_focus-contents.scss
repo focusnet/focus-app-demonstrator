@@ -14,14 +14,21 @@ div#mobile-main-content
 	{
 		// Terrain overview
 		div.terrain-overview
-		{
-			background: pink;
+		{	
+			div.widget-container-terrain-overview
+			{
+				div.angular-leaflet-map{
+					height: $mobile-content-height - 20vh; // insted of -2vh must stay - height of the form above
+				}	
+			}
 		}
+
 		
+
 		// Machine overview
 		div.machine-overview
 		{
-			background: cyan;			
+			background: pink;			
 		}
 	}
 	

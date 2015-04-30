@@ -37,10 +37,10 @@
 
 (function() {
 	angular.module('focusApp.terrainOverview',
-			[ 'leaflet-directive', 'angular-flot', 'focusApp.dataService' ])
+			[ 'leaflet-directive', 'angular-flot' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'leafletData', 'DataService', function($scope, leafletData, DataService) {
+			[ '$scope', 'leafletData', function($scope, leafletData) {
 
 				var _self = this;
 
@@ -50,31 +50,6 @@
       //    L.GeoIP.centerMapOnPosition(map, 15);
 				});
 				
-				/**
-				 * Reference to the current data sample being rendered
-				 */
-				_self.data = DataService.data;
-
-				// on _Self -> can use ctrl.xxxx
-				_self.data2 = [ {
-					label : "Foo2",
-					data : [ [ 10, 1 ], [ 17, -14 ], [ 30, 5 ] ]
-				}, {
-					label : "Bar2",
-					data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
-				} ];
-				
-				_self.options2 = {
-					series : {
-						lines : {
-							show : true
-						},
-						points : {
-							show : true
-						}
-					}
-				};
-
 				// an example of leaflet
 				angular.extend(_self, {
 					tiles : {
@@ -86,7 +61,10 @@
 						zoom : 4
 					},
 					defaults : {
-						scrollWheelZoom : false
+						scrollWheelZoom : false,
+						zoomControl: false,
+						attributionControl: false,
+
 					}
 
 				});

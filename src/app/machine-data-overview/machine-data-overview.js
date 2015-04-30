@@ -25,10 +25,10 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.machineDataOverview', [ 'focusApp.dataService' ])
+	angular.module('focusApp.machineDataOverview', [ 'angular-flot', 'focusApp.dataService' ])
 
 	.controller('MachineDataOverviewController',
-			[ 'DataService', function(DataService) {
+			[ '$scope', 'DataService', function($scope, DataService) {
 
 				var _self = this;
 
@@ -37,6 +37,26 @@
 				 */
 				_self.data = DataService.data;
 
+				_self.data2 = [ {
+					label : "Foo2",
+					data : [ [ 10, 1 ], [ 17, -14 ], [ 30, 5 ] ]
+				}, {
+					label : "Bar2",
+					data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
+				} ];
+
+				_self.options2 = {
+					series : {
+						lines : {
+							show : true
+						},
+						points : {
+							show : true
+						}
+					}
+				};
+
 			} ]);
 
 }());
+

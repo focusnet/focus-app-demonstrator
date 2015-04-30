@@ -1,8 +1,14 @@
-machine data overview
+<!-- machine data overview
 
 Sth like http://stackoverflow.com/questions/19397394/gauge-chart-in-javascript-or-jquery-flot
 
 gauge with button -> View details
 
-if no data, disable button
+if no data, disable button -->
 
+<div class="terrain-overview" ng-controller="TerrainOverviewController as machineDataOverviewCtrl">
+<!--  You must set a widget-container around the flot -->
+	<div class="widget-container">
+		<flot id="myflot" dataset="machineDataOverviewCtrl.data2" options="machineDataOverviewCtrl.options2"  ></flot>
+	</div>
+</div> 
