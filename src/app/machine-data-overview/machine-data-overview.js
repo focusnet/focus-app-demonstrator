@@ -25,7 +25,8 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.machineDataOverview', [ 'angular-flot', 'focusApp.dataService' ])
+	angular.module('focusApp.machineDataOverview',
+			['angular-flot', 'focusApp.dataService' ])
 
 	.controller('MachineDataOverviewController',
 			[ '$scope', 'DataService', function($scope, DataService) {
@@ -37,6 +38,7 @@
 				 */
 				_self.data = DataService.data;
 
+				// on _Self -> can use ctrl.xxxx
 				_self.data2 = [ {
 					label : "Foo2",
 					data : [ [ 10, 1 ], [ 17, -14 ], [ 30, 5 ] ]
@@ -44,7 +46,7 @@
 					label : "Bar2",
 					data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
 				} ];
-
+				
 				_self.options2 = {
 					series : {
 						lines : {
@@ -56,7 +58,10 @@
 					}
 				};
 
+				// END OF FIXME DEBUG
+
 			} ]);
 
 }());
+
 
