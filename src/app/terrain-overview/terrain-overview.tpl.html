@@ -1,13 +1,13 @@
 <div class="terrain-overview" ng-controller="TerrainOverviewController as terrainCtrl">
 
-	<form>
-		Latitude : <input type="number" step="any" ng-model="terrainCtrl.xcenter.lat">
-		Longitude : <input type="number" step="any" ng-model="terrainCtrl.xcenter.lng">
-		Zoom : <input type="number" step="any" ng-model="terrainCtrl.xcenter.zoom">
-	</form>	 
+	<!-- <form>
+		Latitude : <input type="number" step="any" ng-model="terrainCtrl.center.lat">
+		Longitude : <input type="number" step="any" ng-model="terrainCtrl.center.lng">
+		Zoom : <input type="number" step="any" ng-model="terrainCtrl.center.zoom">
+	</form>	  -->
 	
 	<!--  you must set a widget-container around the leaflet -->
 	<div class="widget-container-terrain-overview">
-		<leaflet id="mymap" center="terrainCtrl.xcenter" defaults="terrainCtrl.defaults"></leaflet>
+		<leaflet id="mymap" event-broadcast="events" center="terrainCtrl.center" defaults="terrainCtrl.defaults" markers="markers"></leaflet>
 	</div>
 </div> 

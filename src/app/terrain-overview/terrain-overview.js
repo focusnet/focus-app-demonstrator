@@ -40,7 +40,7 @@
 			[ 'leaflet-directive', 'focusApp.dataService' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'leafletData',  function($scope, leafletData) {
+			[ '$scope', 'leafletData', "leafletEvents", function($scope, leafletData, leafletEvents) {
 
 				var _self = this;
 
@@ -55,16 +55,30 @@
 					tiles : {
 						url : 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 					},
-					xcenter : {
-						lat : 30.095,
-						lng : -33.823,
+					center : {
+						lat : 51.393662,
+						lng : 8.263858,
 						zoom : 4
 					},
 					defaults : {
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-
+						scrollWheelZoom: true
+					},
+					markers : {
+					    london: {
+					        lat: 51.393662,
+					        lng:  8.263858,
+					        draggable: true,
+					        message: "I'm a draggable marker",
+					        focus: true
+					    }
+					},
+					events : {
+						markers: {
+						    enable: leafletEvents.getAvailableMarkerEvents(),
+						}
 					}
 
 				});
@@ -74,3 +88,40 @@
 			} ]);
 
 }());
+
+// <script>
+//         var app = angular.module("demoapp", ["leaflet-directive"]);
+//         app.controller("MarkersEventsController", [ "$scope", "leafletEvents", function($scope, leafletEvents) {
+
+//             $scope.center = {
+//                 lat: 51.505,
+//                 lng: -0.09,
+//                 zoom: 8
+//             };
+
+//             $scope.markers = {
+//                 london: {
+//                     lat: 51.505,
+//                     lng: -0.09,
+//                     draggable: true,
+//                     message: "I'm a draggable marker",
+//                     focus: true
+//                 }
+//             }
+
+//             $scope.events = {
+//                 markers: {
+//                     enable: leafletEvents.getAvailableMarkerEvents(),
+//                 }
+//             };
+
+//             $scope.eventDetected = "No events yet...";
+//             var markerEvents = leafletEvents.getAvailableMarkerEvents();
+//             for (var k in markerEvents){
+//                 var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
+//                 $scope.$on(eventName, function(event, args){
+//                     $scope.eventDetected = event.name;
+//                 });
+//             }
+//         }]);
+//     </script>
