@@ -1,10 +1,17 @@
 FOCUS mobile application demonstrator
 =====================================
 
+
+INSTALLATION
+
 chromium-browser --disable-web-security --user-data-dir=/tmp/TESTrandom
 
 or firefox
 
+
+diable fullscreen notification at top of browser, which can be annoying
+
+prepare a usb key with portable firefox/chrome, already properly configured
 
 ----8<----
 ATTIC
