@@ -12,14 +12,21 @@ div#mobile-main-content
 {
 	article
 	{
-		// // Engine Revolution
-		// div.engine-Revolution{
-		// 	div.widget-container-engine-revolution{
-		// 		// div.engine-revolution-flot{
-		// 		// 	height: $mobile-content-height - 20vh;
-		// 		// }
-		// 	}
-		// }
+		// Engine Revolution
+		div.engineRevolution{
+			div.widget-container{
+				// div.ng-isolate-scope{
+				// 	height: $mobile-content-height - 20vh;
+				// }
+			}
+		}
+		// Fuel Consumption
+		div.fuelConsumption{
+			div.widget-container-table{
+				width: 100%;
+			}
+
+		}
 
 		//Machine overview
 		div.machine-overview{
