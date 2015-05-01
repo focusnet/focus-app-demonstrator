@@ -58,7 +58,7 @@
 					center : {
 						lat : 51.393662,
 						lng : 8.263858,
-						zoom : 4
+						zoom : 16
 					},
 					defaults : {
 						scrollWheelZoom : false,
@@ -67,11 +67,32 @@
 						scrollWheelZoom: true
 					},
 					markers : {
-					    london: {
-					        lat: 51.393662,
-					        lng:  8.263858,
-					        draggable: true,
-					        message: "I'm a draggable marker",
+					    forloader1: {
+					        lat: 51.394613,
+					        lng:  8.261970,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    forloader2: {
+					        lat: 51.393086,
+					        lng:  8.263386,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    forloader3: {
+					        lat: 51.395376, 
+					        lng:  8.263922,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    forloader4: {
+					    	lat: 51.393354, 
+					        lng:  8.260618,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
 					        focus: true
 					    }
 					},
@@ -81,7 +102,21 @@
 						}
 					}
 
+
 				});
+				var markerEvents = leafletEvents.getAvailableMarkerEvents();
+				for (var k in markerEvents){
+				    var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
+				    $scope.$on(eventName, function(event, args){
+				        if (event.name == 'leafletDirectiveMarker.click'){
+				        	console.log(event.targetScope.markers);
+				        	console.log(event.targetScope.$$nextSibling.$id);
+				        	console.log(event);
+				        	location.href="#/machine/123"
+				        	// console.log(event.latlng);
+				        }
+				    });
+				}
 
 				// END OF FIXME DEBUG
 
