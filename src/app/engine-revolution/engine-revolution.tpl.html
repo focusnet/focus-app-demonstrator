@@ -1,1 +1,12 @@
-engine revolution
+<!-- <div class="engineRevolution" ng-controller="EngineRevolutionController as EngineRevolutionCtrl">
+	<div class="widget-container-engine-revolution">
+		<flot id="engine-revolution-flot" dataset="EngineRevolutionCtrl.data2" options="EngineRevolutionCtrl.options2"  ></flot>
+	</div>
+</div>  -->
+
+<div class="engineRevolution" ng-controller="engineRevolutionController as engineRevolutionCtrl">
+<!--  You must set a widget-container around the flot -->
+	<div class="widget-container">
+		<flot id="myflot" dataset="engineRevolutionCtrl.data2" options="engineRevolutionCtrl.options2"  ></flot>
+	</div>
+</div> 

@@ -12,7 +12,23 @@ div#mobile-main-content
 {
 	article
 	{
-		
+		// // Engine Revolution
+		// div.engine-Revolution{
+		// 	div.widget-container-engine-revolution{
+		// 		// div.engine-revolution-flot{
+		// 		// 	height: $mobile-content-height - 20vh;
+		// 		// }
+		// 	}
+		// }
+
+		//Machine overview
+		div.machine-overview{
+			div.general{
+			}
+			div.link{
+				padding-left: 2vh;
+			}
+		}
 
 		// Terrain overview
 		div.terrain-overview
@@ -23,14 +39,6 @@ div#mobile-main-content
 					height: $mobile-content-height - 20vh; // insted of -2vh must stay - height of the form above
 				}	
 			}
-		}
-
-		
-
-		// Machine overview
-		div.machine-overview
-		{
-			background: pink;			
 		}
 	}
 	
