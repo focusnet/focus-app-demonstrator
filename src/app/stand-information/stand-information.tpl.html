@@ -1,38 +1,113 @@
 <div class="standInformation" ng-controller="StandInformationController as StandInformationCtrl">
 <!--  You must set a widget-container around the flot -->
 	<div class="widget-container">
-		<table border="1" style="width: 100%" >
-		    <tr>
-		        <th ALIGN="LEFT" style="width: 33%" colspan="1"><a>Engine Revolutions:</a></th>
-		        <th style="width: 33%;" colspan="1"><a ng-bind="machine[mid].technical_data.engine_revolutions "></a>2300 Rpm</th>
-		        <th style="width: 33%;" colspan="1"><a ng-href="#/machine/123/technical-data/engine-revolution">see Details</a></th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Fuel Consumption:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.fuel_consumption "></a>23 l/100km</th>
-		        <th><a ng-href="#/machine/123/technical-data/fuel-consumption"></a>see Details</th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Vehicle Payload:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.vehicle_payload "></a>22431 kg</th>
-		        <th><a ng-href="#/machine/123/technical-data/vehicle-payload"></a>see Details</th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Battery Voltage:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.battery_voltage "></a>24.5 V</th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Hydraulic Oil Temperature:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.hydraulic_oil_temperature "></a>82 C°</th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Water Temperature:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.water_temperature "></a>87 C°</th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Total Machining Hours:</a></th>
-		        <th><a ng-bind="machine[mid].technical_data.total_machining_hours "></a>2134 h</th>
-		    </tr>
-		</table>
+		<table class="data-table" style="width: 100%">
+    <tr>
+        <th class="border-top border-bottom border-right" style="width: 10%"></th>
+        <th colspan="13" class="border-top border-bottom "style="width: 60%">Status</th>
+        <th colspan="6" class="border-top border-bottom "style="width: 30%">Planing</th>
+    </tr>
+    <tr>
+        <td class="border-bottom border-left border-right">Tree species</td>
+        <td colspan="3" class="border-bottom border-right">Age</td>
+        <td class="border-bottom border-right">Height</td>
+        <td class="border-bottom border-right">Yield power</td>
+        <td class="border-bottom border-right">BG</td>
+        <td class="border-bottom border-right">WZ</td>
+        <td colspan="2" class="border-bottom border-right">Area</td>
+        <td colspan="2" class="border-bottom border-right">Inventory</td>
+        <td colspan="2" class="border-bottom border-right">Exploitation</td>
+        <td colspan="5" class="border-bottom border-right">Exploitation</td>
+        <td class="border-bottom border-right">Other measures</td>
+    </tr>
+    <tr>
+        <td class="border-bottom border-left border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">-</td>
+        <td class="border-bottom border-right">+</td>
+        <td class="border-bottom border-right">m</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">%</td>
+        <td class="border-bottom border-right">ha</td>
+        <td class="border-bottom border-right">m^3/ha</td>
+        <td class="border-bottom border-right">complete</td>
+        <td class="border-bottom border-right">m^3/ha</td>
+        <td class="border-bottom border-right">complete</td>
+        <td class="border-bottom border-right">NA</td>
+        <td class="border-bottom border-right">%</td>
+        <td class="border-bottom border-right">ara</td>
+        <td class="border-bottom border-right">pro ha</td>
+        <td class="border-bottom border-right">complete</td>
+        <td class="border-bottom border-right"></td>
+    </tr>
+    <tr>
+        <td class="border-bottom border-left border-right">1 Spruce</td>
+        <td class="border-bottom border-right">47</td>
+        <td class="border-bottom border-right">3</td>
+        <td class="border-bottom border-right">2</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">1.0</td>
+        <td class="border-bottom border-right">1.1</td>
+        <td class="border-bottom border-right">4</td>
+        <td class="border-bottom border-right">100</td>
+        <td class="border-bottom border-right">3.3</td>
+        <td class="border-bottom border-right">350</td>
+        <td class="border-bottom border-right">1155</td>
+        <td class="border-bottom border-right">13.2</td>
+        <td class="border-bottom border-right">44</td>
+        <td class="border-bottom border-right">V</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">6.6</td>
+        <td class="border-bottom border-right">90</td>
+        <td class="border-bottom border-right">297</td>
+        <td class="border-bottom border-right"></td>
+    </tr>
+    <tr>
+        <td class="border-bottom border-left border-right">2 Spruce</td>
+        <td class="border-bottom border-right">47</td>
+        <td class="border-bottom border-right">3</td>
+        <td class="border-bottom border-right">2</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">1.5</td>
+        <td class="border-bottom border-right">1.2</td>
+        <td class="border-bottom border-right">4</td>
+        <td class="border-bottom border-right">100</td>
+        <td class="border-bottom border-right">0.96</td>
+        <td class="border-bottom border-right">327</td>
+        <td class="border-bottom border-right">314</td>
+        <td class="border-bottom border-right">12.4</td>
+        <td class="border-bottom border-right">12</td>
+        <td class="border-bottom border-right">V</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">1.92</td>
+        <td class="border-bottom border-right">90</td>
+        <td class="border-bottom border-right">86</td>
+        <td class="border-bottom border-right"></td>
+    </tr>
+    <tr>
+        <td class="border-bottom border-left border-right">Sum</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">4.26</td>
+        <td class="border-bottom border-right">345</td>
+        <td class="border-bottom border-right">1469</td>
+        <td class="border-bottom border-right">13.1</td>
+        <td class="border-bottom border-right">56</td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right"></td>
+        <td class="border-bottom border-right">383</td>
+        <td class="border-bottom border-right"></td>
+    </tr>
+</table>
 	</div>
 </div> 

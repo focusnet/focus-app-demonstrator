@@ -66,6 +66,28 @@ div#mobile-main-content
 			}
 		}
 
+		//stand.information
+		div.standInformation{
+			div.widget-container{
+				table.data-table {
+				        border-collapse: collapse;
+				        font-size: 50%
+				    }
+				    td.border-top {
+				        border-top: 1px solid #000;
+				    }
+				    .border-bottom {
+				        border-bottom: 1px solid #000;
+				    }
+				    .border-left {
+				        border-left: 1px solid #000;
+				    }
+				    .border-right {
+				        border-right: 1px solid #000;
+				    }
+			}
+		}
+
 		// Terrain overview
 		div.terrain-overview
 		{	
