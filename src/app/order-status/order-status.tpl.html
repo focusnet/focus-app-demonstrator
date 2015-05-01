@@ -1,1 +1,99 @@
-machine order status
+<!-- 
+ * Machine order status
+ * 
+ * LIGNA scenario: step 4
+ * 
+ * Display description:
+ * 		- Logging volume: planned, current, with progress bar
+ * 		- Work schedule: planned, current, with progress bar
+ * 		- deadline
+ * 		- Completion status: finished earlier, just in time, finished after deadline
+ * 
+ * Input variables:
+ * 		machine[mid].logging_volume.planned
+ *		machine[mid].logging_volume.current
+ *		machine[mid].working_time.planned
+ *		machine[mid].working_time.current
+ *		machine[mid].target_deadline
+ *		machine[mid].completion_status
+ * 
+ * @@source_header
+ * 
+ */ -->
+<div class="orderStatus" ng-controller="orderStatusController as orderStatusCtrl">
+<!--  You must set a widget-container around the flot -->
+	<div class="widget-container">
+		<div class="logging">
+			<a>Logging Volume:</a> 
+			<div class="logging-sub">
+				<table border="1" style="width: 100%">
+				   <tr>
+				       <th ALIGN="LEFT" style="width: 20%" colspan="1"><a>Volume</a></th>
+				       <th ALIGN="LEFT" style="width: 20%;" colspan="1"><a>Planned</a></th>
+				       <th ALIGN="LEFT" style="width: 60%;" colspan="2"><a>Current</a></th>
+				   </tr>
+				   <tr>
+				   	   <th ALIGN="LEFT" ><a>1848 P.</a></th> 
+				       <th ALIGN="LEFT" ><a>1002 P.</a></th>
+				       <th ALIGN="LEFT" ><a>839</a></th>
+				       <th ALIGN="LEFT" ><a>Progress:</a>
+				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> <!-- isnt working so far (do we use bootstrap so far?) http://angular-ui.github.io/bootstrap/ -->
+				       </th>
+				   </tr>
+				</table>
+			</div>
+		</div>
+		<div class="schedule">
+			<a>Work Schedule:</a> 
+			<div class="schedule-sub">
+				<table border="1" style="width: 100%">
+				   <tr>
+				       <th ALIGN="LEFT" style="width: 20%" colspan="1"><a>Volume</a></th>
+				       <th ALIGN="LEFT" style="width: 20%;" colspan="1"><a>Planned</a></th>
+				       <th ALIGN="LEFT" style="width: 60%;" colspan="2"><a>Current</a></th>
+				   </tr>
+				   <tr>
+				   	   <th ALIGN="LEFT" ><a>848 P.</a></th> 
+				       <th ALIGN="LEFT" ><a>789 P.</a></th>
+				       <th ALIGN="LEFT" ><a>391</a></th>
+				       <th ALIGN="LEFT" ><a>Progress:</a>
+				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> <!-- isnt working so far (do we use bootstrap so far?) http://angular-ui.github.io/bootstrap/ -->
+				       </th>
+				   </tr>
+				</table>
+			</div>
+		</div>
+		<div class="deadline">
+			<a>Deadline:</a> 
+			<div class="deadline-sub">
+				<table border="1" style="width: 100%">
+				   <tr>
+				       <th ALIGN="LEFT" style="width: 20%" colspan="1"><a>Time</a></th>
+				       <th ALIGN="LEFT" style="width: 20%;" colspan="1"><a>Planned</a></th>
+				       <th ALIGN="LEFT" style="width: 60%;" colspan="2"><a>Current</a></th>
+				   </tr>
+				   <tr>
+				   	   <th ALIGN="LEFT" ><a></a></th> 
+				       <th ALIGN="LEFT" ><a>17:45</a></th>
+				       <th ALIGN="LEFT" ><a>12:33</a></th>
+				       </th>
+				   </tr>
+				</table>
+			</div>
+		</div>
+		<div class="deadline">
+			<a>Completion status:</a> 
+			<div class="deadline-sub">
+				<a><font color="green">Just in Timer</font></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <body>
+<div id="example" ng-app="KendoDemos">
+    <div class="demo-section k-content" ng-controller="MyCtrl" style="width: 350px;">
+        <h4>{{status}}</h4>
+        <div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="progress"></div>
+    </div>
+</div>

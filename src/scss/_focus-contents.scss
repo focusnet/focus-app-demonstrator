@@ -27,13 +27,42 @@ div#mobile-main-content
 			}
 
 		}
-
 		//Machine overview
 		div.machine-overview{
 			div.general{
 			}
 			div.link{
 				padding-left: 2vh;
+			}
+		}
+		//Information Inbox
+		div.notificationsInbox{
+			div.widget-container{
+				div.notifikation-long{
+					div.notifikation-long-title{
+						// background: grey;
+					}
+				}
+			}
+		}
+		//Order Status
+		div.orderStatus{
+			div.widget-container{
+				div.logging{
+					div.logging-sub{
+						padding-left: 10vh;
+					}
+				}
+				div.schedule{
+					div.schedule-sub{
+						padding-left: 10vh;
+					}
+				}
+				div.deadline{
+					div.deadline-sub{
+						padding-left: 10vh;
+					}
+				}
 			}
 		}
 
