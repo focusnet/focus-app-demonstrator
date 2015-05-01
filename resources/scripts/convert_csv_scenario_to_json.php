@@ -102,6 +102,7 @@ function build_json_scenario($tif, $tdf)
 		else if ($value === '<TIME>') {
 			// keep identifier for later
 			// add <TIME: $label >
+			// FIXME or {<TIME>: id}
 			$value = '"' . str_replace('TIME', 'TIME:' . $label, $value) . '"';
 		}
 		else {
