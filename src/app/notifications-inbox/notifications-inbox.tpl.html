@@ -1,1 +1,62 @@
-notification inbox
+<div class="notificationsInbox" ng-controller="NotificationsInboxController as notificationsInboxCtrl">
+<!--  You must set a widget-container around the flot -->
+	<div class="widget-container">
+		<div class="notivication">
+			<a href="javascript:toggleDiv('notifikation-long1');" >1 Sample Notifi...</a> <!-- ng-bind="inbox.delay_notification.subject" -->	
+		</div>
+		<div id="notifikation-long1" style="display:none;">
+			<div class="notifikation-long-title">
+				<a ng-bind="inbox.delay_notification.subject" >Sample Notifikation</a>
+			</div>
+			<div class="notifikation-long-title">
+				<a >Task:</a>
+				<a ng-bind="inbox.delay_notification.task" >Sample Task</a>
+			</div>
+			<div class="notifikation-long-title">
+				<a>Comment: <input type="text" ng-model="name"></a>
+			</div>
+			<div class="notifikation-long-title">
+				<table border="1" >
+				    <tr>
+				        <th style="width: 50%" colspan="1"><a>Approve</a></th>
+				        <th style="width: 50%;" colspan="1"><a>Deny</a></th>
+				    </tr>
+				</table> 
+			</div>
+		</div>
+		<div class="notivication">
+			<a href="javascript:toggleDiv('notifikation-long2');" >2 Sample Notifi...</a> <!-- ng-bind="inbox.delay_notification.subject" -->	
+		</div>
+		<div id="notifikation-long2" style="display:none;">
+			<div class="notifikation-long-title">
+				<a ng-bind="inbox.delay_notification.subject" >Sample Notifikation</a>
+			</div>
+			<div class="notifikation-long-title">
+				<a >Task:</a>
+				<a ng-bind="inbox.delay_notification.task" >Sample Task</a>
+			</div>
+			<div class="notifikation-long-title">
+				<a>Comment: <input type="text" ng-model="name"></a>
+			</div>
+			<div class="notifikation-long-title">
+				<table border="1" >
+				    <tr>
+				        <th style="width: 50%" colspan="1"><a>Approve</a></th>
+				        <th style="width: 50%;" colspan="1"><a>Deny</a></th>
+				    </tr>
+				</table> 
+			</div>
+		</div>
+	</div>
+</div> 
+
+<script language="JavaScript" type="text/javascript">
+		<!--
+		function toggleDiv(element){
+		 if(document.getElementById(element).style.display == 'none')
+		  document.getElementById(element).style.display = 'block';
+		 else
+		       document.getElementById(element).style.display = 'none';
+		}
+		//-->
+		</script>

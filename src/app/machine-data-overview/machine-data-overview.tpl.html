@@ -1,8 +1,46 @@
-machine data overview
+<!-- machine data overview
 
 Sth like http://stackoverflow.com/questions/19397394/gauge-chart-in-javascript-or-jquery-flot
 
 gauge with button -> View details
 
-if no data, disable button
+if no data, disable button -->
 
+<div class="machineDataOverview" ng-controller="MachineDataOverviewController as machineDataOverviewCtrl">
+<!--  You must set a widget-container around the flot -->
+	<div class="widget-container">
+		<table border="1" style="width: 100%" >
+		    <tr>
+		        <th ALIGN="LEFT" style="width: 33%" colspan="1"><a>Engine Revolutions:</a></th>
+		        <th style="width: 33%;" colspan="1"><a ng-bind="machine[mid].technical_data.engine_revolutions "></a>2300 Rpm</th>
+		        <th style="width: 33%;" colspan="1"><a ng-href="#/machine/123/technical-data/engine-revolution">see Details</a></th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Fuel Consumption:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.fuel_consumption "></a>23 l/100km</th>
+		        <th><a ng-href="#/machine/123/technical-data/fuel-consumption"></a>see Details</th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Vehicle Payload:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.vehicle_payload "></a>22431 kg</th>
+		        <th><a ng-href="#/machine/123/technical-data/vehicle-payload"></a>see Details</th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Battery Voltage:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.battery_voltage "></a>24.5 V</th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Hydraulic Oil Temperature:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.hydraulic_oil_temperature "></a>82 C°</th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Water Temperature:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.water_temperature "></a>87 C°</th>
+		    </tr>
+		    <tr>
+		        <th ALIGN="LEFT" ><a>Total Machining Hours:</a></th>
+		        <th><a ng-bind="machine[mid].technical_data.total_machining_hours "></a>2134 h</th>
+		    </tr>
+		</table>
+	</div>
+</div> 

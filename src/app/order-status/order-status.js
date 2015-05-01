@@ -26,7 +26,7 @@
 (function() {
 	angular.module('focusApp.orderStatus', [ 'focusApp.dataService' ])
 
-	.controller('OrderStatusController',
+	.controller('orderStatusController',
 			[ 'DataService', function(DataService) {
 
 				var _self = this;
@@ -36,6 +36,7 @@
 				 */
 				_self.data = DataService.data;
 
+				
 			} ]);
 
 }());

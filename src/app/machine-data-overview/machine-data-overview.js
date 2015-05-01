@@ -25,10 +25,11 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.machineDataOverview', [ 'focusApp.dataService' ])
+	angular.module('focusApp.machineDataOverview',
+			['focusApp.dataService' ])
 
 	.controller('MachineDataOverviewController',
-			[ 'DataService', function(DataService) {
+			[ '$scope', 'DataService', function($scope, DataService) {
 
 				var _self = this;
 
@@ -37,6 +38,9 @@
 				 */
 				_self.data = DataService.data;
 
+
 			} ]);
 
 }());
+
+
