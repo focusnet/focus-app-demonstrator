@@ -34,14 +34,26 @@
 		_self.currentTimeIncrement = 0;
 
 		/**
+		 * Current user-friendly date
+		 */
+		_self.datetime = {value:'abc'};
+		
+		/**
 		 * Max increment value that is possible
 		 */
 		_self.maxTimeIncrement = 0;
 
 		/**
+		 * STart time of the script
+		 */
+		_self.startDateTime = new Date();
+		
+		/**
 		 * Initialize everything: - load the data of the scenario
+		 * 
 		 */
 		_self.init = function() {
+				
 			// load geometries
 			$http.get('scenarios/ligna-001-geometries.json').success(
 					function(data) {
@@ -58,8 +70,8 @@
 								
 								if (f.geometry.type == 'Point') {
 									geom[k].push({
-										lat: f.geometry.coordinates[1],
-										lng: f.geometry.coordinates[0]
+										lat: parseFloat(f.geometry.coordinates[1]),
+										lng: parseFloat(f.geometry.coordinates[0])
 									});
 								} 
 								else if (f.geometry.type == 'LineString') {
@@ -68,8 +80,8 @@
 									var ctr = 0;
 									angular.forEach(f.geometry.coordinates, function(c, k3) {
 										geom[k][k2][ctr] = {
-											lat : c[1],
-											lng : c[0]
+											lat : parseFloat(c[1]),
+											lng : parseFloat(c[0])
 										};
 										++ctr;
 									});
@@ -80,8 +92,8 @@
 									geom[k][k2] = {};
 									angular.forEach(f.geometry.coordinates[0], function(c, k3) {
 										geom[k][k2][ctr] = {
-											lat : c[1],
-											lng : c[0]
+											lat : parseFloat(c[1]),
+											lng : parseFloat(c[0])
 										};
 										++ctr;
 									});
@@ -132,6 +144,7 @@
 			console.log(_self.dataSet);
 
 			_self.currentTimeIncrement = increment;
+			_self.datetime.value = new Date(_self.startDateTime.getTime() + 4*60000).toISOString();
 		};
 
 		/**

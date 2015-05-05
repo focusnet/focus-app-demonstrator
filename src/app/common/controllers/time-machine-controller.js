@@ -23,6 +23,11 @@
 				_self.dataService = DataService;
 				
 				/**
+				 * Is the time machine currently running?
+				 */
+				_self.isRunning = false;
+				
+				/**
 				 * Current local time increment being displayed
 				 */
 				_self.timeIncrement = DataService.currentTimeIncrement;
@@ -46,6 +51,8 @@
 		$.sidr('close', 'sidr');
 		$('#time-machine').slideToggle(100);
 	});
+	
+	
 //	
 //// allow closing when clicking outside of the menu
 //	$('body').on("click", function(e) {

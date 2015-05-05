@@ -23,7 +23,7 @@
 				/**
 				 * Current date to display
 				 */
-				_self.display_datetime = 'Monday 23.03.2015 13:31';
+				_self.display_datetime = DataService.datetime;
 
 			} ]);
 

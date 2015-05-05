@@ -43,7 +43,8 @@
 			[ '$scope', 'leafletData', "leafletEvents", "DataService", function($scope, leafletData, leafletEvents, DataService) {
 
 				var _self = this;
-
+				_self.testvar = parseFloat(DataService.data.machine[3].lat);
+				
 				_self.dataService = DataService;
 console.log("YAY");
 console.log(_self.dataService.data);
@@ -53,6 +54,8 @@ console.log(_self.dataService.data);
 					console.log(map);
       //    L.GeoIP.centerMapOnPosition(map, 15);
 				});
+				
+				
 
 				// an example of leaflet
 				angular.extend(_self, {
@@ -75,10 +78,11 @@ console.log(_self.dataService.data);
 					},
 					markers : {
 						forloader1: {
-							// lat:  parseFloat("51.395822"), 
-							// lng:  parseFloat("8.265015"),
-						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
+							lat: _self.testvar, //data.machine[3].lat
 							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
+					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
+							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
+						   
 						    message: "forloader 1",
 						},
 						// forloader2: {
@@ -169,6 +173,20 @@ console.log(_self.dataService.data);
 				    });
 				}
 
+				
+				_self.test = function() {
+					// self.dataService.data.machine[3].lat
+					console.log('test');
+					_self.dataService.data.machine[3].lat +=1;
+					_self.testvar += 1;
+					leafletData.getMap('mymap').then(function(map) {
+						// anything here
+						console.log(map);
+						map._onResize();
+	      //    L.GeoIP.centerMapOnPosition(map, 15);
+					});
+					
+				}
 				// END OF FIXME DEBUG
 
 			} ]);
