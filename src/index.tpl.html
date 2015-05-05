@@ -40,9 +40,9 @@
 			</div>
 		</div>
     	
-		<nav id="sidr">
-			<h1>TITLE</h1>
-			<ul class="list-group" >
+		<nav id="sidr" class="focus-intro">
+	
+	<ul class="list-group" >
 				<li><a ng-href="#/">Terrain overview</a></li>
 				<li><a ng-href="#/inbox">Notifications inbox</a></li>
 				<li><a ng-href="#/machine/123">Machine overview</a></li>
@@ -57,11 +57,37 @@
 				<li><a ng-href="#/stand/45/map">Stand map</a></li>
 				<li><a ng-href="#/woodpile/12">Woodpile information</a></li>
 			</ul>
+			
+			
+			<h1>FOCUS - Advances in Forestry Control &amp; Automation Systems in Europe</h1>
+			<img src="content/focus-logo.png" alt="FOCUS logo "/>
+			<p>Project coordinator: Alexandra F. Marques</p>
+			<p>Homepage: <a href="http://www.focusnet.eu">www.focusnet.eu</a></p>
+			<p>Project running time: 1.1.2014 &ndash; 30.6.2016</p>
+			
+			<h2>Project Consortium</h2>
+			<h3>Small and Medium-Sized Enterprises:</h3>
+			<ul>
+				<li>Simosol Oy</li>
+				<li>Holzcluster Steiermark GmbH</li>
+				<li>Azevedos Industria</li>
+				<li>Hohenloher Spezial Maschinenbau GmbH & Co.KG</li>
+				<li>Wahlers Forsttechnik GmbH</li>
+				<li>Waldemar Fernandes da Silva SA</li>
+			</ul>
+			
+			<h3>Research and Technological Developers: </h3>
+			<ul>
+				<li>Inesc Porto (coordinator)</li>
+				<li>Bern University of Applied Sciences</li>
+				<li>Research Studios Austria Forschungsgesellschaft mbH</li>
+				<li>University of Leuven</li>
+				<li>VTT Technical Research Centre of Finland</li>
+				<li>Landesbetrieb Wald und Holz NRW</li>
+			</ul>
 		</nav>
 		
-		<aside id="time-machine">
-			time machine
-		</aside>
+		<aside id="time-machine" ng-include="'app/common/controllers/time-machine-controller.tpl.html'"></aside>
 		
 		<div id="dark-overlay"> </div>
 	
@@ -83,6 +109,7 @@
 	<script type="text/javascript" src="app/common/services/inbox-service.js"></script>
 	<script type="text/javascript" src="app/common/services/navigation-service.js"></script>
 	<script type="text/javascript" src="app/common/controllers/action-bar-controller.js"></script>
+	<script type="text/javascript" src="app/common/controllers/time-machine-controller.js"></script>
 	<script type="text/javascript" src="app/common/controllers/date-display-controller.js"></script>
 	<script type="text/javascript" src="app/common/controllers/notifications-controller.js"></script>
 	<script type="text/javascript" src="app/terrain-overview/terrain-overview.js"></script>

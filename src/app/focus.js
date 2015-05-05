@@ -16,7 +16,7 @@
 					'focusApp',
 					[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive',
 							'angular-flot', 'focusApp.dataService', 'focusApp.inboxService',
-							'focusApp.navigationService', 'focusApp.actionBar',
+							'focusApp.navigationService', 'focusApp.actionBar', 'focusApp.timeMachine',
 							'focusApp.notifications', 'focusApp.dateDisplay',
 							'focusApp.terrainOverview', 'focusApp.machineOverview',
 							'focusApp.orderStatus', 'focusApp.notificationsInbox',
@@ -126,20 +126,6 @@
 	
 	
 	
-	// jQuery
-		$('a.time-machine').on('click', function(ev) {
-			ev.preventDefault();
-			$.sidr('close', 'sidr');
-			$('#time-machine').slideToggle(100);
-		});
-		
-	// allow closing when clicking outside of the menu
-		$('body').on("click", function(e) {
-			$('#time-machine').slideUp(100);
-		}); 
-
-		$("#time-machine, a.time-machine").on("click", function(e) {
-			e.stopPropagation();
-		});		
+	
 
 }());

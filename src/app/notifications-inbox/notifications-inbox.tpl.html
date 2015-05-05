@@ -1,4 +1,4 @@
-<div class="with-padding notificationsInbox" ng-controller="NotificationsInboxController as notificationsInboxCtrl">
+<div class="with-padding notificationsInbox" ng-controller="NotificationsInboxController as inboxCtrl">
 <!--  You must set a widget-container around the flot -->
 	<div class="widget-container">
 	
@@ -17,6 +17,12 @@
 -       Delay?
 
 -       Sticking to the schedule?
+<pre>
+{{inboxCtrl.dataService.dataSet.geometries.lattenberg_border1 |json }}
+</pre>
+
+
+---------------------------------------------------------------------------
 
 	
 		<div class="notivication">

@@ -34,7 +34,10 @@
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
+				_self.dataService = DataService;
+				// _self.dataService.dataSet // whole data arrays 
+				// _self.dataService.data  // current increment data
+				
 
 			} ]);
 
