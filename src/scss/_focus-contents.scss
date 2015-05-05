@@ -99,7 +99,7 @@ div#mobile-main-content
 					background-repeat: no-repeat;
 					background-attachment: fixed;
 					background-position: center; 
-					height: $mobile-content-height - 20vh; // insted of -2vh must stay - height of the form above
+					height: $mobile-content-height; // insted of -2vh must stay - height of the form above
 				}	
 			}
 		}
