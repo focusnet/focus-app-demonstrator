@@ -17,6 +17,9 @@ $grey-middle: #dadada;
 $grey-dark: #7a7a7a;
 $blue: #0000fe;
 $red: #dd0000;
+$green: #6d8d24;
+$green-dark: #00703c;
+$brown: #685040;
 
 // ************************ geometry
 
@@ -24,6 +27,7 @@ $mobile-decoration-top-height: 2.5vh;
 $mobile-decoration-bottom-height: 6vh;
 $mobile-content-height: 100vh - $mobile-decoration-top-height - $mobile-decoration-bottom-height;
 $mobile-navigation-height: 7vh;
+
 $mobile-payload-padding: $mobile-navigation-height/1.5 * 0.4;
 $mobile-payload-height: $mobile-content-height - $mobile-navigation-height - 2 * $mobile-payload-padding; // FIXME tobias max available height
 
