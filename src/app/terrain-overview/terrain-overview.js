@@ -62,7 +62,7 @@ console.log(_self.dataService.data);
 					center : {
 						lat : 51.395876, 
 						lng : 8.264026,
-						zoom : 17
+						zoom : 16.65	
 					},
 					defaults : {
 						scrollWheelZoom : false,
@@ -80,6 +80,17 @@ console.log(_self.dataService.data);
 						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
 							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
 						    message: "forloader 1",
+						 //    icon: {
+							//     iconUrl: '../content/fourloader.png',
+							//     iconRetinaUrl: '../content/fourloader.org.png',
+							//     iconSize: [26, 26],
+							//     iconAnchor: [13, 13],
+							//     // popupAnchor: [-3, -76],
+							//     // shadowUrl: 'my-icon-shadow.png',
+							//     // shadowRetinaUrl: 'my-icon-shadow@2x.png',
+							//     // shadowSize: [68, 95],
+							//     // shadowAnchor: [22, 94]
+							// },
 						},
 						// forloader2: {
 						// 	lat:  51.395822, 
