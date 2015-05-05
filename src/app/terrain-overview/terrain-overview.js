@@ -53,48 +53,51 @@
 				// an example of leaflet
 				angular.extend(_self, {
 					tiles : {
-						url : 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+						url : '../content/empty.png'
 					},
 					center : {
-						lat : 51.393662,
-						lng : 8.263858,
-						zoom : 16
+						lat : 51.395876, 
+						lng : 8.264026,
+						zoom : 17
 					},
 					defaults : {
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-						scrollWheelZoom: true
+						scrollWheelZoom: false,
+						dragging: false,
+						touchZoom: false,
+						doubleClickZoom: false,
 					},
 					markers : {
 					    forloader1: {
-					        lat: 51.394613,
-					        lng:  8.261970,
+					        lat: 51.395876, 
+					        lng:  8.264026,
 					        draggable: false,
 					        // message: "I'm a draggable marker",
 					        focus: true
 					    },
 					    forloader2: {
-					        lat: 51.393086,
-					        lng:  8.263386,
+					        lat: 51.394602, 
+					        lng:  8.256389,
 					        draggable: false,
 					        // message: "I'm a draggable marker",
 					        focus: true
 					    },
 					    forloader3: {
-					        lat: 51.395376, 
-					        lng:  8.263922,
+					        lat: 51.395144,
+					        lng:  8.268839,
 					        draggable: false,
 					        // message: "I'm a draggable marker",
 					        focus: true
 					    },
-					    forloader4: {
-					    	lat: 51.393354, 
-					        lng:  8.260618,
-					        draggable: false,
-					        // message: "I'm a draggable marker",
-					        focus: true
-					    }
+					    // forloader4: {
+					    // 	lat: 51.393354, 
+					    //     lng:  8.260618,
+					    //     draggable: false,
+					    //     // message: "I'm a draggable marker",
+					    //     focus: true
+					    // }
 					},
 					events : {
 						markers: {
