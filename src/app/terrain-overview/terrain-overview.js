@@ -50,25 +50,9 @@
       //    L.GeoIP.centerMapOnPosition(map, 15);
 				});
 
-				var forloader1 = {
-				    lat: 51.395068, 
-					lng:  8.263694,
-				    message: "forloader 1",
-				};
-				var forloader2 = {
-				    lat:  51.395822, 
-					lng:  8.265015,
-				    message: "forloader 2",
-				};
-				var forloader3 = {
-				    lat: 51.396810, 
-				    lng:  8.264705,
-				    message: "forloader3 <a id='forloader3massage'> details <script href='#/machine/123'>details</a>", 
-				};
-
 				// an example of leaflet
 				angular.extend(_self, {
-					tileLayer : {
+					tiles : {
 						url : '../content/empty.png'
 					},
 					center : {
@@ -86,30 +70,34 @@
 						doubleClickZoom: false,
 					},
 					markers : {
-						forloader1: angular.copy(forloader1),
-						forloader2: angular.copy(forloader2),
-						forloader3: angular.copy(forloader3),
-					    // forloader1: {
-					    //     lat: 51.395068, 
-					    //     lng:  8.263694,
+					    forloader1: {
+					        lat: 51.395876, 
+					        lng:  8.264026,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    forloader2: {
+					        lat: 51.394602, 
+					        lng:  8.256389,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    forloader3: {
+					        lat: 51.395144,
+					        lng:  8.268839,
+					        draggable: false,
+					        // message: "I'm a draggable marker",
+					        focus: true
+					    },
+					    // forloader4: {
+					    // 	lat: 51.393354, 
+					    //     lng:  8.260618,
 					    //     draggable: false,
 					    //     // message: "I'm a draggable marker",
 					    //     focus: true
-					    // },
-					    // forloader2: {
-					    //     lat: 51.395822, 
-					    //     lng:  8.265015,
-					    //     draggable: false,
-					    //     // message: "I'm a draggable marker",
-					    //     focus: true
-					    // },
-					    // forloader3: {
-					    //     lat: 51.396810, 
-					    //     lng:  8.264705,
-					    //     draggable: false,
-					    //     // message: "I'm a draggable marker",
-					    //     focus: true
-					    // },
+					    // }
 					},
 					events : {
 						markers: {
@@ -127,7 +115,7 @@
 				        	console.log(event.targetScope.markers);
 				        	console.log(event.targetScope.$$nextSibling.$id);
 				        	console.log(event);
-				        	// location.href="#/machine/123"
+				        	location.href="#/machine/123"
 				        	// console.log(event.latlng);
 				        }
 				    });
