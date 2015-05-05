@@ -63,7 +63,12 @@
 				var forloader3 = {
 				    lat: 51.396810, 
 				    lng:  8.264705,
-				    message: "forloader3 <a id='forloader3massage'> details <script href='#/machine/123'>details</a>", 
+				    message: "forloader 3 <a href='#/machine/123'>details</a>", 
+				};
+				var forloader4 = {
+				    lat: 51.395876, 
+				    lng:  8.264026,
+				    message: "forloader 4", 
 				};
 
 
@@ -91,6 +96,7 @@
 					    forloader1: angular.copy(forloader1),
 						forloader2: angular.copy(forloader2),
 						forloader3: angular.copy(forloader3),
+						forloader4: angular.copy(forloader4),
 
 					    // forloader4: {
 					    // 	lat: 51.393354, 
@@ -116,7 +122,7 @@
 				        	console.log(event.targetScope.markers);
 				        	console.log(event.targetScope.$$nextSibling.$id);
 				        	console.log(event);
-				        	location.href="#/machine/123"
+				        	// location.href="#/machine/123"
 				        	// console.log(event.latlng);
 				        }
 				    });
