@@ -74,7 +74,7 @@ console.log(_self.dataService.data);
 						doubleClickZoom: false,
 					},
 					markers : {
-						forloader1: {
+						forwarder1: {
 							// lat:  parseFloat("51.395822"), 
 							// lng:  parseFloat("8.265015"),
 						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
@@ -92,17 +92,17 @@ console.log(_self.dataService.data);
 							//     // shadowAnchor: [22, 94]
 							// },
 						},
-						// forloader2: {
+						// forwarder2: {
 						// 	lat:  51.395822, 
 						// 	lng:  8.265015,
 						// 	message: "forloader 2",
 						// },
-						// forloader3: {
+						// forwarder3: {
 						// 	lat: 51.396810, 
 						// 	lng:  8.264705,
 						// 	message: "forloader 3", 
 						// },
-						// forloader4: {
+						// forwarder4: {
 						// 	lat: 51.395876, 
 						// 	lng:  8.264026,
 						// 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
