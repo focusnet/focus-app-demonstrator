@@ -36,7 +36,7 @@
 		/**
 		 * Current user-friendly date
 		 */
-		_self.datetime = {value:'abc'};
+		_self.datetime = {value:''};
 		
 		/**
 		 * Max increment value that is possible
@@ -47,6 +47,13 @@
 		 * STart time of the script
 		 */
 		_self.startDateTime = new Date();
+		
+		/**
+		 * Get a date in the future (by n increments)
+		 */
+		_self.getFutureDate = function(increment) {
+			return new Date(_self.startDateTime.getTime() + increment * 2 * 1000);
+		};
 		
 		/**
 		 * Initialize everything: - load the data of the scenario
@@ -116,9 +123,10 @@
 								angular.copy(data.timedependent, _self.dataSet.timedependent);
 								angular.copy(data.timeindependent, _self.dataSet.timeindependent);
 
+								_self.maxTimeIncrement = _self.dataSet.timedependent['<TIME:time_increment>'].length - 1;
+								
 								// set the initial increment
 								_self.setTimeIncrement(0);
-								_self.maxTimeIncrement = _self.dataSet.timedependent['<TIME:time_increment>'].length - 1;
 							});
 		};
 
@@ -144,7 +152,7 @@
 			console.log(_self.dataSet);
 
 			_self.currentTimeIncrement = increment;
-			_self.datetime.value = new Date(_self.startDateTime.getTime() + 4*60000).toISOString();
+			_self.datetime.value = _self.getFutureDate(increment); 
 		};
 
 		/**

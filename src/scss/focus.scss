@@ -124,6 +124,8 @@ body
 		{
 			@include span-columns(3);
 			text-align: right;
+			font-size: 0.7em;
+			line-height: 1.7em;
 		}
 		
 		div.slider
@@ -139,7 +141,7 @@ body
 				
 				i
 				{
-					margin-right: 0.75em;
+					margin-left: 0.75em;
 					cursor: pointer;
 				}
 				
@@ -152,38 +154,38 @@ body
 		
 		
 
-	input[type=range]{
-    /* fix for FF unable to apply focus style bug  */
-    border: 1px solid inherit; //was white 
+input[type=range]{
+/* fix for FF unable to apply focus style bug  */
+border: 1px solid inherit; //was white 
 
-    /*required for proper track sizing in FF*/
-    width: 100%;
+/*required for proper track sizing in FF*/
+width: 100%;
 }
 
 input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 5px;
-    background: #ddd;
-    border: none;
-    border-radius: 3px;
+width: 100%;
+height: 5px;
+background: #ddd;
+border: none;
+border-radius: 3px;
 }
 
 input[type=range]::-moz-range-thumb {
-    border: none;
-    height: 32px;
-    width: 16px;
-    border-radius: 50%;
-    background: goldenrod;
+border: none;
+height: 32px;
+width: 16px;
+border-radius: 50%;
+background: $color-slider-control;
 }
 
 /*hide the outline behind the border*/
 input[type=range]:-moz-focusring{
-    outline: 1px solid inherit; // was white
-    outline-offset: -1px;
+outline: 1px solid inherit; // was white
+outline-offset: -1px;
 }
 
 input[type=range]:focus::-moz-range-track {
-    background: #ccc;
+background: #ccc;
 }
 
 

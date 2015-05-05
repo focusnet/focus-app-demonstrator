@@ -18,13 +18,8 @@
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
+				_self.dataService = DataService;
 				
-				/**
-				 * Current date to display
-				 */
-				_self.display_datetime = DataService.datetime;
-
 			} ]);
 
 }());

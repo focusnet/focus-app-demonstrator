@@ -24,7 +24,7 @@
 				<a ng-if="notifCtrl.enabled" href=""><i class="fa fa-tree"></i> FOCUS notification</a>
 			</div>
 			<div class="tools" ng-controller="DateDisplayController as dateCtrl">
-				<a href="#" ng-bind="dateCtrl.display_datetime.value" class="time-machine"></a>
+				<a href="#" ng-bind="dateCtrl.dataService.datetime.value | date:'dd.MM.yyyy HH:mm:ss'" class="time-machine"></a>
 				<i class="fa fa-wifi"></i>
 				<i class="fa fa-signal"></i>
 			</div>

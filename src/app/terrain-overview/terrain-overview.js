@@ -78,7 +78,7 @@ console.log(_self.dataService.data);
 					},
 					markers : {
 						forloader1: {
-							lat: _self.testvar, //data.machine[3].lat
+							lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
 							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
 					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
 							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
