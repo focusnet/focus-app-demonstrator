@@ -94,6 +94,11 @@ div#mobile-main-content
 			div.widget-container-terrain-overview
 			{
 				div.angular-leaflet-map{
+					// background:url(../content/map.png) no-repeat center center;
+					background-image: url('../content/map.png');
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+					background-position: center; 
 					height: $mobile-content-height - 20vh; // insted of -2vh must stay - height of the form above
 				}	
 			}
