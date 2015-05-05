@@ -40,15 +40,20 @@
 			[ 'leaflet-directive', 'focusApp.dataService' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'leafletData', "leafletEvents", function($scope, leafletData, leafletEvents) {
+			[ '$scope', 'leafletData', "leafletEvents", "DataService", function($scope, leafletData, leafletEvents, DataService) {
 
 				var _self = this;
+
+				_self.dataService = DataService;
+console.log("YAY");
+console.log(_self.dataService.data);
 
 				leafletData.getMap('mymap').then(function(map) {
 					// anything here
 					console.log(map);
       //    L.GeoIP.centerMapOnPosition(map, 15);
 				});
+
 				// an example of leaflet
 				angular.extend(_self, {
 					tiles : {
@@ -70,33 +75,35 @@
 					},
 					markers : {
 						forloader1: {
-						    lat: 51.395068, //data.machine[3].lat
-							lng:  8.263694, //data.machine[3].lng
+							// lat:  parseFloat("51.395822"), 
+							// lng:  parseFloat("8.265015"),
+						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
+							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
 						    message: "forloader 1",
 						},
-						forloader2: {
-							lat:  51.395822, 
-							lng:  8.265015,
-							message: "forloader 2",
-						},
-						forloader3: {
-							lat: 51.396810, 
-							lng:  8.264705,
-							message: "forloader 3", 
-						},
-						forloader4: {
-							lat: 51.395876, 
-							lng:  8.264026,
-							message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
-						},
-						loadingpoint1: {
-							lat: 51.39592091832327, 
-							lng:  8.26235430890226,
-						},
-						loadingpoint2: {
-							lat: 51.397260998822276, 
-							lng:  8.264099021820796,
-						},
+						// forloader2: {
+						// 	lat:  51.395822, 
+						// 	lng:  8.265015,
+						// 	message: "forloader 2",
+						// },
+						// forloader3: {
+						// 	lat: 51.396810, 
+						// 	lng:  8.264705,
+						// 	message: "forloader 3", 
+						// },
+						// forloader4: {
+						// 	lat: 51.395876, 
+						// 	lng:  8.264026,
+						// 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
+						// },
+						// loadingpoint1: {
+						// 	lat: 51.39592091832327, 
+						// 	lng:  8.26235430890226,
+						// },
+						// loadingpoint2: {
+						// 	lat: 51.397260998822276, 
+						// 	lng:  8.264099021820796,
+						// },
 					},
 					paths: {
                         border1: {
@@ -157,7 +164,7 @@
 				        	// location.href="#/machine/123"
 				        	// console.log(event.latlng);
 
-                console.log(lattenberg);
+                // console.log(lattenberg);
 				        }
 				    });
 				}
