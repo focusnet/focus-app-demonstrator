@@ -1,0 +1,13 @@
+<div ng-controller="TimeMachineController as timeCtrl">
+		time machine <span ng-bind="timeCtrl.dataService.currentTimeIncrement"></span>
+	<!-- 	<div ui-slider min="0" max="timeCtrl.dataService.maxIncrement" ng-model="timeCtrl.dataService.currentIncrement"></div> -->
+
+		<input type="number" min="0" max="{{timeCtrl.dataService.maxTimeIncrement}}" ng-model="timeCtrl.timeIncrement" ng-change="timeCtrl.updateData()" /> <!-- 
+
+
+		 min="0" max="timeCtrl.dataService.maxIncrement"
+		on change -> timeCtrl.updateTimeIncrement
+		and ng-bind="timeCtlr.
+		 -->
+</div>
+			
