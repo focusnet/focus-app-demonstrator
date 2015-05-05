@@ -1,1 +1,7 @@
-stand map
+<div class="stand-map" ng-controller="StandMapController as standmapCtrl">
+	
+	<!--  you must set a widget-container around the leaflet -->
+	<div class="widget-container-Stand-Map">
+		<leaflet id="StandMapMap" layers="standmapCtrl.tiles" center="standmapCtrl.center" defaults="standmapCtrl.defaults" markers="standmapCtrl.markers" paths="standmapCtrl.paths" event-broadcast="standmapCtrl.events"></leaflet> 
+	</div>
+</div> 

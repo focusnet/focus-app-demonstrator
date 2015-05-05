@@ -104,6 +104,23 @@ div#mobile-main-content
 				}	
 			}
 		}
+
+		div.stand-map
+		{
+			div.widget-container-Stand-Map
+			{
+				div.angular-leaflet-map{
+					// background:url(../content/map.png) no-repeat center center;
+					background-image: url('../content/standmap.png');
+					background-repeat: no-repeat;
+					background-attachment: fixed;
+					background-position: center; 
+					background-size: 2646px 1177px;
+					height: $mobile-content-height; // insted of -2vh must stay - height of the form above
+				}	
+			}
+
+		}
 	}
 	
 }

@@ -49,7 +49,7 @@
 console.log("YAY");
 console.log(_self.dataService.data);
 
-				leafletData.getMap('mymap').then(function(map) {
+				leafletData.getMap('TerrainOverviewMap').then(function(map) {
 					// anything here
 					console.log(map);
       //    L.GeoIP.centerMapOnPosition(map, 15);
@@ -77,13 +77,21 @@ console.log(_self.dataService.data);
 						doubleClickZoom: false,
 					},
 					markers : {
-						forloader1: {
-							lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
+//<<<<<<< HEAD
+//						forloader1: {
+//							lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
+//							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
+//					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
+//							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
+//						   
+//						    message: "forloader 1",
+//=======
+						forwarder1: {
+							// lat:  parseFloat("51.395822"), 
+							// lng:  parseFloat("8.265015"),
+						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
 							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
-					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
-							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
-						   
-						    message: "forloader 1",
+						    message: "forwarder 3 <a ng-href='#/machine/123'>details</a>",
 						 //    icon: {
 							//     iconUrl: '../content/fourloader.png',
 							//     iconRetinaUrl: '../content/fourloader.org.png',
@@ -96,17 +104,17 @@ console.log(_self.dataService.data);
 							//     // shadowAnchor: [22, 94]
 							// },
 						},
-						// forloader2: {
+						// forwarder2: {
 						// 	lat:  51.395822, 
 						// 	lng:  8.265015,
 						// 	message: "forloader 2",
 						// },
-						// forloader3: {
+						// forwarder3: {
 						// 	lat: 51.396810, 
 						// 	lng:  8.264705,
 						// 	message: "forloader 3", 
 						// },
-						// forloader4: {
+						// forwarder4: {
 						// 	lat: 51.395876, 
 						// 	lng:  8.264026,
 						// 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
