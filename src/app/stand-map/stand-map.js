@@ -72,39 +72,41 @@
 						doubleClickZoom: false,
 					},
 					markers : {
+						forwarder0: {
+							markerColor: '#2980b9',
+						 	lat: parseFloat(_self.dataService.data.machine[0].long),
+							lng: parseFloat(_self.dataService.data.machine[0].lat),
+						    message: "forwarder 0",
+						},
 						forwarder1: {
 							markerColor: '#2980b9',
-						 	lat: parseFloat(_self.dataService.data.machine[3].lat),
-							lng: parseFloat(_self.dataService.data.machine[3].long),
-						    message: "forwarder 3 <a ng-href='#/machine/123'>details</a>",
+							lat: parseFloat(_self.dataService.data.machine[1].long),
+							lng: parseFloat(_self.dataService.data.machine[1].lat),
+							message: "forloader 1",
 						},
 						forwarder2: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[2].lat),
-							lng: parseFloat(_self.dataService.data.machine[2].long),
-							message: "forloader 2",
+							lat: parseFloat(_self.dataService.data.machine[2].long),
+							lng: parseFloat(_self.dataService.data.machine[2].lat),
+							message: "forloader 2", 
 						},
 						forwarder3: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[1].lat),
-							lng: parseFloat(_self.dataService.data.machine[1].long),
-							message: "forloader 3", 
-						},
-						forwarder4: {
-							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[0].lat),
-							lng: parseFloat(_self.dataService.data.machine[0].long),
-							message: "forloader 4",
+							lat: parseFloat(_self.dataService.data.machine[3].lat),
+							lng: parseFloat(_self.dataService.data.machine[3].long),
+							message: "forloader 3 <a ng-href='#/machine/123'>details</a>",
 						},
 						loadingpoint1: {
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
+							message: "woodpile 0 <a ng-href='#/woodpile/0'>details</a>",
 						},
 						loadingpoint2: {
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
+							message: "woodpile 1 <a ng-href='#/woodpile/1'>details</a>",
 						},
 					},
 					paths: {
@@ -258,6 +260,17 @@
 				}
 				_setMachinePath();
 
+				// _self.markers.forwarder1.latlngs = {
+				// 	lat: parseFloat(_self.dataService.data.machine[0].lat), 
+				// 	lng: parseFloat(_self.dataService.data.machine[0].long)
+				// };
+				// console.log("change");
+				// console.log(_self.markers.forwarder1);
+				_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); //51.395877;
+				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].long);// 8.266884;
+
+				// console.log("change");
+				// console.log(_self.markers.forwarder1);
 			}]);
 			
 }());
