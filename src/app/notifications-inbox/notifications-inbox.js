@@ -24,10 +24,10 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.notificationsInbox', [ 'focusApp.dataService', 'focusApp.navigationService' ])
+	angular.module('focusApp.notificationsInbox', [ 'focusApp.dataService', 'focusApp.navigationService', 'focusApp.inboxService' ])
 
 	.controller('NotificationsInboxController',
-			[ 'DataService', 'NavigationService', function(DataService, NavigationService) {
+			[ 'DataService', 'NavigationService', 'InboxService', function(DataService, NavigationService, InboxService) {
 
 				var _self = this;
 
@@ -37,9 +37,52 @@
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
+				_self.dataSvc = DataService;
 				
-
+				/**
+				 * Inbox service
+				 */
+				_self.inboxSvc = InboxService;
+				
+			
+				/**
+				 * Do we show the modal box?
+				 */
+				_self.show_modal_box = false;
+				
+				/**
+				 * The modal box being shown
+				 */
+				_self.modal = {which: -1};
+				
+				/**
+				 * Display the delay message defined by the specified id
+				 */
+				_self.displayMessage = function(i) {
+						if (_self.show_modal_box && _self.modal.which == i) {
+							_self.show_modal_box = false;
+						}
+						else {
+							var msg = InboxService.messages[i];
+							_self.modal.which = i;
+							_self.modal.subject = msg.subject;
+							_self.modal.datediff = msg.reception_datetime_from_simulation_starttime; 
+							_self.modal.task = msg.task; 
+							_self.modal.comment = msg.comment;
+							_self.show_modal_box = true;
+						}
+				};
+				
+				/**
+				 * Register a message submission
+				 */
+				_self.submit = function(i, action) {
+					InboxService.messages[i].submit = action;
+					InboxService.messages[i].comment = _self.modal.comment;
+					InboxService.messages[i].unread = false;
+					InboxService.number_of_unread_messages -= 1;
+				};
+				
 			} ]);
 
 }());

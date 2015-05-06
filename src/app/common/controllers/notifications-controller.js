@@ -8,23 +8,23 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.notifications', [ 'focusApp.dataService' ])
+	angular.module('focusApp.notifications', [ 'focusApp.dataService', 'focusApp.inboxService' ])
 
 	.controller('NotificationsController',
-			[ 'DataService', function(DataService) {
+			[ 'InboxService', function(InboxService) {
 
 				var _self = this;
 
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
-				
-				/**
-				 * Tells whether to display the notification icon or not
-				 */
-				_self.enabled = true;// FIXME TODO 
+				_self.inboxSvc = InboxService;
 
+				/**
+				 * Ref to data service
+				 */
+		//		_self.dataSvc = DataService;
+				
 			} ]);
 
 }());

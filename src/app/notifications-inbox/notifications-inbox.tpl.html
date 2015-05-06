@@ -1,108 +1,38 @@
-<div class="with-padding notifications-inbox" ng-controller="NotificationsInboxController as inboxCtrl">
+<div class="notifications-inbox" ng-controller="NotificationsInboxController as inboxCtrl">
 
-<ul>
-
-	<li ng-repeat="msg in inboxCtrl.data.inbox.delay_notification" ng-class="{unread: msg.unread}">
-		On <span class="date" ng-bind="msg.reception_datetime"></span> from <span class="from">User X</span><br/>
-		<span class="subject" ng-bind="msg.subject"></span>
-	</li>
-	<li>
-		On <span class="date"></span> from <span class="from">User X</span><br/>
-		<span class="subject"></span>
-	</li>
+	<ul>
+		<li class="live" ng-repeat="msg in inboxCtrl.inboxSvc.messages">
+			<div class="header" ng-click="inboxCtrl.displayMessage($index)" ng-class="{unread: msg.unread}">
+				<div class="col-1">
+					<span class="date" 
+							ng-bind="(inboxCtrl.dataSvc.startDateTime.getTime() 
+									+ 1 * msg.reception_datetime_from_simulation_starttime * 1000
+								) | date:'dd.MM.yyyy HH:mm'"></span>
+				</div>
+				<div class="col-2">
+					<span class="subject" ng-bind="msg.subject"></span>
+				</div>
+				<div class="col-3">
+					<span class="processed" ng-show="!msg.submit">unknown</span>
+					<span class="processed" ng-show="msg.submit" ng-bind="msg.submit"></span>
+				</div>
+			</div>
+			<div class="modal-box-message-detail" ng-show="inboxCtrl.show_modal_box && inboxCtrl.modal.which == $index">
+				<p class="task">Task: <span ng-bind="inboxCtrl.modal.task"></span></p>
+				<label for="comment">Comment:</label>
+				<textarea name="comment" class="comment" ng-model="inboxCtrl.modal.comment" ng-readonly="msg.submit"></textarea>
+				<div class="buttons" ng-show="!msg.submit">
+					<div class="col-button-1"><button ng-click="inboxCtrl.submit($index, 'denied')">Deny</button></div>
+					<div class="col-button-2"><button ng-click="inboxCtrl.submit($index, 'approved')">Approve</button></div>
+				</div>
+				<div class="buttons" ng-show="msg.submit">
+					<div class="button-like" ng-bind="msg.submit"></div>
+				</div>
+				
+			</div>
+		</li>
+	</ul>
 	
-</ul>
-
-
-<br/><br/><br/>
-
-<!--  You must set a widget-container around the flot -->
-	<div class="widget-container">
 	
-	     Delay?
-
--       Delay?
-
--       Delay?
-
--       Sticking to the schedule?
-
--       Sticking to the schedule?
-
--       Delay?
-
--       Delay?
-
--       Sticking to the schedule?
-
-<pre>
-{{inboxCtrl.dataService.data.machine[3].lat}}
-</pre>
-
-<pre>
-{{inboxCtrl.dataService.dataSet.geometries.lattenberg_border1 |json }}
-</pre>
-
-
----------------------------------------------------------------------------
-
 	
-		<div class="notivication">
-			<a href="javascript:toggleDiv('notifikation-long1');" >1 Sample Notifi...</a> <!-- ng-bind="inbox.delay_notification.subject" -->	
-		</div>
-		<div id="notifikation-long1" style="display:none;">
-			<div class="notifikation-long-title">
-				<a ng-bind="inbox.delay_notification.subject" >Sample Notifikation</a>
-			</div>
-			<div class="notifikation-long-title">
-				<a >Task:</a>
-				<a ng-bind="inbox.delay_notification.task" >Sample Task</a>
-			</div>
-			<div class="notifikation-long-title">
-				<a>Comment: <input type="text" ng-model="name"></a>
-			</div>
-			<div class="notifikation-long-title">
-				<table border="1" >
-				    <tr>
-				        <th style="width: 50%" colspan="1"><a>Approve</a></th>
-				        <th style="width: 50%;" colspan="1"><a>Deny</a></th>
-				    </tr>
-				</table> 
-			</div>
-		</div>
-		<div class="notivication">
-			<a href="javascript:toggleDiv('notifikation-long2');" >2 Sample Notifi...</a> <!-- ng-bind="inbox.delay_notification.subject" -->	
-		</div>
-		<div id="notifikation-long2" style="display:none;">
-			<div class="notifikation-long-title">
-				<a ng-bind="inbox.delay_notification.subject" >Sample Notifikation</a>
-			</div>
-			<div class="notifikation-long-title">
-				<a >Task:</a>
-				<a ng-bind="inbox.delay_notification.task" >Sample Task</a>
-			</div>
-			<div class="notifikation-long-title">
-				<a>Comment: <input type="text" ng-model="name"></a>
-			</div>
-			<div class="notifikation-long-title">
-				<table border="1" >
-				    <tr>
-				        <th style="width: 50%" colspan="1"><a>Approve</a></th>
-				        <th style="width: 50%;" colspan="1"><a>Deny</a></th>
-				    </tr>
-				</table> 
-			</div>
-		</div>
-	</div>
-</div> 
-
-<script language="JavaScript" type="text/javascript">
-		<!--
-		function toggleDiv(element){
-		 if(document.getElementById(element).style.display == 'none')
-		  document.getElementById(element).style.display = 'block';
-		 else
-		       document.getElementById(element).style.display = 'none';
-		}
-		//-->
-		</script>
+</div>
