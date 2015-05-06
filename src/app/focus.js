@@ -121,6 +121,7 @@
 				gettextCatalog.debug = true; // prepend MISSING if not translated
 				gettextCatalog.setCurrentLanguage('de-CH');
 				DataService.init();
+				console.log(window);
 			} ]);
 	
 	

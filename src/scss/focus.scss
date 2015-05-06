@@ -108,13 +108,87 @@ body
 	
 	aside#time-machine
 	{
+		@include outer-container;
+		
 		display: none; 
 		position: fixed;
 		bottom: $mobile-decoration-bottom-height;
 		width: 100vw;
-		background: $grey-dark;
+		background: $black;
+		color: $white;
 		z-index: 999;
 		padding: 0.8em;
+		opacity: 0.7;
+		
+		div.date
+		{
+			@include span-columns(3);
+			text-align: right;
+			font-size: 0.7em;
+			line-height: 1.7em;
+		}
+		
+		div.slider
+		{
+			@include span-columns(6);
+			
+		}
+		
+		div.controls
+		{
+				@include span-columns(3);
+				@include omega;
+				
+				i
+				{
+					margin-left: 0.75em;
+					cursor: pointer;
+				}
+				
+				i.inactive
+				{
+					color: $grey-dark;
+				}
+		}
+		
+		
+		
+
+input[type=range]{
+/* fix for FF unable to apply focus style bug  */
+border: 1px solid inherit; //was white 
+
+/*required for proper track sizing in FF*/
+width: 100%;
+}
+
+input[type=range]::-moz-range-track {
+width: 100%;
+height: 5px;
+background: #ddd;
+border: none;
+border-radius: 3px;
+}
+
+input[type=range]::-moz-range-thumb {
+border: none;
+height: 32px;
+width: 16px;
+border-radius: 50%;
+background: $color-slider-control;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+outline: 1px solid inherit; // was white
+outline-offset: -1px;
+}
+
+input[type=range]:focus::-moz-range-track {
+background: #ccc;
+}
+
+
 	}
 	
 	#sidr.focus-intro
@@ -285,3 +359,5 @@ body
 
 // and eventually import content-specific styles
 @import "focus-contents";
+
+

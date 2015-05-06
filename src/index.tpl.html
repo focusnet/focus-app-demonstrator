@@ -12,6 +12,9 @@
 		-->
 		<link href="contrib/leaflet/dist/leaflet.css" rel="stylesheet" />
 		<link href="css/focus.css" rel="stylesheet" />
+		
+		
+  
 	</head>
 	
 	<body ng-app="focusApp" ng-cloak>
@@ -21,7 +24,7 @@
 				<a ng-if="notifCtrl.enabled" href=""><i class="fa fa-tree"></i> FOCUS notification</a>
 			</div>
 			<div class="tools" ng-controller="DateDisplayController as dateCtrl">
-				<a href="#" ng-bind="dateCtrl.display_datetime" class="time-machine"></a>
+				<a href="#" ng-bind="dateCtrl.dataService.datetime.value | date:'dd.MM.yyyy HH:mm:ss'" class="time-machine"></a>
 				<i class="fa fa-wifi"></i>
 				<i class="fa fa-signal"></i>
 			</div>
@@ -95,10 +98,11 @@
 	
 	
 	<script type="text/javascript" src="contrib/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="contrib/sidr/jquery.sidr.min.js"></script>
+	 --><script type="text/javascript" src="contrib/sidr/jquery.sidr.min.js"></script>
 	<script type="text/javascript" src="contrib/leaflet/dist/leaflet.js"></script>
 	<script type="text/javascript" src="contrib/flot/jquery.flot.js"></script>
 	<script type="text/javascript" src="contrib/angular/angular.min.js"></script>
+	<script type="text/javascript" src="contrib/angular-ui-slider/src/slider.js"></script>
 	<script type="text/javascript" src="contrib/angular-gettext/dist/angular-gettext.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -127,6 +131,7 @@
 	<script type="text/javascript" src="app/vehicle-payload/vehicle-payload.js"></script>
 	<script type="text/javascript" src="app/focus.js"></script>
 	
+
 	
 	<!--  templates for avoiding CORS issues / but not likely to solve problems with leaflet tiles problems - to be checked
 	<script type="text/ng-template" id="app/terrain-overview/terrain-overview.tpl.html">
