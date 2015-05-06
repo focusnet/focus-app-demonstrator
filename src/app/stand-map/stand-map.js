@@ -42,13 +42,14 @@
 				var _self = this;
 
 				_self.dataService = DataService;
-console.log("YAY");
-console.log(_self.dataService.data);
+
+				var machine3lat = _self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'];
+				var machine3lng = _self.dataService.dataSet.timedependent['<TIME:machine[3].long>'];
 
 				leafletData.getMap('StandMapMap').then(function(map) {
 					// anything here
-					console.log(map);
-      //    L.GeoIP.centerMapOnPosition(map, 15);
+					// console.log(map);
+      				// L.GeoIP.centerMapOnPosition(map, 15);
 				});
 
 				// an example of leaflet
@@ -72,38 +73,39 @@ console.log(_self.dataService.data);
 					},
 					markers : {
 						forwarder1: {
-							color: '#2980b9',
+							markerColor: '#2980b9',
 						 	lat: parseFloat(_self.dataService.data.machine[3].lat),
 							lng: parseFloat(_self.dataService.data.machine[3].long),
 						    message: "forwarder 3 <a ng-href='#/machine/123'>details</a>",
 						},
 						forwarder2: {
-							color: '#2980b9',
+							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[2].lat),
 							lng: parseFloat(_self.dataService.data.machine[2].long),
 							message: "forloader 2",
 						},
 						forwarder3: {
-							color: '#2980b9',
+							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[1].lat),
 							lng: parseFloat(_self.dataService.data.machine[1].long),
 							message: "forloader 3", 
 						},
 						forwarder4: {
-							color: '#2980b9',
+							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[0].lat),
 							lng: parseFloat(_self.dataService.data.machine[0].long),
 							message: "forloader 4",
 						},
 						loadingpoint1: {
-							color: '#27ae60',
+							markerColor: '#27ae60',
 							lat: 51.39592091832327, 
 							lng:  8.26235430890226,
 						},
 						loadingpoint2: {
-							color: '#27ae60',
+							markerColor: '#27ae60',
 							lat: 51.397260998822276, 
 							lng:  8.264099021820796,
+							massage: "test"
 						},
 					},
 					paths: {
@@ -123,7 +125,7 @@ console.log(_self.dataService.data);
                             	{lat: 51.397348752820228, lng: 8.265549152820293},
                             ]
                         },
-                        p2: {
+                        alley2: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -133,7 +135,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.396918693585903, lng: 8.265354795400839},
 	                        ],
                     	},
-                    	p3: {
+                    	alley3: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -143,7 +145,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.396567282825714, lng: 8.265240164227016},
 	                        ],
                     	},
-                    	p4: {
+                    	alley4: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -153,7 +155,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.39621141292092, lng: 8.265124080273072},
 	                        ],
                     	},
-                    	p5: {
+                    	alley5: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -163,7 +165,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.395878772214637, lng: 8.263308437667238},
 	                        ],
                     	},
-                    	p6: {
+                    	alley6: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -173,7 +175,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.395875927573499, lng: 8.263774193359355},
 	                        ],
                     	},
-                    	p7: {
+                    	alley7: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -183,7 +185,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.394321070655096, lng: 8.264223470223888},
 	                        ],
                     	},
-                    	p8: {
+                    	alley8: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -193,7 +195,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.395871438456098, lng: 8.264508584795133},
 	                        ],
                     	},
-                    	p9: {
+                    	alley9: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -205,7 +207,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.397364941093876, lng: 8.265500365140475},
 	                        ],
                     	},
-                    	p10: {
+                    	alley10: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -218,7 +220,7 @@ console.log(_self.dataService.data);
 	                            {lat: 51.395884859272904, lng: 8.265036474587264},
 	                        ],
                     	},
-                    	p11: {
+                    	alley11: {
 	                        color: 'red',
 	                        weight: 4,
 	                        latlngs: [
@@ -233,12 +235,35 @@ console.log(_self.dataService.data);
 	                            {lat: 51.397364941093876, lng: 8.265500365140475},
 	                        ],
                     	},
+                    	forwarder3Path: {
+                    		color: '#3498db',
+	                        weight: 4,
+	                        latlngs: [
+	                            {lat: 51.39591285, lng: 8.262373445},
+	                            {lat: 51.39591285, lng: 8.262373445},
+	                        ],
+                    	},
                     },
-
-
 				});
 				// END OF FIXME DEBUG
 
-			} ]);
+				var _setMachinePath = function(){
+					// console.log("YAY");
+					// console.log(machine3lat[0]);
+					// console.log(machine3lng[0]);
+					// console.log(_self.dataService);
+					// console.log(_self.paths.forwarder3Path.latlngs[0]);
+					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) { //_self.dataService.currentTimeIncrement
+						_self.paths.forwarder3Path.latlngs[i] = {
+	                    	lat: 53,
+	                    	lng: -0.1
+	                	};
+					console.log("YAY");
+					};
+					
+				}
+				_setMachinePath();
 
+			}]);
+			
 }());
