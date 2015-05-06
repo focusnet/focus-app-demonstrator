@@ -46,14 +46,24 @@
 				_self.testvar = parseFloat(DataService.data.machine[3].lat);
 				
 				_self.dataService = DataService;
-console.log("YAY");
-console.log(_self.dataService.data);
+
+
+				var redMarker;
 
 				leafletData.getMap('TerrainOverviewMap').then(function(map) {
 					// anything here
 					// console.log(map);
       				// L.GeoIP.centerMapOnPosition(map, 15);
+      				
+      				console.log("L");
+      				console.log(L);
+      	// 			redMarker = L.AwesomeMarkers.icon({
+					  //   icon: 'coffee',
+					  //   markerColor: 'red'
+				  	// });
 				});
+
+
 				
 				
 
@@ -78,7 +88,7 @@ console.log(_self.dataService.data);
 					},
 					markers : {
 						forwarder0: {
-							markerColor: '#2980b9',
+							icon: redMarker,
 						 	lat: parseFloat(_self.dataService.data.machine[0].long),
 							lng: parseFloat(_self.dataService.data.machine[0].lat),
 						    message: "forwarder 0",
