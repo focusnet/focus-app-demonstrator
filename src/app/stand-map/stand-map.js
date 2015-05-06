@@ -72,40 +72,75 @@
 					},
 					markers : {
 						forwarder0: {
-							markerColor: '#2980b9',
 						 	lat: parseFloat(_self.dataService.data.machine[0].long),
 							lng: parseFloat(_self.dataService.data.machine[0].lat),
-						    message: "forwarder 0",
+						    message: "<strong>Ponsse ScorpionKing</strong> <br> Harvester",
+						    focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-truck',
+							    markerColor: 'blue'
+							},
 						},
 						forwarder1: {
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[1].long),
 							lng: parseFloat(_self.dataService.data.machine[1].lat),
-							message: "forloader 1",
+							message: "<strong>HSM 405 H2</strong> <br> Harvester",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-truck',
+							    markerColor: 'blue'
+							},
 						},
 						forwarder2: {
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[2].long),
 							lng: parseFloat(_self.dataService.data.machine[2].lat),
-							message: "forloader 2", 
+							message: "<strong>Ponsse Buffalo</strong> <br> Forwarder",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-check-circle-o',
+							    markerColor: 'red'
+							}, 
 						},
 						forwarder3: {
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[3].lat),
 							lng: parseFloat(_self.dataService.data.machine[3].long),
-							message: "forloader 3 <a ng-href='#/machine/123'>details</a>",
+							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/123'>details</a>",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-check-circle-o',
+							    markerColor: 'red'
+							},
 						},
 						loadingpoint1: {
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
-							message: "woodpile 0 <a ng-href='#/woodpile/0'>details</a>",
+							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>details</a>",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-tree',
+							    markerColor: 'green'
+							},
 						},
 						loadingpoint2: {
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
-							message: "woodpile 1 <a ng-href='#/woodpile/1'>details</a>",
+							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>details</a>",
+							focus: false,
+							icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-tree',
+							    markerColor: 'green'
+							},
 						},
 					},
 					paths: {
@@ -247,7 +282,7 @@
 				});
 				// END OF FIXME DEBUG
 
-				console.log(_self.dataService);
+				// console.log(_self.dataService);
 
 				var _setMachinePath = function(){
 					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) {
