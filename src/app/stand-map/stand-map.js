@@ -98,14 +98,13 @@
 						},
 						loadingpoint1: {
 							markerColor: '#27ae60',
-							lat: 51.39592091832327, 
-							lng:  8.26235430890226,
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
 						},
 						loadingpoint2: {
 							markerColor: '#27ae60',
-							lat: 51.397260998822276, 
-							lng:  8.264099021820796,
-							massage: "test"
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
 						},
 					},
 					paths: {
@@ -247,18 +246,13 @@
 				});
 				// END OF FIXME DEBUG
 
+				console.log(_self.dataService);
+
 				var _setMachinePath = function(){
-					// console.log("YAY");
-					// console.log(machine3lat[0]);
-					// console.log(machine3lng[0]);
-					// console.log(_self.dataService);
-					// console.log(_self.paths.forwarder3Path.latlngs[0]);
-					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) { //_self.dataService.currentTimeIncrement
-						_self.paths.forwarder3Path.latlngs[i] = {
-	                    	lat: 53,
-	                    	lng: -0.1
-	                	};
-					console.log("YAY");
+					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) {
+						var lat = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'][i]);
+						var lng = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].long>'][i]);
+						_self.paths.forwarder3Path.latlngs.push({lat: lat, lng: lng});
 					};
 					
 				}

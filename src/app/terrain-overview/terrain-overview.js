@@ -77,56 +77,40 @@ console.log(_self.dataService.data);
 						doubleClickZoom: false,
 					},
 					markers : {
-//<<<<<<< HEAD
-//						forloader1: {
-//							lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
-//							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
-//					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
-//							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
-//						   
-//						    message: "forloader 1",
-//=======
 						forwarder1: {
-							// lat:  parseFloat("51.395822"), 
-							// lng:  parseFloat("8.265015"),
-						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
-							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
+							markerColor: '#2980b9',
+						 	lat: parseFloat(_self.dataService.data.machine[3].lat),
+							lng: parseFloat(_self.dataService.data.machine[3].long),
 						    message: "forwarder 3 <a ng-href='#/machine/123'>details</a>",
-						 //    icon: {
-							//     iconUrl: '../content/fourloader.png',
-							//     iconRetinaUrl: '../content/fourloader.org.png',
-							//     iconSize: [26, 26],
-							//     iconAnchor: [13, 13],
-							//     // popupAnchor: [-3, -76],
-							//     // shadowUrl: 'my-icon-shadow.png',
-							//     // shadowRetinaUrl: 'my-icon-shadow@2x.png',
-							//     // shadowSize: [68, 95],
-							//     // shadowAnchor: [22, 94]
-							// },
 						},
-						// forwarder2: {
-						// 	lat:  51.395822, 
-						// 	lng:  8.265015,
-						// 	message: "forloader 2",
-						// },
-						// forwarder3: {
-						// 	lat: 51.396810, 
-						// 	lng:  8.264705,
-						// 	message: "forloader 3", 
-						// },
-						// forwarder4: {
-						// 	lat: 51.395876, 
-						// 	lng:  8.264026,
-						// 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
-						// },
-						// loadingpoint1: {
-						// 	lat: 51.39592091832327, 
-						// 	lng:  8.26235430890226,
-						// },
-						// loadingpoint2: {
-						// 	lat: 51.397260998822276, 
-						// 	lng:  8.264099021820796,
-						// },
+						forwarder2: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[2].lat),
+							lng: parseFloat(_self.dataService.data.machine[2].long),
+							message: "forloader 2",
+						},
+						forwarder3: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[1].lat),
+							lng: parseFloat(_self.dataService.data.machine[1].long),
+							message: "forloader 3", 
+						},
+						forwarder4: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[0].lat),
+							lng: parseFloat(_self.dataService.data.machine[0].long),
+							message: "forloader 4",
+						},
+						loadingpoint1: {
+							markerColor: '#27ae60',
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
+						},
+						loadingpoint2: {
+							markerColor: '#27ae60',
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
+						},
 					},
 					paths: {
                         border1: {
