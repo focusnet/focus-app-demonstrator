@@ -50,8 +50,8 @@ console.log(_self.dataService.data);
 
 				leafletData.getMap('TerrainOverviewMap').then(function(map) {
 					// anything here
-					console.log(map);
-      //    L.GeoIP.centerMapOnPosition(map, 15);
+					// console.log(map);
+      				// L.GeoIP.centerMapOnPosition(map, 15);
 				});
 
 				// an example of leaflet
