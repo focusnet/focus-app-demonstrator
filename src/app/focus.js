@@ -119,9 +119,8 @@
 			 */
 			.run([ 'gettextCatalog', 'DataService', function(gettextCatalog, DataService) {
 				gettextCatalog.debug = true; // prepend MISSING if not translated
-				gettextCatalog.setCurrentLanguage('de-CH');
+				gettextCatalog.setCurrentLanguage('en-UK');
 				DataService.init();
-				console.log(window);
 			} ]);
 	
 	

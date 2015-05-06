@@ -71,7 +71,6 @@ console.log(_self.dataService.data);
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-						scrollWheelZoom: false,
 						dragging: false,
 						touchZoom: false,
 						doubleClickZoom: false,
@@ -104,29 +103,29 @@ console.log(_self.dataService.data);
 							//     // shadowAnchor: [22, 94]
 							// },
 						},
-						// forwarder2: {
-						// 	lat:  51.395822, 
-						// 	lng:  8.265015,
-						// 	message: "forloader 2",
-						// },
-						// forwarder3: {
-						// 	lat: 51.396810, 
-						// 	lng:  8.264705,
-						// 	message: "forloader 3", 
-						// },
-						// forwarder4: {
-						// 	lat: 51.395876, 
-						// 	lng:  8.264026,
-						// 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
-						// },
-						// loadingpoint1: {
-						// 	lat: 51.39592091832327, 
-						// 	lng:  8.26235430890226,
-						// },
-						// loadingpoint2: {
-						// 	lat: 51.397260998822276, 
-						// 	lng:  8.264099021820796,
-						// },
+						 forwarder2: {
+						 	lat:  51.395822, 
+						 	lng:  8.265015,
+						 	message: "forloader 2",
+						 },
+						 forwarder3: {
+						 	lat: 51.396810, 
+						 	lng:  8.264705,
+						 	message: "forloader 3", 
+						 },
+						 forwarder4: {
+						 	lat: 51.395876, 
+						 	lng:  8.264026,
+						 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
+						 },
+						 loadingpoint1: {
+						 	lat: 51.39592091832327, 
+						 	lng:  8.26235430890226,
+						 },
+						 loadingpoint2: {
+						 	lat: 51.397260998822276, 
+						 	lng:  8.264099021820796,
+						 },
 					},
 					paths: {
                         border1: {

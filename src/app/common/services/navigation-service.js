@@ -14,6 +14,12 @@
 	function NavigationService() {
 
 		var _self = this;
+		
+		/**
+		 * The title of the current page
+		 */
+		_self.currentTitle = 'FOCUS demonstrator';
+		
 
 	}
 

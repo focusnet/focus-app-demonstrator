@@ -133,8 +133,13 @@
 		/**
 		 * Adjust the time increment to some value
 		 */
-		_self.setTimeIncrement = function(increment) {
+		_self.setTimeIncrement = function(increment) {			
 			increment %= _self.maxTimeIncrement + 1;
+			
+			if (increment == 0) {
+					_self.startDateTime = new Date();
+			}
+
 
 			// create a copy of original time-independent data set
 			var new_data = angular.copy(_self.dataSet.timeindependent);

@@ -24,19 +24,20 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.notificationsInbox', [ 'focusApp.dataService' ])
+	angular.module('focusApp.notificationsInbox', [ 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('NotificationsInboxController',
-			[ 'DataService', function(DataService) {
+			[ 'DataService', 'NavigationService', function(DataService, NavigationService) {
 
 				var _self = this;
 
+				// set the  page title
+				NavigationService.currentTitle = 'Notifications inbox';
+				
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.dataService = DataService;
-				// _self.dataService.dataSet // whole data arrays 
-				// _self.dataService.data  // current increment data
+				_self.data = DataService.data;
 				
 
 			} ]);
