@@ -117,10 +117,13 @@
 			/**
 			 * Run
 			 */
-			.run([ 'gettextCatalog', 'DataService', function(gettextCatalog, DataService) {
+			.run([ 'gettextCatalog', 'DataService', 'InboxService', function(gettextCatalog, DataService, InboxService) {
 				gettextCatalog.debug = true; // prepend MISSING if not translated
 				gettextCatalog.setCurrentLanguage('en-UK');
-				DataService.init();
+				DataService.init().then(function() {
+					console.log('x');
+					InboxService.init();
+				});
 			} ]);
 	
 	

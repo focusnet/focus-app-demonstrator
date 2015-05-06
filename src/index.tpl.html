@@ -21,13 +21,15 @@
 	<body ng-app="focusApp" ng-cloak>
 		
 		<div id="mobile-bar-top">
-			<div class="notifications" ng-controller="NotificationsController as notifCtrl">
-				<a ng-if="notifCtrl.enabled" href=""><i class="fa fa-tree"></i> FOCUS notification</a>
+	 		<div class="notifications" ng-controller="NotificationsController as notifCtrl">
+				<a ng-show="notifCtrl.inboxSvc.number_of_unread_messages" ng-href="#/inbox"><i class="fa fa-tree"></i> FOCUS notification</a>
+				&nbsp;
 			</div>
 			<div class="tools" ng-controller="DateDisplayController as dateCtrl">
-				<a href="#" ng-bind="dateCtrl.dataService.datetime.value | date:'dd.MM.yyyy HH:mm:ss'" class="time-machine"></a>
+				<a href="#" ng-bind="dateCtrl.dataService.datetime | date:'dd.MM.yyyy HH:mm:ss'" class="time-machine"></a>
 				<i class="fa fa-wifi"></i>
 				<i class="fa fa-signal"></i>
+				<i class="fa fa-bolt"></i>
 			</div>
 		</div>
 

@@ -29,6 +29,11 @@
 		 * Ref to navigation service
 		 */
 		_self.navSvc = NavigationService;
+		
+		/**
+		 * Ref to Inbox service
+		 */
+		_self.inboxSvc = InboxService;
 
 		/**
 		 * function to initialize the controller

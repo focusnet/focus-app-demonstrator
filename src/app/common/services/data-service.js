@@ -11,7 +11,7 @@
 	/**
 	 * Data provider singleton definition
 	 */
-	function DataService($http) {
+	function DataService($q, $http) {
 
 		var _self = this;
 		/**
@@ -62,7 +62,7 @@
 		_self.init = function() {
 				
 			// load geometries
-			$http.get('scenarios/ligna-001-geometries.json').success(
+			var geometries = $http.get('scenarios/ligna-001-geometries.json').success(
 					function(data) {
 						var geom = {
 							borders : [],
@@ -115,7 +115,7 @@
 						angular.copy(geom, _self.dataSet.geometries);
 					});
 			// load raw data
-			$http
+			var raw_data = $http
 					.get('scenarios/ligna-001.json')
 					.success(
 							function(data) {
@@ -128,6 +128,9 @@
 								// set the initial increment
 								_self.setTimeIncrement(0);
 							});
+			
+			var promises = [geometries, raw_data];
+			return $q.all(promises);
 		};
 
 		/**
@@ -157,7 +160,7 @@
 			console.log(_self.dataSet);
 
 			_self.currentTimeIncrement = increment;
-			_self.datetime.value = _self.getFutureDate(increment); 
+			_self.datetime = _self.getFutureDate(increment); 
 		};
 
 		/**
@@ -188,6 +191,6 @@
 	/**
 	 * Service instantiation
 	 */
-	.service('DataService', [ '$http', DataService ])
+	.service('DataService', [ '$q', '$http', DataService ])
 
 }());

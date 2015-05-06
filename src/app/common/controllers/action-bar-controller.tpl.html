@@ -5,7 +5,8 @@
 	</div>
 	<div class="right-part">
 		<span ng-controller="NotificationsController as nCtrl" >
-				<a ng-class="{active: nCtrl.enabled}" ng-href=""><i class="fa fa-envelope-o"></i><span ng-if="nCtrl.enabled" class="number-of-messages">1</span></a>
+				<a class="envelop" ng-class="{active: nCtrl.inboxSvc.number_of_unread_messages}" ng-href="#/inbox"><i class="fa fa-envelope-o"></i><span 
+						class="number-of-messages" ng-bind="barCtrl.inboxSvc.number_of_unread_messages"></span></a>
 		</span>
 	</div>
 </div>
