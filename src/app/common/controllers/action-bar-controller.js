@@ -24,6 +24,11 @@
 		 * Reference to the current data sample being rendered
 		 */
 		_self.data = DataService.data;
+		
+		/**
+		 * Ref to navigation service
+		 */
+		_self.navSvc = NavigationService;
 
 		/**
 		 * function to initialize the controller

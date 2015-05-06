@@ -1,4 +1,21 @@
-<div class="with-padding notificationsInbox" ng-controller="NotificationsInboxController as inboxCtrl">
+<div class="with-padding notifications-inbox" ng-controller="NotificationsInboxController as inboxCtrl">
+
+<ul>
+
+	<li ng-repeat="msg in inboxCtrl.data.inbox.delay_notification" ng-class="{unread: msg.unread}">
+		On <span class="date" ng-bind="msg.reception_datetime"></span> from <span class="from">User X</span><br/>
+		<span class="subject" ng-bind="msg.subject"></span>
+	</li>
+	<li>
+		On <span class="date"></span> from <span class="from">User X</span><br/>
+		<span class="subject"></span>
+	</li>
+	
+</ul>
+
+
+<br/><br/><br/>
+
 <!--  You must set a widget-container around the flot -->
 	<div class="widget-container">
 	

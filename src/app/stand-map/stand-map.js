@@ -66,7 +66,6 @@
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-						scrollWheelZoom: false,
 						dragging: false,
 						touchZoom: false,
 						doubleClickZoom: false,

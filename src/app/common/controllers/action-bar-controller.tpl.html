@@ -1,7 +1,7 @@
 <div ng-controller="ActionBarController as barCtrl">
 	<div class="left-part">
 		<a id="simple-menu" href="#sidr"><i class="fa fa-bars"></i></a>
-		<h1>My title</h1>
+		<h1 ng-bind="barCtrl.navSvc.currentTitle"></h1>
 	</div>
 	<div class="right-part">
 		<span ng-controller="NotificationsController as nCtrl" >
