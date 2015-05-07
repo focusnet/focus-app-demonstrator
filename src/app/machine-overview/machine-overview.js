@@ -45,10 +45,10 @@
 				 * Reference to the current data sample being rendered
 				 */
 				_self.data = DataService.data.machine[_self.currentMachineId];
-				
-				console.log('aaaaaaa');
-				console.log(_self.data);
-
+	
+				/**
+				 * Set the title of the page
+				 */
 				NavigationService.currentTitle = _self.data.name + ' - ' + (_self.data.type == 'H' ? 'Harverster' : (_self.data.type == 'F' ? 'Forwarder' : 'unknown'));
 
 			} ]);

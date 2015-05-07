@@ -504,7 +504,8 @@ article
 		}
 	}
 	
-	div.machine-overview
+	div.machine-overview,
+	div.order-status
 	{
 		div.machine-status
 		{
@@ -581,6 +582,19 @@ article
 				}
 			}
 		
+		}
+	}
+	
+	div.order-status
+	{
+		div.machine-status
+		{
+			height: $mobile-payload-height * 0.5;
+		}
+		
+		div.data
+		{
+			height: $mobile-payload-height * 0.5;
 		}
 	}
 }

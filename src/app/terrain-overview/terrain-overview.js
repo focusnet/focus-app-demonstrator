@@ -40,20 +40,27 @@
 			[ 'leaflet-directive', 'focusApp.dataService' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'leafletData', "leafletEvents", "DataService", function($scope, leafletData, leafletEvents, DataService) {
+			[ '$scope', 'leafletData', "DataService", function($scope, leafletData, DataService) {
 
 				var _self = this;
 				_self.testvar = parseFloat(DataService.data.machine[3].lat);
 				
 				_self.dataService = DataService;
-console.log("YAY");
-console.log(_self.dataService.data);
+
+
+				var redMarker;
 
 				leafletData.getMap('TerrainOverviewMap').then(function(map) {
 					// anything here
-					console.log(map);
-      //    L.GeoIP.centerMapOnPosition(map, 15);
+					// console.log(map);
+      				// L.GeoIP.centerMapOnPosition(map, 15);
+      				
+      				// console.log("L");
+      				// console.log(L);
+      				L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 				});
+
+
 				
 				
 
@@ -71,62 +78,83 @@ console.log(_self.dataService.data);
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
+						scrollWheelZoom: false,
 						dragging: false,
 						touchZoom: false,
 						doubleClickZoom: false,
 					},
 					markers : {
-//<<<<<<< HEAD
-//						forloader1: {
-//							lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
-//							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
-//					    //lat: _self.dataService.data.machine[3].lat, //data.machine[3].lat
-//							//lng: _self.dataService.data.machine[3].long, //data.machine[3].lng
-//						   
-//						    message: "forloader 1",
-//=======
-						forwarder1: {
-							// lat:  parseFloat("51.395822"), 
-							// lng:  parseFloat("8.265015"),
-						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
-							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
-						    message: "<strong class='whatever'>forwarder 3</strong>" +
-						    	"<p>Harverster</p><a ng-href='#/machine/123'>details</a>",
-						 //    icon: {
-							//     iconUrl: '../content/fourloader.png',
-							//     iconRetinaUrl: '../content/fourloader.org.png',
-							//     iconSize: [26, 26],
-							//     iconAnchor: [13, 13],
-							//     // popupAnchor: [-3, -76],
-							//     // shadowUrl: 'my-icon-shadow.png',
-							//     // shadowRetinaUrl: 'my-icon-shadow@2x.png',
-							//     // shadowSize: [68, 95],
-							//     // shadowAnchor: [22, 94]
-							// },
+						forwarder0: {
+						 	lat: parseFloat(_self.dataService.data.machine[0].long),
+							lng: parseFloat(_self.dataService.data.machine[0].lat),
+						    message: "<strong>Ponsse ScorpionKing</strong> <br> Harvester",
+						    focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-truck',
+							    markerColor: 'blue'
+							},
 						},
-						 forwarder2: {
-						 	lat:  51.395822, 
-						 	lng:  8.265015,
-						 	message: "forloader 2",
-						 },
-						 forwarder3: {
-						 	lat: 51.396810, 
-						 	lng:  8.264705,
-						 	message: "forloader 3", 
-						 },
-						 forwarder4: {
-						 	lat: 51.395876, 
-						 	lng:  8.264026,
-						 	message: "forloader 4 <a ng-href='#/machine/123'>details</a>",
-						 },
-						 loadingpoint1: {
-						 	lat: 51.39592091832327, 
-						 	lng:  8.26235430890226,
-						 },
-						 loadingpoint2: {
-						 	lat: 51.397260998822276, 
-						 	lng:  8.264099021820796,
-						 },
+						forwarder1: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[1].long),
+							lng: parseFloat(_self.dataService.data.machine[1].lat),
+							message: "<strong>HSM 405 H2</strong> <br> Harvester",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-truck',
+							    markerColor: 'blue'
+							},
+						},
+						forwarder2: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[2].long),
+							lng: parseFloat(_self.dataService.data.machine[2].lat),
+							message: "<strong>Ponsse Buffalo</strong> <br> Forwarder",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-check-circle-o',
+							    markerColor: 'red'
+							}, 
+						},
+						forwarder3: {
+							markerColor: '#2980b9',
+							lat: parseFloat(_self.dataService.data.machine[3].lat),
+							lng: parseFloat(_self.dataService.data.machine[3].long),
+							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/123'>details</a>",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-check-circle-o',
+							    markerColor: 'red'
+							},
+						},
+						loadingpoint1: {
+							markerColor: '#27ae60',
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
+							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>details</a>",
+							focus: false,
+						    icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-tree',
+							    markerColor: 'green'
+							},
+						},
+						loadingpoint2: {
+							markerColor: '#27ae60',
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
+							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>details</a>",
+							focus: false,
+							icon: {
+							    type: 'awesomeMarker',
+							    icon: 'fa-tree',
+							    markerColor: 'green'
+							},
+						},
 					},
 					paths: {
                         border1: {
@@ -168,31 +196,10 @@ console.log(_self.dataService.data);
                             ]
                         },
                     },
-					events : {
-						markers: {
-						    enable: leafletEvents.getAvailableMarkerEvents(),
-						}
-					}
 
 
 				});
-				var markerEvents = leafletEvents.getAvailableMarkerEvents();
-				for (var k in markerEvents){
-				    var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
-				    $scope.$on(eventName, function(event, args){
-				        if (event.name == 'leafletDirectiveMarker.click'){
-				        	// console.log(event.targetScope.markers);
-				        	// console.log(event.targetScope.$$nextSibling.$id);
-				        	// console.log(event);
-				        	// location.href="#/machine/123"
-				        	// console.log(event.latlng);
 
-                // console.log(lattenberg);
-				        }
-				    });
-				}
-
-				
 				_self.test = function() {
 					// self.dataService.data.machine[3].lat
 					console.log('test');
@@ -207,6 +214,8 @@ console.log(_self.dataService.data);
 					
 				}
 				// END OF FIXME DEBUG
+				_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); //51.395877;
+				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].long);// 8.266884;
 
 			} ]);
 
