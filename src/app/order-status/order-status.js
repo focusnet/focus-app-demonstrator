@@ -50,8 +50,8 @@
 				/**
 				 * Set the title of the page
 				 */
-				NavigationService.currentTitle = _self.data.name + ' - ' + (_self.data.type == 'H' ? 'Harverster' : (_self.data.type == 'F' ? 'Forwarder' : 'unknown'));
-
+				NavigationService.currentTitle = 'Order status' + ' - ' + _self.data.name;
+				
 			} ]);
 
 }());
