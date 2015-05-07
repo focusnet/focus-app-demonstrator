@@ -9,7 +9,7 @@
  * 
  * Input variables:
  * 		woodpile[wid].lat
- *		woodpile[wid].long
+ *		woodpile[wid].lng
  *		woodpile[wid].image
  *		woodpile[wid].id_polter
  *		woodpile[wid].id_harvester

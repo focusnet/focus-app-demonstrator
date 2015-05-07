@@ -1,12 +1,8 @@
 <div class="fuel-consumption" ng-controller="FuelConsumptionController as fcCtrl">
 
-        <!-- <canvas-gauge width="100%" under-color="#EFEFEF" over-color="#FFD700" value="10" style="color: green"></canvas-gauge> -->
+        <canvas-gauge width="160px"  under-color="#EFEFEF" over-color="#FFD700" value="male" style="color: green"></canvas-gauge>
 
      <c3chart bindto-id="chart" chart-data="fcCtrl.datapoints" chart-columns="fcCtrl.datacolumns" chart-x="fcCtrl.datax">
         <chart-legend show-legend="false" />
-    </c3chart>
-    <c3chart bindto-id="gauge-plot1-chart">
-        <chart-column column-id="Data 1" column-values="70" column-type="gauge" />
-        <chart-gauge min="50" max="75" units=" hours" width="39" />
     </c3chart>
 </div>

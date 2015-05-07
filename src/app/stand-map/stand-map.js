@@ -15,16 +15,16 @@
  * Input variables:
  * 		stand geometry
  * 		stand[sid].center.lat
- * 		stand[sid].center.long
+ * 		stand[sid].center.lng
  * 		stand[sid].zoomfactor = int
  * 		stand[sid].pictures[]
  * 		machine[].name
  * 		machine[].type = F | H
  * 		machine[].lat
- * 		machine[].long 
+ * 		machine[].lng 
  * 		machine[].status = WORKING | NOT_WORKING
  * 		woodpile[].lat
- * 		woodpile[].long
+ * 		woodpile[].lng
  *
  * @@source_header
  * 
@@ -44,7 +44,7 @@
 				_self.dataService = DataService;
 
 				var machine3lat = _self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'];
-				var machine3lng = _self.dataService.dataSet.timedependent['<TIME:machine[3].long>'];
+				var machine3lng = _self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'];
 
 				leafletData.getMap('StandMapMap').then(function(map) {
 					// anything here
@@ -72,7 +72,7 @@
 					},
 					markers : {
 						forwarder0: {
-						 	lat: parseFloat(_self.dataService.data.machine[0].long),
+						 	lat: parseFloat(_self.dataService.data.machine[0].lng),
 							lng: parseFloat(_self.dataService.data.machine[0].lat),
 						    message: "<strong>Ponsse ScorpionKing</strong> <br> Harvester",
 						    focus: false,
@@ -84,7 +84,7 @@
 						},
 						forwarder1: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[1].long),
+							lat: parseFloat(_self.dataService.data.machine[1].lng),
 							lng: parseFloat(_self.dataService.data.machine[1].lat),
 							message: "<strong>HSM 405 H2</strong> <br> Harvester",
 							focus: false,
@@ -96,7 +96,7 @@
 						},
 						forwarder2: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[2].long),
+							lat: parseFloat(_self.dataService.data.machine[2].lng),
 							lng: parseFloat(_self.dataService.data.machine[2].lat),
 							message: "<strong>Ponsse Buffalo</strong> <br> Forwarder",
 							focus: false,
@@ -109,7 +109,7 @@
 						forwarder3: {
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[3].lat),
-							lng: parseFloat(_self.dataService.data.machine[3].long),
+							lng: parseFloat(_self.dataService.data.machine[3].lng),
 							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/123'>details</a>",
 							focus: false,
 						    icon: {
@@ -120,7 +120,7 @@
 						},
 						loadingpoint1: {
 							markerColor: '#27ae60',
-							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].long), 
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lng), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
 							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>details</a>",
 							focus: false,
@@ -132,7 +132,7 @@
 						},
 						loadingpoint2: {
 							markerColor: '#27ae60',
-							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].long), 
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lng), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
 							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>details</a>",
 							focus: false,
@@ -287,7 +287,7 @@
 				var _setMachinePath = function(){
 					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) {
 						var lat = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'][i]);
-						var lng = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].long>'][i]);
+						var lng = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'][i]);
 						_self.paths.forwarder3Path.latlngs.push({lat: lat, lng: lng});
 					};
 					
@@ -296,12 +296,12 @@
 
 				// _self.markers.forwarder1.latlngs = {
 				// 	lat: parseFloat(_self.dataService.data.machine[0].lat), 
-				// 	lng: parseFloat(_self.dataService.data.machine[0].long)
+				// 	lng: parseFloat(_self.dataService.data.machine[0].lng)
 				// };
 				// console.log("change");
 				// console.log(_self.markers.forwarder1);
 				_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); //51.395877;
-				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].long);// 8.266884;
+				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);// 8.266884;
 
 				// console.log("change");
 				// console.log(_self.markers.forwarder1);
