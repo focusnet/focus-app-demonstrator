@@ -116,7 +116,7 @@
 					});
 			// load raw data
 			var raw_data = $http
-					.get('scenarios/ligna-001.json')
+					.get('scenarios/ligna-001-data.json')
 					.success(
 							function(data) {
 

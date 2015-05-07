@@ -768,5 +768,59 @@ article
 			}
 		}
 	}
+	
+	.woodpile-information
+	{
+		ul
+		{			
+			li
+			{
+				line-height: 1.3em;
+				margin-bottom: 0.25em;
+				
+				span.label
+				{
+					font-weight: bold;
+					display: inline-block;
+					margin-right: 1em;
+				}
+			}
+		}
+		
+		div.image
+		{
+			text-align: center;
+			height: $mobile-payload-height * 0.5;
+			
+			img
+			{
+				height: 100%;
+				width: auto;
+			}
+		}
+		
+		div.row
+		{
+			@include outer-container;
+			
+			height: $mobile-payload-height * 0.5;
+			padding-top: 1em;
+			
+			div.col-1
+			{
+				@include shift(2);
+				@include span-columns(4);
+			}
+			
+			div.col-2
+			{
+				@include shift(1);
+				@include span-columns(5);
+				@include omega;
+			}
+		}
+		
+		
+	}
 }
 

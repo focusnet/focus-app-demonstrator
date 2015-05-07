@@ -1,1 +1,27 @@
-woodpile information
+<div class="with-padding woodpile-information" ng-controller="WoodpileInformationController as wpCtrl">
+
+	<div class="image">
+		<img ng-src="{{wpCtrl.data.image}}" alt="Woodpile" />
+	</div>
+
+	<div class="row">
+		<div class="col-1">
+			<h2>General information</h2>
+			<ul>
+				<li><span class="label">Felling number:</span> <span ng-bind="wpCtrl.data.filling_number"></span></li>
+				<li><span class="label">Timber pile number:</span> <span ng-bind="wpCtrl.data.timber_pile_number"></span></li>
+				<li><span class="label">Quantity timber pile:</span> <span ng-bind="wpCtrl.data.timber_pile_quantity"></span> n</li>
+				<li><span class="label">GPS coordinates:</span> <span ng-bind="wpCtrl.data.lat"></span>, <span ng-bind="wpCtrl.data.lng"></span></li>
+			</ul>
+		</div>
+		<div class="col-2">
+			<h2>Additional information</h2>
+			<ul>
+				<li><span class="label">Quantity harvester protocol:</span> <span ng-bind="wpCtrl.data.harvester_quantity"></span> n</li>
+				<li><span class="label">Tree species:</span> <span ng-repeat="s in wpCtrl.data.tree_specie" ng-bind="s"></span></li>
+				<li><span class="label">Length:</span> <span ng-bind="wpCtrl.data.length"></span> m</li>
+				<li><span class="label">Estimated volume:</span> <span ng-bind="wpCtrl.data.estimated_volume"></span> m3</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -51,7 +51,6 @@
 				 * Set the title of the page
 				 */
 				NavigationService.currentTitle = 'Order status' + ' - ' + _self.data.name;
-				
 			} ]);
 
 }());

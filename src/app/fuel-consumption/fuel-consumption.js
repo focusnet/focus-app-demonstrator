@@ -27,25 +27,22 @@
          */
         _self.data = DataService.data;
 
-        _self.datapoints = [{
-            "time": 10,
-            "top-1": 10,
-        }, {
-            "time": 20,
-            "top-1": 100,
-        }, {
-            "time": 30,
-            "top-1": 15,
-        }, {
-            "time": 40,
-            "top-1": 50,
-        }];
+        _self.datapoints = [{data1: 34}];
 
-        _self.datacolumns = [{
-            "id": "top-1",
-            "type": "spline",
-            "color": "green"
-        }, ];
+        _self.datacolumns = [ {
+          //  "id": "top-1",
+        		id: 'data1',
+            type: "gauge",
+            color: "pink", 
+            name: 'test name',
+           
+            	gauge: {
+            		label: {
+            			show:false,
+            			format: function(a,b) {return 'salut'}
+            		}
+            	}
+        } ];
 
         _self.datax = {
             "id": "time"
@@ -54,6 +51,12 @@
         _self.males = 50.7;
 
         console.log('loaded fuel');
+        
+        
+        _self.test123 = function() {
+        	console.log(angular);
+        	console.log('HELLO');
+        }
         // END OF FIXME DEBUG
 
     }]);
