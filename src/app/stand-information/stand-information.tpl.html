@@ -1,113 +1,193 @@
-<div class="standInformation" ng-controller="StandInformationController as StandInformationCtrl">
-<!--  You must set a widget-container around the flot -->
-	<div class="widget-container">
-		<table class="data-table" style="width: 100%">
-    <tr>
-        <th class="border-top border-bottom border-right" style="width: 10%"></th>
-        <th colspan="13" class="border-top border-bottom "style="width: 60%">Status</th>
-        <th colspan="6" class="border-top border-bottom "style="width: 30%">Planing</th>
-    </tr>
-    <tr>
-        <td class="border-bottom border-left border-right">Tree species</td>
-        <td colspan="3" class="border-bottom border-right">Age</td>
-        <td class="border-bottom border-right">Height</td>
-        <td class="border-bottom border-right">Yield power</td>
-        <td class="border-bottom border-right">BG</td>
-        <td class="border-bottom border-right">WZ</td>
-        <td colspan="2" class="border-bottom border-right">Area</td>
-        <td colspan="2" class="border-bottom border-right">Inventory</td>
-        <td colspan="2" class="border-bottom border-right">Exploitation</td>
-        <td colspan="5" class="border-bottom border-right">Exploitation</td>
-        <td class="border-bottom border-right">Other measures</td>
-    </tr>
-    <tr>
-        <td class="border-bottom border-left border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">-</td>
-        <td class="border-bottom border-right">+</td>
-        <td class="border-bottom border-right">m</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">%</td>
-        <td class="border-bottom border-right">ha</td>
-        <td class="border-bottom border-right">m^3/ha</td>
-        <td class="border-bottom border-right">complete</td>
-        <td class="border-bottom border-right">m^3/ha</td>
-        <td class="border-bottom border-right">complete</td>
-        <td class="border-bottom border-right">NA</td>
-        <td class="border-bottom border-right">%</td>
-        <td class="border-bottom border-right">ara</td>
-        <td class="border-bottom border-right">pro ha</td>
-        <td class="border-bottom border-right">complete</td>
-        <td class="border-bottom border-right"></td>
-    </tr>
-    <tr>
-        <td class="border-bottom border-left border-right">1 Spruce</td>
-        <td class="border-bottom border-right">47</td>
-        <td class="border-bottom border-right">3</td>
-        <td class="border-bottom border-right">2</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">1.0</td>
-        <td class="border-bottom border-right">1.1</td>
-        <td class="border-bottom border-right">4</td>
-        <td class="border-bottom border-right">100</td>
-        <td class="border-bottom border-right">3.3</td>
-        <td class="border-bottom border-right">350</td>
-        <td class="border-bottom border-right">1155</td>
-        <td class="border-bottom border-right">13.2</td>
-        <td class="border-bottom border-right">44</td>
-        <td class="border-bottom border-right">V</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">6.6</td>
-        <td class="border-bottom border-right">90</td>
-        <td class="border-bottom border-right">297</td>
-        <td class="border-bottom border-right"></td>
-    </tr>
-    <tr>
-        <td class="border-bottom border-left border-right">2 Spruce</td>
-        <td class="border-bottom border-right">47</td>
-        <td class="border-bottom border-right">3</td>
-        <td class="border-bottom border-right">2</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">1.5</td>
-        <td class="border-bottom border-right">1.2</td>
-        <td class="border-bottom border-right">4</td>
-        <td class="border-bottom border-right">100</td>
-        <td class="border-bottom border-right">0.96</td>
-        <td class="border-bottom border-right">327</td>
-        <td class="border-bottom border-right">314</td>
-        <td class="border-bottom border-right">12.4</td>
-        <td class="border-bottom border-right">12</td>
-        <td class="border-bottom border-right">V</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">1.92</td>
-        <td class="border-bottom border-right">90</td>
-        <td class="border-bottom border-right">86</td>
-        <td class="border-bottom border-right"></td>
-    </tr>
-    <tr>
-        <td class="border-bottom border-left border-right">Sum</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">4.26</td>
-        <td class="border-bottom border-right">345</td>
-        <td class="border-bottom border-right">1469</td>
-        <td class="border-bottom border-right">13.1</td>
-        <td class="border-bottom border-right">56</td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right"></td>
-        <td class="border-bottom border-right">383</td>
-        <td class="border-bottom border-right"></td>
-    </tr>
-</table>
-	</div>
-</div> 
+<div class="with-padding stand-information" ng-controller="StandInformationController as siCtrl">
+
+	<section>
+		<div class="row">
+			<div class="col-1">
+				<h2>Stand classification</h2>
+				<ul>
+					<li><span class="label">Comp/Subcomp:</span> 38 C = 4.26 ha</li>
+					<li><span class="label">Deadline:</span> 01.01.2011</li>
+					<li><span class="label">Previous comp:</span> 38 C 0</li>
+				</ul>
+			</div>
+			<div class="col-2">
+				<h2>General information</h2>
+				<ul>
+					<li><span class="label">EDV-No.:</span> 59000/0</li>
+					<li><span class="label">Forest office:</span> LVFA Arnsberger Wald</li>
+					<li><span class="label">Forest management:</span> State Forest Arnsberger Wald</li>
+					<li><span class="label">District:</span> FBB 01 / Lattenberg</li>
+					<li><span class="label">Forest owner:</span> NRW</li>
+					<li><span class="label">Type of area:</span> Economic forest 1</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section>
+		<h2>Site description</h2>
+	
+		<div class="row">
+			<div class="col-1">
+				<ul>
+					<li><span class="label">Growth zone:</span> Sauerland</li>
+					<li><span class="label">Growth district:</span> Nordsauerländer Oberland (old)</li>		
+				</ul>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-1">
+			 	<ul>
+					<li><span class="label">Height a.s.l.:</span> 515 m</li>
+					<li><span class="label">Altitudinal zone:</span> Montane</li>
+					<li><span class="label">Terrain form:</span> Upper inclination</li>
+					<li><span class="label">Exposure:</span> North-east</li>
+					<li><span class="label">Slope:</span> Poorly inclined</li>
+				</ul>    
+			</div>
+			<div class="col-2">
+				<ul>
+						<li><span class="label">Water balance regime:</span> Moderate moisty to moisty</li>
+						<li><span class="label">Nutrients:</span> Insignificant</li>
+						<li><span class="label">Type of soil:</span> Stony-silty loam to silty loam</li>
+						<li><span class="label">Advance crop:</span> Conifers with spruce</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	
+	<section>
+		<h2>Protection and recreational functions</h2>
+		<p>None.</p>
+	</section>
+
+	<section>	
+		<h2>Stand description</h2>
+		<ol class="shorten">
+			<li>Pure spruce stand, Dense with gaps to closed with gaps. 100% conifers.<br/>
+       		Spruce 44-49/47 years old, young timber out of plantation. 81 - 90% loss in bark-peeling, 81 - 90% red (heart) rot, snow-break</li>
+			<li>In the north-western part pure spruce, dense with gaps. 100% conifers<br/>
+       Spruce 44-49/47 years old, young timber out of plantation. 91 - 100% loss in bark-peeling, 91 - 100% red (heart) rot, snow-break
+       Additional tree species: birch, sorb</li>
+		</ol>
+	
+		<table class="data-table">
+		    <tr class="main-cat">
+		        <th> </th>
+		        <th colspan="13"">Status</th>
+		        <th colspan="6">Planning</th>
+		    </tr>
+		    <tr class="second-cat">
+		        <th>Tree species</th>
+		        <th colspan="3">Age</th>
+		        <th>Height</th>
+		        <th>Yield power</th>
+		        <th>BG</th>
+		        <th>WZ</th>
+		        <th colspan="2">Area</th>
+		        <th colspan="2">Inventory</th>
+		        <th colspan="2">Exploitation</th>
+		        <th colspan="5">Exploitation</th>
+		        <th>Other measures</td>
+		    </tr>
+		    <tr class="units">
+		        <th></th>
+		        <td></td>
+		        <td>-</td>
+		        <td>+</td>
+		        <td>m</td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td>%</td>
+		        <td>ha</td>
+		        <td>m3/ha</td>
+		        <td>complete</td>
+		        <td>m3/ha</td>
+		        <td>complete</td>
+		        <td>NA</td>
+		        <td>%</td>
+		        <td>ara</td>
+		        <td>pro ha</td>
+		        <td>complete</td>
+		        <td></td>
+		    </tr>
+		    <tr class="data">
+		        <th>1 Spruce</th>
+		        <td>47</td>
+		        <td>3</td>
+		        <td>2</td>
+		        <td></td>
+		        <td>1.0</td>
+		        <td>1.1</td>
+		        <td>4</td>
+		        <td>100</td>
+		        <td>3.3</td>
+		        <td>350</td>
+		        <td>1155</td>
+		        <td>13.2</td>
+		        <td>44</td>
+		        <td>V</td>
+		        <td></td>
+		        <td>6.6</td>
+		        <td>90</td>
+		        <td>297</td>
+		        <td></td>
+		    </tr>
+		    <tr class="data">
+		        <th>2 Spruce</th>
+		        <td>47</td>
+		        <td>3</td>
+		        <td>2</td>
+		        <td></td>
+		        <td>1.5</td>
+		        <td>1.2</td>
+		        <td>4</td>
+		        <td>100</td>
+		        <td>0.96</td>
+		        <td>327</td>
+		        <td>314</td>
+		        <td>12.4</td>
+		        <td>12</td>
+		        <td>V</td>
+		        <td></td>
+		        <td>1.92</td>
+		        <td>90</td>
+		        <td>86</td>
+		        <td></td>
+		    </tr>
+		    <tr class="result">
+		        <th>Sum</th>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td>4.26</td>
+		        <td>345</td>
+		        <td>1469</td>
+		        <td>13.1</td>
+		        <td>56</td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td>383</td>
+		        <td></td>
+		    </tr>
+		</table>
+		
+		FIXME WHAT IS THAT????  
+   1 Stand spruce 2x thinning
+
+2 Stand spruce 2x thinning
+		
+	</section>
+
+</div>
+

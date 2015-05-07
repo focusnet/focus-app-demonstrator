@@ -1,24 +1,8 @@
-<div class="silviculturalPlanning" ng-controller="silviculturalPlanningController as silviculturalPlanningCtrl">
-<!--  You must set a widget-container around the flot -->
-	<div class="widget-container">
-		<table border="1" style="width: 100%" >
-		    <tr>
-		        <th ALIGN="LEFT" style="width: 20%" colspan="1"><a>Task</a></th>
-		        <th ALIGN="LEFT" style="width: 80%;" colspan="1"><a>Plan</a></th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>Lorem ipsum dolor sit a:</a></th>
-		        <th ALIGN="LEFT" ><a ng-bind="machine[mid].technical_data.fuel_consumption ">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </a></th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>sea takimata sanctus est:</a></th>
-		        <th ALIGN="LEFT" ><a ng-bind="machine[mid].technical_data.fuel_consumption ">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. </a></th>
-		    </tr>
-		    <tr>
-		        <th ALIGN="LEFT" ><a>magna aliquyam erat, sed:</a></th>
-		        <th ALIGN="LEFT" ><a ng-bind="machine[mid].technical_data.fuel_consumption ">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </a></th>
-		    </tr>
-		    
-		</table>
-	</div>
-</div> 
+
+<div class="with-padding silvicultural-planning" ng-controller="SilviculturalPlanningController as spCtrl">
+	<ul>
+		<li ng-repeat="t in spCtrl.data.task">
+			<span class="label">Task #<span ng-bind="$index+1"></span>: </span><span ng-bind="t"></span>
+		</li>
+	</ul>
+</div>
