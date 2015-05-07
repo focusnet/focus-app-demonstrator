@@ -13,15 +13,18 @@
  * 
  * @@source_header
  * 
+ * 
+ * WARNING FIXME TODO
+ * 	data not taken from JSON (too complex)
  */
 
 'use strict';
 
 (function() {
-	angular.module('focusApp.standInformation', [ 'focusApp.dataService' ])
+	angular.module('focusApp.standInformation', [ 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('StandInformationController',
-			[ 'DataService', function(DataService) {
+			[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
 
 				var _self = this;
 
@@ -29,6 +32,22 @@
 				 * Reference to the current data sample being rendered
 				 */
 				_self.data = DataService.data;
+
+				/**
+				 * Get the id of the currently accessed machine
+				 */
+				var parts = $location.path().split(/\//);
+				_self.currentStandId = parts[2] || 0;
+				
+				/**
+				 * Reference to the current data sample being rendered
+				 */
+				_self.data = DataService.data.stand[_self.currentStandId];
+
+				/**
+				 * Set the title of the page
+				 */
+				NavigationService.currentTitle = _self.data.name + ' 38  c - Stand information'
 
 			} ]);
 

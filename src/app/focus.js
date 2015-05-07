@@ -121,7 +121,6 @@
 				gettextCatalog.debug = true; // prepend MISSING if not translated
 				gettextCatalog.setCurrentLanguage('en-UK');
 				DataService.init().then(function() {
-					console.log('x');
 					InboxService.init();
 				});
 			} ]);
