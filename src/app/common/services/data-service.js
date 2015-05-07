@@ -119,6 +119,8 @@
 					.get('scenarios/ligna-001-data.json')
 					.success(
 							function(data) {
+								console.log('crap');
+								console.log(data);
 
 								angular.copy(data.timedependent, _self.dataSet.timedependent);
 								angular.copy(data.timeindependent, _self.dataSet.timeindependent);
