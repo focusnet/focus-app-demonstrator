@@ -157,7 +157,14 @@ module.exports = function(grunt) {
 							'angular-flot/angular-flot.js' : 'angular-flot/angular-flot.js',
 							// Leaflet.awesome-markers
 							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.css': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.css',
-							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'
+							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js',
+							// d3
+							'd3/d3.min.js': 'd3/d3.min.js,'
+							// c3
+							'c3/c3.min.js': 'c3/c3.min.js',
+							'c3/c3.css': 'c3/c3.css',
+							// c3-angular
+							'c3-angular/c3-angular.min.js': 'c3-angular/c3-angular.min.js'
 						}
 					}
 				},
