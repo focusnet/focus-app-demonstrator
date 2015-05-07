@@ -1,18 +1,35 @@
-<div class="machine-overview" ng-controller="MachineOverviewController as moCtrl">
+<div class="with-padding machine-overview" ng-controller="MachineOverviewController as moCtrl">
 
-	<div class="general">
-		General infos:
-	</div>
-	<div class="general">
-		Status: <font color=green> Working </font>
-	</div>
-	<div class="link">
-		<li><a ng-href="#/machine/123/order-status">Order status</a></li>
-		<li><a ng-href="#/stand/45/information">Stand information</a></li>
-		<li><a ng-href="#/machine/123/silvicultural-planning">Silvicultural planning</a></li>
-
-		<li><a ng-href="#/machine/123/timecontrol">Time control</a></li>
-		<li><a ng-href="#/machine/123/technical-data">Machine data overview</a></li>
+	<div class="machine-status">
+		<div>Machine status</div>
+		<div class="status" ng-bind="moCtrl.data.status" ng-class="{working: moCtrl.data.status == 'WORKING'}"></div>
 	</div>
 
+	<div class="data">
+		<div class="col-1">		
+			<h2>General information</h2>
+			<ul>
+				<li><span class="label">Contractor:</span> <span ng-bind="moCtrl.data.contractor"></span></li>
+				<li><span class="label">Planned logging volume:</span> <span ng-bind="moCtrl.data.logging_volume.planned"></span> m3</li>
+				<li><span class="label">Planned working time:</span> <span ng-bind="moCtrl.data.working_time.planned"></span> hours</li>
+				<li><span class="label">Target deadline:</span> 
+					<span ng-bind="moCtrl.dataSvc.startDateTime.getTime() + moCtrl.data.working_time.planned * 1000 * 60 * 60 | date:'dd.MM.yyyy HH:mm'"></span>
+				</li>
+			</ul>
+			
+		</div>
+		
+		<div class="col-2">
+			<h2>More information and tools</h2>
+			<ul>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}"><i class="fa fa-arrow-right"></i> Current order status</a></li>
+				<li><a ng-href="#/stand/FIXME/information"><i class="fa fa-arrow-right"></i> Stand information</a></li>
+				<li><a ng-href="#/stand/FIXME/map"><i class="fa fa-arrow-right"></i> Stand geographical overview</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/silvicultural-planning"><i class="fa fa-arrow-right"></i> Silvicultural operation plan</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/timecontrol"><i class="fa fa-arrow-right"></i> TimeControl</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/technical-data"><i class="fa fa-arrow-right"></i> Machine data</a></li>
+			</ul>
+		</div>
+	</div>
+	
 </div>

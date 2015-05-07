@@ -23,17 +23,33 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.machineOverview', [ 'focusApp.dataService' ])
+	angular.module('focusApp.machineOverview', [ 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('MachineOverviewController',
-			[ 'DataService', function(DataService) {
+			[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
 
 				var _self = this;
+				
+				/**
+				 * Reference to DataService 
+				 */
+				_self.dataSvc = DataService;
 
+				/**
+				 * Get the id of the currently accessed machine
+				 */
+				var parts = $location.path().split(/\//);
+				_self.currentMachineId = parts[2] || 0;
+				
 				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
+				_self.data = DataService.data.machine[_self.currentMachineId];
+				
+				console.log('aaaaaaa');
+				console.log(_self.data);
+
+				NavigationService.currentTitle = _self.data.name + ' - ' + (_self.data.type == 'H' ? 'Harverster' : (_self.data.type == 'F' ? 'Forwarder' : 'unknown'));
 
 			} ]);
 

@@ -90,7 +90,8 @@ console.log(_self.dataService.data);
 							// lng:  parseFloat("8.265015"),
 						    lat: parseFloat(_self.dataService.data.machine[3].lat), //data.machine[3].lat
 							lng: parseFloat(_self.dataService.data.machine[3].long), //data.machine[3].lng
-						    message: "forwarder 3 <a ng-href='#/machine/123'>details</a>",
+						    message: "<strong class='whatever'>forwarder 3</strong>" +
+						    	"<p>Harverster</p><a ng-href='#/machine/123'>details</a>",
 						 //    icon: {
 							//     iconUrl: '../content/fourloader.png',
 							//     iconRetinaUrl: '../content/fourloader.org.png',
