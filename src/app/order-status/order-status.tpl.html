@@ -20,8 +20,54 @@
  * @@source_header
  * 
  */ -->
+<div class="with-padding order-status" ng-controller="OrderStatusController as osCtrl">
+
+	<div class="machine-status">
+		<h2>Active order control</h2>
+		<div class="status" ng-bind="osCtrl.data.completion_status"
+				ng-class="{
+					ontime: osCtrl.data.status == 'ONTIME',
+					early: osCtrl.data.status == 'EARLY',
+					late: osCtrl.data.status == 'LATE'
+				}"> 
+		</div>
+		<div class="target">
+			<span class="label">Planned target deadline:</span>
+			<span ng-bind="osCtrl.dataSvc.startDateTime.getTime() + osCtrl.data.working_time.planned * 1000 * 60 * 60 | date:'dd.MM.yyyy HH:mm'"></span>
+		</div>
+	</div>
+
+	<div class="data">
+		<div class="col-1">		
+			<h2>General information</h2>
+			<ul>
+				<li><span class="label">Contractor:</span> <span ng-bind="moCtrl.data.contractor"></span></li>
+				<li><span class="label">Planned logging volume:</span> <span ng-bind="moCtrl.data.logging_volume.planned"></span> m3</li>
+				<li><span class="label">Planned working time:</span> <span ng-bind="moCtrl.data.working_time.planned"></span> hours</li>
+				<li><span class="label">Target deadline:</span> 
+					<span ng-bind="moCtrl.dataSvc.startDateTime.getTime() + moCtrl.data.working_time.planned * 1000 * 60 * 60 | date:'dd.MM.yyyy HH:mm'"></span>
+				</li>
+			</ul>
+			
+		</div>
+		
+		<div class="col-2">
+			<h2>More information and tools</h2>
+			<ul>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/order-status"><i class="fa fa-arrow-right"></i> Current order status</a></li>
+				<li><a ng-href="#/stand/FIXME/information"><i class="fa fa-arrow-right"></i> Stand information</a></li>
+				<li><a ng-href="#/stand/FIXME/map"><i class="fa fa-arrow-right"></i> Stand geographical overview</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/silvicultural-planning"><i class="fa fa-arrow-right"></i> Silvicultural operation plan</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/timecontrol"><i class="fa fa-arrow-right"></i> TimeControl</a></li>
+				<li><a ng-href="#/machine/{{moCtrl.currentMachineId}}/technical-data"><i class="fa fa-arrow-right"></i> Machine data</a></li>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+ 
+ <!-- 
 <div class="orderStatus" ng-controller="orderStatusController as orderStatusCtrl">
-<!--  You must set a widget-container around the flot -->
 	<div class="widget-container">
 		<div class="logging">
 			<a>Logging Volume:</a> 
@@ -37,7 +83,7 @@
 				       <th ALIGN="LEFT" ><a>1002 P.</a></th>
 				       <th ALIGN="LEFT" ><a>839</a></th>
 				       <th ALIGN="LEFT" ><a>Progress:</a>
-				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> <!-- isnt working so far (do we use bootstrap so far?) http://angular-ui.github.io/bootstrap/ -->
+				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> 
 				       </th>
 				   </tr>
 				</table>
@@ -57,7 +103,7 @@
 				       <th ALIGN="LEFT" ><a>789 P.</a></th>
 				       <th ALIGN="LEFT" ><a>391</a></th>
 				       <th ALIGN="LEFT" ><a>Progress:</a>
-				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> <!-- isnt working so far (do we use bootstrap so far?) http://angular-ui.github.io/bootstrap/ -->
+				       <div class="col-sm-4"><progressbar value="55"></progressbar></div> 
 				       </th>
 				   </tr>
 				</table>
@@ -89,11 +135,11 @@
 		</div>
 	</div>
 </div>
-
+-->
 <!-- <body>
 <div id="example" ng-app="KendoDemos">
     <div class="demo-section k-content" ng-controller="MyCtrl" style="width: 350px;">
         <h4>{{status}}</h4>
         <div kendo-progress-bar="progressBar" k-min="0" k-max="100" ng-model="progress"></div>
     </div>
-</div>
+</div> -->

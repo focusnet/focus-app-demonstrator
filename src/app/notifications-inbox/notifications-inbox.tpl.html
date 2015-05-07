@@ -20,7 +20,8 @@
 			<div class="modal-box-message-detail" ng-show="inboxCtrl.show_modal_box && inboxCtrl.modal.which == $index">
 				<p class="task">Task: <span ng-bind="inboxCtrl.modal.task"></span></p>
 				<label for="comment">Comment:</label>
-				<textarea name="comment" class="comment" ng-model="inboxCtrl.modal.comment" ng-readonly="msg.submit"></textarea>
+				<div ng-if="msg.submit" class="comment" ng-bind="inboxCtrl.modal.comment"></div>
+				<textarea ng-if="!msg.submit" name="comment" class="comment" ng-model="inboxCtrl.modal.comment"></textarea>
 				<div class="buttons" ng-show="!msg.submit">
 					<div class="col-button-1"><button ng-click="inboxCtrl.submit($index, 'denied')">Deny</button></div>
 					<div class="col-button-2"><button ng-click="inboxCtrl.submit($index, 'approved')">Approve</button></div>

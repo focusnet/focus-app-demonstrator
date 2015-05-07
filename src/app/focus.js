@@ -14,7 +14,7 @@
 	angular
 			.module(
 					'focusApp',
-					[ 'ngRoute', 'gettext', 'ui.bootstrap', 'leaflet-directive', 'gridshore.c3js.chart',
+					[ 'ngRoute', 'gettext', 'leaflet-directive', 'gridshore.c3js.chart',
 							'angular-flot', 'focusApp.dataService', 'focusApp.inboxService',
 							'focusApp.navigationService', 'focusApp.actionBar', 'focusApp.timeMachine',
 							'focusApp.notifications', 'focusApp.dateDisplay',
