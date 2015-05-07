@@ -72,8 +72,8 @@
 					},
 					markers : {
 						forwarder0: {
-						 	lat: parseFloat(_self.dataService.data.machine[0].lng),
-							lng: parseFloat(_self.dataService.data.machine[0].lat),
+						 	lat: parseFloat(_self.dataService.data.machine[0].lat),
+							lng: parseFloat(_self.dataService.data.machine[0].lng),
 						    message: "<strong>Ponsse ScorpionKing</strong> <br> Harvester",
 						    focus: false,
 						    icon: {
@@ -84,8 +84,8 @@
 						},
 						forwarder1: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[1].lng),
-							lng: parseFloat(_self.dataService.data.machine[1].lat),
+							lat: parseFloat(_self.dataService.data.machine[1].lat),
+							lng: parseFloat(_self.dataService.data.machine[1].lng),
 							message: "<strong>HSM 405 H2</strong> <br> Harvester",
 							focus: false,
 						    icon: {
@@ -96,8 +96,8 @@
 						},
 						forwarder2: {
 							markerColor: '#2980b9',
-							lat: parseFloat(_self.dataService.data.machine[2].lng),
-							lng: parseFloat(_self.dataService.data.machine[2].lat),
+							lat: parseFloat(_self.dataService.data.machine[2].lat),
+							lng: parseFloat(_self.dataService.data.machine[2].lng),
 							message: "<strong>Ponsse Buffalo</strong> <br> Forwarder",
 							focus: false,
 						    icon: {
@@ -120,8 +120,8 @@
 						},
 						loadingpoint1: {
 							markerColor: '#27ae60',
-							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lng), 
-							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat),
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lng),
 							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>details</a>",
 							focus: false,
 						    icon: {
@@ -132,8 +132,8 @@
 						},
 						loadingpoint2: {
 							markerColor: '#27ae60',
-							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lng), 
-							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat),
+							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat), 
+							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lng),
 							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>details</a>",
 							focus: false,
 							icon: {
