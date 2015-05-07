@@ -28,18 +28,31 @@
 'use strict';
 
 (function() {
-	angular.module('focusApp.woodpileInformation', [ 'focusApp.dataService' ])
+	angular.module('focusApp.woodpileInformation', [ 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('WoodpileInformationController',
-			[ 'DataService', function(DataService) {
-
+			[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
+				
 				var _self = this;
 
 				/**
+				 * Get the id of the currently accessed woodpile
+				 */
+				var parts = $location.path().split(/\//);
+				console.log(parts);
+				_self.currentWoodpileId = parts[2] || 0;
+				
+				/**
 				 * Reference to the current data sample being rendered
 				 */
-				_self.data = DataService.data;
-
+				_self.data = DataService.data.woodpile[_self.currentWoodpileId];
+	
+				/**
+				 * Set the title of the page
+				 */
+				NavigationService.currentTitle = 'Woodpile #' + _self.data.timber_pile_number;
+				
+console.log(_self.data);
 			} ]);
 
 }());

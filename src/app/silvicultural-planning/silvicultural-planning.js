@@ -42,7 +42,6 @@
 				 * Set the title of the page
 				 */
 				NavigationService.currentTitle = 'Silvicultural operation planning - ' + _self.data.name;
-				console.log(_self.data);
 				
 			} ]);
 
