@@ -18,8 +18,9 @@
 'use strict';
 
 (function() {
+
 	angular.module('focusApp.fuelConsumption',
-			['angular-flot', 'focusApp.dataService' ])
+			['focusApp.dataService','gridshore.c3js.chart'])
 
 	.controller('FuelConsumptionController',
 			[ '$scope', 'DataService', function($scope, DataService) {
@@ -31,31 +32,25 @@
 				 */
 				_self.data = DataService.data;
 
-				// on _Self -> can use ctrl.xxxx
-				_self.data2 = [ {
-					label : "Fuel Consumption",
-					data : [ [10,1] , [20,-14], [30,5] , [40,5] , [50,14] , [60,0] , [70,5] , [80,7] , [90,3], [100,2] ] // add machine[3].technical_data.fuel_consumption
-				}, 
-				// {
-				// 	label : "Bar2",
-				// 	data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
-				// } 
-				];
-				
-				_self.options2 = {
-					series : {
-						lines : {
-							show : true
-						},
-						points : {
-							show : false
-						}
-					}
-				};
+				// _self.datapoints=[
+				// 	{"x":10,"top-1":10,"top-2":15},
+    //                 {"x":20,"top-1":100,"top-2":35},
+    //                 {"x":30,"top-1":15,"top-2":75},
+    //                 {"x":40,"top-1":50,"top-2":45}
+    //             ];
+    //             _self.datacolumns=[
+    //             	{"id":"top-1","type":"line"},
+    //                 {"id":"top-2","type":"spline"}
+    //             ];
+    			
+    // 			_self.datax={"id":"x"};
+
+
 
 				// END OF FIXME DEBUG
 
 			} ]);
 
-}());
 
+
+}());
