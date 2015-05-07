@@ -1,19 +1,9 @@
 <div class="fuel-consumption" ng-controller="FuelConsumptionController as fcCtrl">
-	
-<!-- 	<c3chart bindto-id="chart" chart-data="fcCtrl.datapoints" chart-columns="fcCtrl.datacolumns" chart-x="fcCtrl.datax">
-		<chart-legend show-legend="false"/>
- 	</c3chart> -->
 
-<!-- 	<c3chart bindto-id="gauge-plot1-chart">
-		<chart-column column-id="d1" column-values="100" column-type="gauge"/>
-		<chart-gauge min="50" max="175" units=" apples" width="39"/>
-	</c3chart>
-	 -->
-	 
-	<c3chart bindto-id="gauge-plot2-chart" chart-data="fcCtrl.datapoints" chart-columns="fcCtrl.datacolumns" >
-	<!--	<chart-column column-id="d1" column-values="100" column-type="gauge"/> -->
-		<chart-gauge min="0" max="150" units="" width="40" show-label="true" />
-		<!-- <chart-events on-rendered="fcCtrl.test123()" />-->
-	</c3chart>
 
-</div> 
+        <canvas-gauge width="160px"  under-color="#EFEFEF" over-color="#FFD700" value="male" style="color: green"></canvas-gauge>
+
+     <c3chart bindto-id="chart" chart-data="fcCtrl.datapoints" chart-columns="fcCtrl.datacolumns" chart-x="fcCtrl.datax">
+        <chart-legend show-legend="false" />
+    </c3chart>
+</div>

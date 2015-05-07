@@ -5,7 +5,7 @@
  * 
  * Display description:
  * 		- An overview of time control settings and current metrics for the 
- * 			machine, along with a mention of the TimeControl product.
+ * 			machine, alng with a mention of the TimeControl product.
  * 
  * Input variables:
  * 		timecontrol.start_of_day
