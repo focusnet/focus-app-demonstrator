@@ -16,7 +16,7 @@
 
 (function() {
 
-    angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'gridshore.c3js.chart', 'ngCanvasGauge'])
+    angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'ngCanvasGauge'])
 
     .controller('FuelConsumptionController', ['$scope', 'DataService', function($scope, DataService) {
 

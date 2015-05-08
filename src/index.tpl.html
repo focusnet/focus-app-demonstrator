@@ -8,8 +8,7 @@
 		<title>FOCUS mobile application demonstrator</title>
 		<link href="contrib/fontawesome/css/font-awesome.min.css" rel="stylesheet" />
 		<link href="contrib/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css" rel="stylesheet" />
-		<link href="contrib/c3/c3.css" rel="stylesheet" type="text/css">
-	
+		
 		<link href="contrib/leaflet/dist/leaflet.css" rel="stylesheet" />
 		<link href="css/focus.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="contrib/ngCanvasGauge/ngCanvasGauge.css" />
@@ -40,7 +39,7 @@
 		
 		<div id="mobile-bar-bottom"> 
 			<div class="controls">
-				<a href=""><i class="fa fa-fw fa-chevron-left"></i></a>
+				<a ng-controller="GoBackController as gbCtrl" ng-click="gbCtrl.goBack()"><i class="fa fa-fw fa-chevron-left"></i></a>
 				<a class="center" ng-href="#/"><i class="fa fa-fw fa-home"></i></a>
 				<a href="#" class="time-machine"><i class="fa fa-fw fa-clock-o"></i></a>
 			</div>
@@ -69,7 +68,7 @@
 			<h1>FOCUS - Advances in Forestry Control &amp; Automation Systems in Europe</h1>
 			<img src="content/focus-logo.png" alt="FOCUS logo "/>
 			<p>Project coordinator: Alexandra F. Marques</p>
-			<p>Homepage: <a href="http://www.focusnet.eu">www.focusnet.eu</a></p>
+			<p>Homepage: <a>www.focusnet.eu</a></p>
 			<p>Project running time: 1.1.2014 &ndash; 30.6.2016</p>
 			
 			<h2>Project Consortium</h2>
@@ -106,21 +105,20 @@
 	<script type="text/javascript" src="contrib/sidr/jquery.sidr.min.js"></script>
 	<script type="text/javascript" src="contrib/leaflet/dist/leaflet.js"></script>
 	<script type="text/javascript" src="contrib/flot/jquery.flot.js"></script>
+	<script type="text/javascript" src="contrib/flot/jquery.flot.time.js"></script>
 	<script type="text/javascript" src="contrib/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js"></script>
-	<script type="text/javascript" src="/contrib/d3/d3.min.js"></script>
-	<script type="text/javascript" src="/contrib/c3/c3.min.js"></script>
 	
 	<script type="text/javascript" src="contrib/angular/angular.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-gettext/dist/angular-gettext.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
 <script type="text/javascript" src="contrib/angular-flot/angular-flot.js"></script> 
-	<script type="text/javascript" src="contrib/c3-angular/c3-angular.min.js"></script>
 	<script type="text/javascript" src="contrib/ngCanvasGauge/ngCanvasGauge.js" type="text/javascript"></script>
 	
 	<script type="text/javascript" src="app/common/services/data-service.js"></script>
 	<script type="text/javascript" src="app/common/services/inbox-service.js"></script>
 	<script type="text/javascript" src="app/common/services/navigation-service.js"></script>
+	<script type="text/javascript" src="app/common/controllers/goback-controller.js"></script>
 	<script type="text/javascript" src="app/common/controllers/action-bar-controller.js"></script>
 	<script type="text/javascript" src="app/common/controllers/time-machine-controller.js"></script>
 	<script type="text/javascript" src="app/common/controllers/date-display-controller.js"></script>

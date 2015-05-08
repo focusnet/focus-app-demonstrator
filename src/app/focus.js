@@ -14,9 +14,10 @@
 	angular
 			.module(
 					'focusApp',
-					[ 'ngRoute', 'gettext', 'leaflet-directive', 'gridshore.c3js.chart',
+					[ 'ngRoute', 'gettext', 'leaflet-directive',
 							'angular-flot', 'focusApp.dataService', 'focusApp.inboxService',
-							'focusApp.navigationService', 'focusApp.actionBar', 'focusApp.timeMachine',
+							'focusApp.navigationService', 'focusApp.goBack',
+							'focusApp.actionBar', 'focusApp.timeMachine',
 							'focusApp.notifications', 'focusApp.dateDisplay',
 							'focusApp.terrainOverview', 'focusApp.machineOverview',
 							'focusApp.orderStatus', 'focusApp.notificationsInbox',
@@ -117,15 +118,19 @@
 			/**
 			 * Run
 			 */
-			.run([ 'gettextCatalog', 'DataService', 'InboxService', function(gettextCatalog, DataService, InboxService) {
-				gettextCatalog.debug = true; // prepend MISSING if not translated
-				gettextCatalog.setCurrentLanguage('en-UK');
-				DataService.init().then(function() {
-					InboxService.init();
-				});
-			} ]);
-	
-	document.oncontextmenu = function(){return false;};
-	
+			.run(
+					[ 'gettextCatalog', 'DataService', 'InboxService',
+							function(gettextCatalog, DataService, InboxService) {
+								gettextCatalog.debug = true; // prepend MISSING if not
+																							// translated
+								gettextCatalog.setCurrentLanguage('en-UK');
+								DataService.init().then(function() {
+									InboxService.init();
+								});
+							} ]);
+
+	document.oncontextmenu = function() {
+		return false;
+	};
 
 }());

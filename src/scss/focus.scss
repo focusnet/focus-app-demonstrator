@@ -6,20 +6,20 @@
 @import "sidr";
 
 
-
-
-
-
-@keyframes color-change 
-{
-    0% { color: $grey-dark; }
-    40% { color: $grey-dark; }
-    50% { color: $black; }
-    60% { color: $grey-dark; }
-    100% { color: $grey-dark; }
+FIXMEbody *
+{ // even  better: cancel if user presses key // body.canceled
+	 cursor: none !important;
 }
 
-
+body
+{	
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 
 body
@@ -98,6 +98,11 @@ body
 			line-height: 1em;
 			
 			text-align: center;
+			
+			a
+			{
+				cursor: pointer;
+			}
 			
 			a.center
 			{
@@ -269,7 +274,7 @@ background: #ccc;
 		header
 		{
 			height: $mobile-navigation-height;
-			font-size: $mobile-navigation-height/1.5;
+			font-size: $mobile-navigation-height/1.75;
 			line-height: $mobile-navigation-height - 2vh; // - vertical padding
 			padding: 1vh 0;
 			
@@ -443,6 +448,7 @@ article
 						width:100%;
 						height: 5em;
 						padding: 0.25em;
+						resize: none;
 					}
 					
 					div.buttons
@@ -682,6 +688,14 @@ article
 			color: $green-dark;
 		}
 		
+		h3
+		{
+			color: $green;
+			margin-top: 1em;
+			margin-bottom: 0.25em;
+			text-align: center;
+		}
+		
 		ul,
 		ol
 		{			
@@ -709,8 +723,9 @@ article
 		
 		table
 		{
-			margin: 1em 0;
+			margin-bottom: 1em;
 			width: 100%;
+			max-width: 100%;
 			font-size: 0.8em; 
 			
 			td, th

@@ -51,8 +51,7 @@
 				 * Set the title of the page
 				 */
 				NavigationService.currentTitle = 'Woodpile #' + _self.data.timber_pile_number;
-				
-console.log(_self.data);
+
 			} ]);
 
 }());
