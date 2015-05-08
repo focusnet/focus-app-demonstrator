@@ -26,8 +26,8 @@
 			[ 'leaflet-directive', 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('StandMapController',
-			['$scope', '$location', 'leafletData', 'leafletEvents', 'DataService', 'NavigationService', 
-			 	function($scope, $location, leafletData, leafletEvents, DataService, NavigationService) {
+			['$scope', '$location', 'leafletData', 'DataService', 'NavigationService', 
+			 	function($scope, $location, leafletData, DataService, NavigationService) {
 
 				var _self = this;
 
@@ -51,24 +51,30 @@
 				 * Set the page title
 				 */
 				NavigationService.currentTitle =  _self.data.name + ' - Stand map';
+
 				
-				_self.events = {
-						markers: {
-							enabled: 'click'
-						}
-				}
-				
-		// .eventDetected = "No events yet...";
-      var markerEvents = leafletEvents.getAvailableMarkerEvents();
-				console.log(markerEvents);
-      for (var k in markerEvents){
-          var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
-          $scope.$on(eventName, function(event, args){
-          	console.log(event);
-          	console.log(args);
-            //  $scope.eventDetected = event.name;
-          });
-      }
+//				  $scope.$on('leafletDirectiveMarker.popupopen', function(event, args) {
+//          	//console.log(ev);
+//
+//          	console.log(event);
+//          	console.log(args);
+//          	
+//          	// on popupopen -> paus
+//          	// on popupclose -> resume
+//          	
+//            //  $scope.eventDetected = event.name;
+//          });
+//          $scope.$on('leafletDirectiveMarker.popupclose', function(event, args) {
+//          	//console.log(ev);
+//
+//          	console.log(event);
+//          	console.log(args);
+//          	
+//          	// on popupopen -> paus
+//          	// on popupclose -> resume
+//          	
+//            //  $scope.eventDetected = event.name;
+//          });
 				
 				
 				// ************************** clean a bit
@@ -326,8 +332,9 @@
 				 */
 				_self.drawDynamicData = function() {					
 					// first move the marker
-					_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); // 51.395877;
-					_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);// 8.266884;
+					_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat);
+					_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);
+					
 // FIXME callout bubble removed!!!!!
 										
 					// than draw the trace

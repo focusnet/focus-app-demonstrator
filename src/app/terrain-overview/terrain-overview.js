@@ -194,6 +194,19 @@
 
 				});
 
+				/**
+				 * Update the drawing of the map
+				 */
+				_self.drawDynamicData = function() {
+					_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat);
+					_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);
+				};
+				
+				/**
+				 * Register refresh callback
+				 */
+				DataService.registerRefreshCallback(_self.drawDynamicData);
+				
 				_self.test = function() {
 					// self.dataService.data.machine[3].lat
 					console.log('test');
@@ -208,8 +221,7 @@
 					
 				}
 				// END OF FIXME DEBUG
-				_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); //51.395877;
-				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);// 8.266884;
+				
 
 			} ]);
 

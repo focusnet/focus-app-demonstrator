@@ -11,7 +11,7 @@
 	/**
 	 * Data provider singleton definition
 	 */
-	function DataService($route, $q, $http) {
+	function DataService($rootScope, $route, $q, $http, leafletEvents) {
 
 		var _self = this;
 		/**
@@ -211,17 +211,30 @@
 			});
 		};
 		
-
+		
+		/**
+		 * Register event that will cause the time machine to stop or start
+		 */
+	  $rootScope.$on('leafletDirectiveMarker.popupopen', function(event, args) {
+	  	_self.popupPauseTimeMachine = true;
+    });
+    $rootScope.$on('leafletDirectiveMarker.popupclose', function(event, args) {
+    	_self.popupPauseTimeMachine = false;
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+    	_self.popupPauseTimeMachine = false;
+		});
+    
 	}
 
 	/**
 	 * Module definition
 	 */
-	angular.module('focusApp.dataService', ['ngRoute'])
+	angular.module('focusApp.dataService', ['ngRoute', 'leaflet-directive'])
 
 	/**
 	 * Service instantiation
 	 */
-	.service('DataService', [ '$route', '$q', '$http', DataService ])
+	.service('DataService', [ '$rootScope', '$route', '$q', '$http', 'leafletEvents', DataService ])
 
 }());
