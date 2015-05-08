@@ -221,6 +221,9 @@
     $rootScope.$on('leafletDirectiveMarker.popupclose', function(event, args) {
     	_self.popupPauseTimeMachine = false;
     });
+    $rootScope.$on('$routeChangeSuccess', function() {
+    	_self.popupPauseTimeMachine = false;
+		});
     
 	}
 
