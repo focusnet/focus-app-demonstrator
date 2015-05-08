@@ -27,34 +27,59 @@
          */
         _self.data = DataService.data;
 
-        _self.datapoints = [{
-            "time": 10,
-            "top-1": 10,
-        }, {
-            "time": 20,
-            "top-1": 100,
-        }, {
-            "time": 30,
-            "top-1": 15,
-        }, {
-            "time": 40,
-            "top-1": 50,
-        }];
+        _self.myData = [{
+                label: "Fuel Consumption ",
+                data: [], // add machine[mid].technical_data.engine_revolutions
+            },
+            // {
+            // 	label : "Bar2",
+            // 	data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
+            // } 
+        ];
 
-        _self.datacolumns = [{
-            "id": "top-1",
-            "type": "spline",
-            "color": "green"
-        }, ];
-
-        _self.datax = {
-            "id": "time"
+        _self.myChartOptions = {
+            series: {
+                lines: { show: true},
+                points: { show: false },
+            },
+            xaxis: {
+            	show: true,
+            	mode: "time"
+        	}
         };
 
         console.log('loaded fuel');
         // END OF FIXME DEBUG
 
+        var _set_machine_path = function() {
+
+            // angular.copy({}, self.datapoints[0].data);
+
+
+            console.info(DataService.startDateTime.getTime());
+            console.info(DataService);
+            for (var i = 0; i < DataService.currentTimeIncrement; i++) { //DataService.currentTimeIncrement
+
+                // console.info("data");
+                // console.info(DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]);
+
+                _self.datapoints[0].data.push([
+                        DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i] * 2 * 1000,
+                        DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]
+                    ]
+
+
+                    // "time": ,
+                    // "top-1": ,
+                );
+            };
+
+        };
+        _set_machine_path();
+
     }]);
+
+
 
 
 }());
