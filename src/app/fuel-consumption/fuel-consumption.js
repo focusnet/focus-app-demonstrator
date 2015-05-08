@@ -16,77 +16,25 @@
 
 (function() {
 
-    angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'ngCanvasGauge'])
+	angular
+			.module('focusApp.fuelConsumption',
+					[ 'focusApp.dataService', 'ngCanvasGauge' ])
 
-    .controller('FuelConsumptionController', ['$scope', 'DataService', function($scope, DataService) {
+			.controller(
+					'FuelConsumptionController',
+					[
+							'$scope',
+							'DataService',
+							function($scope, DataService) {
 
-        var _self = this;
+								var _self = this;
 
-        /**
-         * Reference to the current data sample being rendered
-         */
-        _self.data = DataService.data;
+								_self.v = 12;
+								/**
+								 * Reference to the current data sample being rendered
+								 */
+								_self.data = DataService.data;
 
-        _self.myData = [{
-                label: "Fuel Consumption ",
-                data: [], // add machine[mid].technical_data.engine_revolutions
-            },
-            // {
-            // 	label : "Bar2",
-            // 	data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
-            // } 
-        ];
-
-        _self.myChartOptions = {
-            series: {
-                lines: { show: true},
-                points: { show: false },
-            },
-            xaxis: {
-            	show: true,
-            	mode: "time",
-            	timezone: "browser"
-        	}
-        };
-
-        console.log('loaded fuel');
-        // END OF FIXME DEBUG
-
-        var _set_machine_path = function() {
-
-            angular.copy([], _self.myData[0].data);
-
-            var starttime = DataService.startDateTime.getTime();
-            var currenttime = DataService.startDateTime.getTime() + DataService.currentTimeIncrement * 2 * 1000;
-           
-            var diff = currenttime - starttime;
-
-            var x =0;
-            for (var i = diff ; i <= 1800000; i=i+2000) {
-            	_self.myData[0].data.push([
-                        DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i/2000] * 2 * 1000,
-                        null,
-                    ])
-            };
-
-            // for (var i = 0; i < DataService.currentTimeIncrement; i++) { //DataService.currentTimeIncrement
-
-            //     // console.info("data");
-            //     // console.info(DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]);
-
-            //     _self.myData[0].data.push([
-            //             DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i] * 2 * 1000,
-            //             DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i],
-            //         ]
-            //     );
-            // };
-
-        };
-        _set_machine_path();
-
-    }]);
-
-
-
+							}]);
 
 }());

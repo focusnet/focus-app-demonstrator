@@ -14,8 +14,8 @@
 	angular
 			.module(
 					'focusApp',
-					[ 'ngRoute', 'gettext', 'leaflet-directive',
-							'angular-flot', 'focusApp.dataService', 'focusApp.inboxService',
+					[ 'ngRoute', 'gettext', 'leaflet-directive', 'angular-flot',
+							'focusApp.dataService', 'focusApp.inboxService',
 							'focusApp.navigationService', 'focusApp.goBack',
 							'focusApp.actionBar', 'focusApp.timeMachine',
 							'focusApp.notifications', 'focusApp.dateDisplay',
@@ -121,16 +121,20 @@
 			.run(
 					[ 'gettextCatalog', 'DataService', 'InboxService',
 							function(gettextCatalog, DataService, InboxService) {
-								gettextCatalog.debug = true; // prepend MISSING if not
-																							// translated
+								gettextCatalog.debug = true;
+								// prepend MISSING if not
+								// translated
 								gettextCatalog.setCurrentLanguage('en-UK');
 								DataService.init().then(function() {
 									InboxService.init();
 								});
 							} ]);
 
+	/**
+	 * Disable right clicking
+	 */
 	document.oncontextmenu = function() {
-		return false;
+		//return false; // FIXME enable
 	};
 
 }());

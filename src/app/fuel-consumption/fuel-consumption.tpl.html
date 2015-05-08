@@ -1,6 +1,6 @@
 <div class="fuel-consumption" ng-controller="FuelConsumptionController as fcCtrl">
-    <canvas-gauge width="160px" under-color="#EFEFEF" over-color="#FFD700" value="78" style="color: green"></canvas-gauge>
+    <canvas-gauge width="160px" under-color="#EFEFEF" over-color="#FFD700" value="fcCtrl.v" style="color: green"></canvas-gauge>
     <div class="widget-container">
-        <flot id="myflot" dataset="fcCtrl.myData" options="fcCtrl.myChartOptions"></flot>
+        <flot id="myflot" dataset="fcCtrl.chartData" options="fcCtrl.chartOptions"></flot>
     </div>
 </div>

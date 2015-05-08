@@ -50,7 +50,7 @@
 				/**
 				 * Set the page title
 				 */
-				NavigationService.currentTitle =  _self.data.name + ' - Stand map';
+				NavigationService.currentTitle =  'Stand map - ' + _self.data.name;
 
 				
 //				  $scope.$on('leafletDirectiveMarker.popupopen', function(event, args) {

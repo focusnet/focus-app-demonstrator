@@ -155,45 +155,45 @@ body
 					color: $grey-dark;
 				}
 		}
+
+		input[type=range]
+		{
+			/* fix for FF unable to apply focus style bug  */
+			border: 1px solid inherit; //was white 
+			
+			/*required for proper track sizing in FF*/
+			width: 100%;
+		}
 		
+		input[type=range]::-moz-range-track 
+		{
+			width: 100%;
+			height: 5px;
+			background: #ddd;
+			border: none;
+			border-radius: 3px;
+		}
 		
+		input[type=range]::-moz-range-thumb 
+		{
+			border: none;
+			height: 32px;
+			width: 16px;
+			border-radius: 50%;
+			background: $color-slider-control;
+		}
 		
-
-input[type=range]{
-/* fix for FF unable to apply focus style bug  */
-border: 1px solid inherit; //was white 
-
-/*required for proper track sizing in FF*/
-width: 100%;
-}
-
-input[type=range]::-moz-range-track {
-width: 100%;
-height: 5px;
-background: #ddd;
-border: none;
-border-radius: 3px;
-}
-
-input[type=range]::-moz-range-thumb {
-border: none;
-height: 32px;
-width: 16px;
-border-radius: 50%;
-background: $color-slider-control;
-}
-
-/*hide the outline behind the border*/
-input[type=range]:-moz-focusring{
-outline: 1px solid inherit; // was white
-outline-offset: -1px;
-}
-
-input[type=range]:focus::-moz-range-track {
-background: #ccc;
-}
-
-
+		/*hide the outline behind the border*/
+		input[type=range]:-moz-focusring
+		{
+			outline: 1px solid inherit; // was white
+			outline-offset: -1px;
+		}
+		
+		input[type=range]:focus::-moz-range-track 
+		{
+			background: #ccc;
+		}
 	}
 	
 	#sidr.focus-intro
@@ -284,7 +284,7 @@ background: #ccc;
 			
 			div.left-part
 			{
-				@include span-columns(9);
+				@include span-columns(11);
 				
 				a#simple-menu
 				{
@@ -301,7 +301,7 @@ background: #ccc;
 			
 			div.right-part
 			{
-				@include span-columns(3);
+				@include span-columns(1);
 				@include omega();
 								
 				text-align: right;
@@ -506,24 +506,11 @@ article
 	}
 	
 	
-	/*div.order-status
-	{
-		@include outer-container;
-		
-		div.col-1,
-		div.col-2
-		{
-			@include span-columns(6);
-		}
-		
-		div.col-2
-		{
-			@include omega;
-		}
-	}*/
+	
 	
 	div.machine-overview,
-	div.order-status
+	div.order-status,
+	div.time-control
 	{
 		div.machine-status
 		{
@@ -702,14 +689,21 @@ article
 			li
 			{
 				line-height: 1.3em;
-				margin-bottom: 0.25em;
+				margin-bottom: 0.5em;
+				
+				@include outer-container;
+				
+				span 
+				{
+					display: inline-block;
+					@include span-columns(3 of 6);
+				}
 				
 				span.label
 				{
+					@include omega;
 					font-weight: bold;
-					display: inline-block;
-					width: 40%;
-					margin-right: 1em;
+					padding-right: 1em;
 				}
 			}
 		}
@@ -786,6 +780,8 @@ article
 	
 	.woodpile-information
 	{
+		@include outer-container;
+		
 		ul
 		{			
 			li
@@ -816,24 +812,116 @@ article
 		
 		div.row
 		{
-			@include outer-container;
+			@include span-columns(12);
 			
 			height: $mobile-payload-height * 0.5;
 			padding-top: 1em;
 			
+			
+			@include outer-container;
+				
+			li // FIXME completely buggy
+			{
+				padding-bottom: 0.5em;
+			//	clear: both;
+			
+				span 
+				{
+					display: inline-block;
+	//				width: 45%;
+					margin-left: 50%;
+				}
+				
+				span.label
+				{
+					font-weight: bold;
+					padding-right: 1em;
+					float: left;
+					width: 50%;
+					margin: 0;
+				}
+			}
+				
 			div.col-1
 			{
-				@include shift(2);
-				@include span-columns(4);
+				@include shift(1.5 of 12);
+				@include span-columns(4.5 of 12);
 			}
 			
 			div.col-2
 			{
-				@include shift(1);
-				@include span-columns(5);
+				@include shift(1 of 12);
+				@include span-columns(4.5 of 12);
 				@include omega;
 			}
 		}
+	}
+	
+	.time-control
+	{
+		div.data 
+		{
+			padding-top: 3vh;
+		}
+	}
+	
+	.xstand-mapFIXME FIXME
+	{
+		@include outer-container;
+		
+		div.col-1
+		{
+			@include span-columns(8);
+		}
+		
+		div.col-2
+		{
+			@include span-columns(4);
+			@include omega;
+		}
+	}
+	
+	.vehicle-payload
+	{
+		@include outer-container;
+		
+		div.col-1
+		{
+			@include span-columns(10);
+			
+			.chart
+			{
+				height: 1 * $mobile-payload-height !important;
+			}
+		}
+		
+		div.col-2
+		{
+			@include span-columns(2);
+			@include omega;
+			
+			table
+			{
+				width: 100%;
+				font-size: 0.8em;
+				
+				th
+				{
+					font-weight: bold;
+					border-bottom: 1px solid $grey-dark;
+				}
+				
+				td,
+				th
+				{
+					text-align: center;
+				}
+				
+			}
+			
+		}
+	
+		
 		
 		
 	}
