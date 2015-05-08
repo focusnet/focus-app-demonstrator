@@ -49,6 +49,21 @@
         	}
         };
 
+        _self.undercolor = 'black';
+
+        _self.overcolor = 'green';
+
+        _self.val = 10;
+
+        _self.min = 0;
+
+        _self.max = 99;
+
+        // _self.placeholder = "te";
+
+        _self.mask = _self.val +" C°";
+
+
         console.log('loaded fuel');
         // END OF FIXME DEBUG
 
