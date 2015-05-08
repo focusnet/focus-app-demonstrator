@@ -23,7 +23,7 @@
 				_self.update_frequency = 500;
 				
 				/**
-				 * Do update the data every 2 seconds
+				 * Do update the data every n  milliseconds
 				 */
 				$interval(function() {
 					if (_self.isRunning && !_self.temporaryPause) {

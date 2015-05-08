@@ -11,7 +11,7 @@
 	/**
 	 * Data provider singleton definition
 	 */
-	function DataService($q, $http) {
+	function DataService($route, $q, $http) {
 
 		var _self = this;
 		/**
@@ -47,6 +47,11 @@
 		 * STart time of the script
 		 */
 		_self.startDateTime = new Date();
+		
+		/**
+		 * Refresh callbacks to be called on specific routes
+		 */
+		_self.callbacks = {r: [function() {console.log('aaaaadflkajsdf')}]};
 		
 		/**
 		 * Get a date in the future (by n increments)
@@ -114,6 +119,7 @@
 						});
 						angular.copy(geom, _self.dataSet.geometries);
 					});
+			
 			// load raw data
 			var raw_data = $http
 					.get('scenarios/ligna-001-data.json')
@@ -135,6 +141,25 @@
 			return $q.all(promises);
 		};
 
+		/**
+		 * Register refresh call back
+		 */
+		_self.registerRefreshCallback = function(c) {
+			_self.callbacks[$route.current.originalPath] = c;
+		}
+		
+		/**
+		 * Run callbacks
+		 * 
+		 * FIXME not sure that's the best way to do it. Perhaps can be done by $watch-ing data?
+		 */
+		_self.runCallbacks = function() {
+			console.log(_self.callbacks[$route.current.originalPath]);
+			if (_self.callbacks[$route.current.originalPath]) {
+				_self.callbacks[$route.current.originalPath]();
+			}
+		};
+		
 		/**
 		 * Adjust the time increment to some value
 		 */
@@ -162,7 +187,11 @@
 			console.log(_self.dataSet);
 
 			_self.currentTimeIncrement = increment;
-			_self.datetime = _self.getFutureDate(increment); 
+			_self.datetime = _self.getFutureDate(increment);
+			
+			// callbacks
+			console.log('RUN CALLBAC');
+			_self.runCallbacks();
 		};
 
 		/**
@@ -180,19 +209,19 @@
 					}
 				}
 			});
-		}
-		;
+		};
+		
 
 	}
 
 	/**
 	 * Module definition
 	 */
-	angular.module('focusApp.dataService', [])
+	angular.module('focusApp.dataService', ['ngRoute'])
 
 	/**
 	 * Service instantiation
 	 */
-	.service('DataService', [ '$q', '$http', DataService ])
+	.service('DataService', [ '$route', '$q', '$http', DataService ])
 
 }());

@@ -3,29 +3,18 @@
  * 
  * LIGNA scenario: step 9
  * 
- * Display description:
- * 		- map zoomed to the selected stand
- * 		- layers: stand border, road (official), work roads (Gassen), 
- * 			current position of machine with trail, aerial view, other machines
- * 			(one marker type by type of machine)  
- * 		- pictures of the stand (carousel)
- * 		- wood piles: markers -> click -> "More information" | "No information available"
- * 		- machines: markers -> click -> "More information" | "No information available"
+ * Display description: - map zoomed to the selected stand - layers: stand
+ * border, road (official), work roads (Gassen), current position of machine
+ * with trail, aerial view, other machines (one marker type by type of machine) -
+ * pictures of the stand (carousel) - wood piles: markers -> click -> "More
+ * information" | "No information available" - machines: markers -> click ->
+ * "More information" | "No information available"
  * 
- * Input variables:
- * 		stand geometry
- * 		stand[sid].center.lat
- * 		stand[sid].center.lng
- * 		stand[sid].zoomfactor = int
- * 		stand[sid].pictures[]
- * 		machine[].name
- * 		machine[].type = F | H
- * 		machine[].lat
- * 		machine[].lng 
- * 		machine[].status = WORKING | NOT_WORKING
- * 		woodpile[].lat
- * 		woodpile[].lng
- *
+ * Input variables: stand geometry stand[sid].center.lat stand[sid].center.lng
+ * stand[sid].zoomfactor = int stand[sid].pictures[] machine[].name
+ * machine[].type = F | H machine[].lat machine[].lng machine[].status = WORKING |
+ * NOT_WORKING woodpile[].lat woodpile[].lng
+ * 
  * @@source_header
  * 
  */
@@ -34,22 +23,60 @@
 
 (function() {
 	angular.module('focusApp.standMap',
-			[ 'leaflet-directive', 'focusApp.dataService' ])
+			[ 'leaflet-directive', 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('StandMapController',
-			[ '$scope', 'leafletData', "DataService", function($scope, leafletData, DataService) {
+			['$scope', '$location', 'leafletData', 'leafletEvents', 'DataService', 'NavigationService', 
+			 	function($scope, $location, leafletData, leafletEvents, DataService, NavigationService) {
 
 				var _self = this;
 
 				_self.dataService = DataService;
+				
+				/**
+				 * Identify current stand id
+				 */
+				/**
+				 * Get the id of the currently accessed woodpile
+				 */
+				var parts = $location.path().split(/\//);
+				_self.currentStandId = parts[2] || 0;
+				
+				/**
+				 * Reference to the current data sample being rendered
+				 */
+				_self.data = DataService.data.stand[_self.currentStandId];
 
+				/**
+				 * Set the page title
+				 */
+				NavigationService.currentTitle =  _self.data.name + ' - Stand map';
+				
+				_self.events = {
+						markers: {
+							enabled: 'click'
+						}
+				}
+				
+		// .eventDetected = "No events yet...";
+      var markerEvents = leafletEvents.getAvailableMarkerEvents();
+				console.log(markerEvents);
+      for (var k in markerEvents){
+          var eventName = 'leafletDirectiveMarker.' + markerEvents[k];
+          $scope.$on(eventName, function(event, args){
+          	console.log(event);
+          	console.log(args);
+            //  $scope.eventDetected = event.name;
+          });
+      }
+				
+				
+				// ************************** clean a bit
 				var machine3lat = _self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'];
 				var machine3lng = _self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'];
 
 				leafletData.getMap('StandMapMap').then(function(map) {
-					// anything here
-					// console.log(map);
-      				// L.GeoIP.centerMapOnPosition(map, 15);
+  				L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 				});
 
 				// an example of leaflet
@@ -81,6 +108,7 @@
 							    icon: 'fa-truck',
 							    markerColor: 'blue'
 							},
+							
 						},
 						forwarder1: {
 							markerColor: '#2980b9',
@@ -110,7 +138,7 @@
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[3].lat),
 							lng: parseFloat(_self.dataService.data.machine[3].lng),
-							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/123'>details</a>",
+							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/3'>details</a>",
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
@@ -274,8 +302,14 @@
                     		color: '#3498db',
 	                        weight: 4,
 	                        latlngs: [
-	                            {lat: 51.39591285, lng: 8.262373445},
-	                            {lat: 51.39591285, lng: 8.262373445},
+	                            {
+	                            	lat: parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'][0]), 
+	                            	lng: parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'][0])
+	                            },
+	                            {
+	                            	lat: parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'][0]), 
+	                            	lng: parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'][0])
+	                            }
 	                        ],
                     	},
                     },
@@ -284,27 +318,34 @@
 
 				// console.log(_self.dataService);
 
-				var _setMachinePath = function(){
+			
+				
+				
+				/**
+				 * Draw data that must be updated when the time moves
+				 */
+				_self.drawDynamicData = function() {					
+					// first move the marker
+					_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); // 51.395877;
+					_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);// 8.266884;
+// FIXME callout bubble removed!!!!!
+										
+					// than draw the trace
+					angular.copy({},_self.paths.forwarder3Path.latlngs);
 					for (var i = 0; i < _self.dataService.currentTimeIncrement; i++) {
 						var lat = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'][i]);
 						var lng = parseFloat(_self.dataService.dataSet.timedependent['<TIME:machine[3].lng>'][i]);
 						_self.paths.forwarder3Path.latlngs.push({lat: lat, lng: lng});
 					};
-					
 				}
-				_setMachinePath();
-
-				// _self.markers.forwarder1.latlngs = {
-				// 	lat: parseFloat(_self.dataService.data.machine[0].lat), 
-				// 	lng: parseFloat(_self.dataService.data.machine[0].lng)
-				// };
-				// console.log("change");
-				// console.log(_self.markers.forwarder1);
-				_self.markers.forwarder3.lat = parseFloat(_self.dataService.data.machine[3].lat); //51.395877;
-				_self.markers.forwarder3.lng = parseFloat(_self.dataService.data.machine[3].lng);// 8.266884;
-
-				// console.log("change");
-				// console.log(_self.markers.forwarder1);
+				
+				
+				/**
+				 * Register refresh callback
+				 */
+				DataService.registerRefreshCallback(_self.drawDynamicData);
+				
+				
 			}]);
 			
 }());

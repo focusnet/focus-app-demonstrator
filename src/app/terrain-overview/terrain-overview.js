@@ -51,12 +51,6 @@
 				var redMarker;
 
 				leafletData.getMap('TerrainOverviewMap').then(function(map) {
-					// anything here
-					// console.log(map);
-      				// L.GeoIP.centerMapOnPosition(map, 15);
-      				
-      				// console.log("L");
-      				// console.log(L);
       				L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 				});
 
