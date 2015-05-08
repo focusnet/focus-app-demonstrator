@@ -15,29 +15,7 @@
 'use strict';
 
 (function() {
-
-<<<<<<< HEAD
-	angular
-			.module('focusApp.fuelConsumption',
-					[ 'focusApp.dataService', 'ngCanvasGauge' ])
-
-			.controller(
-					'FuelConsumptionController',
-					[
-							'$scope',
-							'DataService',
-							function($scope, DataService) {
-
-								var _self = this;
-
-								_self.v = 12;
-								/**
-								 * Reference to the current data sample being rendered
-								 */
-								_self.data = DataService.data;
-
-							}]);
-=======
+ 
     angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'ngCanvasGauge'])
 
     .controller('FuelConsumptionController', ['$scope', 'DataService', function($scope, DataService) {
@@ -123,8 +101,5 @@
 
     }]);
 
-
-
->>>>>>> origin/tobias
 
 }());
