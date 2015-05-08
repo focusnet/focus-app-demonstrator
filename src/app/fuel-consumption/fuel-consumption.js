@@ -64,7 +64,6 @@
         _self.mask = _self.val +" C°";
 
 
-        console.log('loaded fuel');
         // END OF FIXME DEBUG
 
         var _set_machine_path = function() {
@@ -73,7 +72,7 @@
 
             var starttime = DataService.startDateTime.getTime();
             var currenttime = DataService.startDateTime.getTime() + DataService.currentTimeIncrement * 2 * 1000;
-           
+          
             var diff = currenttime - starttime;
 
             var x =0;

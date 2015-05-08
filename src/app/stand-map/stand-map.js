@@ -53,29 +53,6 @@
 				NavigationService.currentTitle =  'Stand map - ' + _self.data.name;
 
 				
-//				  $scope.$on('leafletDirectiveMarker.popupopen', function(event, args) {
-//          	//console.log(ev);
-//
-//          	console.log(event);
-//          	console.log(args);
-//          	
-//          	// on popupopen -> paus
-//          	// on popupclose -> resume
-//          	
-//            //  $scope.eventDetected = event.name;
-//          });
-//          $scope.$on('leafletDirectiveMarker.popupclose', function(event, args) {
-//          	//console.log(ev);
-//
-//          	console.log(event);
-//          	console.log(args);
-//          	
-//          	// on popupopen -> paus
-//          	// on popupclose -> resume
-//          	
-//            //  $scope.eventDetected = event.name;
-//          });
-				
 				
 				// ************************** clean a bit
 				var machine3lat = _self.dataService.dataSet.timedependent['<TIME:machine[3].lat>'];

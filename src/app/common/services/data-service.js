@@ -51,7 +51,7 @@
 		/**
 		 * Refresh callbacks to be called on specific routes
 		 */
-		_self.callbacks = {r: [function() {console.log('aaaaadflkajsdf')}]};
+		_self.callbacks = {};
 		
 		/**
 		 * Get a date in the future (by n increments)
@@ -125,9 +125,6 @@
 					.get('scenarios/ligna-001-data.json')
 					.success(
 							function(data) {
-								console.log('crap');
-								console.log(data);
-
 								angular.copy(data.timedependent, _self.dataSet.timedependent);
 								angular.copy(data.timeindependent, _self.dataSet.timeindependent);
 
@@ -154,7 +151,6 @@
 		 * FIXME not sure that's the best way to do it. Perhaps can be done by $watch-ing data?
 		 */
 		_self.runCallbacks = function() {
-			console.log(_self.callbacks[$route.current.originalPath]);
 			if (_self.callbacks[$route.current.originalPath]) {
 				_self.callbacks[$route.current.originalPath]();
 			}
@@ -181,17 +177,15 @@
 
 			// make the new data set live
 			angular.copy(new_data, _self.data);
+		
+		
 			
-			console.log('endof setup');
-			console.log(_self.data);
-			console.log(_self.dataSet);
-
 			_self.currentTimeIncrement = increment;
 			_self.datetime = _self.getFutureDate(increment);
 			
-			// callbacks
-			console.log('RUN CALLBAC');
+			// callbacks FIXME does not work if we go in past (payload chart)
 			_self.runCallbacks();
+			
 		};
 
 		/**

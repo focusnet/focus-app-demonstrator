@@ -25,7 +25,7 @@
 								/**
 								 * Move to next increment at the following frequency
 								 */
-								_self.update_frequency = 500;
+								_self.update_frequency = 200;
 
 								/**
 								 * Do update the data every n milliseconds

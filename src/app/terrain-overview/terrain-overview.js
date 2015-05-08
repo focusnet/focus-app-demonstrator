@@ -66,7 +66,6 @@
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-						scrollWheelZoom: false,
 						dragging: false,
 						touchZoom: false,
 						doubleClickZoom: false,
@@ -203,12 +202,10 @@
 				
 				_self.test = function() {
 					// self.dataService.data.machine[3].lat
-					console.log('test');
 					_self.dataService.data.machine[3].lat +=1;
 					_self.testvar += 1;
 					leafletData.getMap('mymap').then(function(map) {
 						// anything here
-						console.log(map);
 						map._onResize();
 	      //    L.GeoIP.centerMapOnPosition(map, 15);
 					});
