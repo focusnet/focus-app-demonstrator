@@ -688,6 +688,14 @@ article
 			color: $green-dark;
 		}
 		
+		h3
+		{
+			color: $green;
+			margin-top: 1em;
+			margin-bottom: 0.25em;
+			text-align: center;
+		}
+		
 		ul,
 		ol
 		{			
@@ -715,8 +723,9 @@ article
 		
 		table
 		{
-			margin: 1em 0;
+			margin-bottom: 1em;
 			width: 100%;
+			max-width: 100%;
 			font-size: 0.8em; 
 			
 			td, th
