@@ -7,10 +7,9 @@
 				ng-mousedown="timeCtrl.temporaryPause = true" 
 				ng-mouseup="timeCtrl.updateData()"></div>
 	<div class="controls">
-		<i class="fa fa-pause" ng-click="timeCtrl.isRunning = false" ng-class="{inactive: !timeCtrl.isRunning}"></i>
-		<i class="fa fa-play" ng-click="timeCtrl.isRunning = true" ng-class="{inactive: timeCtrl.isRunning}"></i>
+		<i class="fa fa-pause" ng-click="timeCtrl.stop()" ng-class="{inactive: !timeCtrl.isRunning}"></i>
+		<i class="fa fa-play" ng-click="timeCtrl.start()" ng-class="{inactive: timeCtrl.isRunning}"></i>
 	</div>
-	
 	
 </div>
 			

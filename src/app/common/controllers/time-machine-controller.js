@@ -26,7 +26,7 @@
 				 * Do update the data every n  milliseconds
 				 */
 				$interval(function() {
-					if (_self.isRunning && !_self.temporaryPause) {
+					if (_self.isRunning && !_self.temporaryPause && !DataService.popupPauseTimeMachine) {
 						_self.timeIncrement = _self.dataService.currentTimeIncrement + 1;
 						_self.dataService.setTimeIncrement(_self.timeIncrement);
 					}
@@ -67,7 +67,22 @@
 					DataService.setTimeIncrement(_self.timeIncrement);
 					_self.temporaryPause = false;
 				};
-
+				
+				/**
+				 * Start the time machine
+				 */
+				_self.start = function() {
+					DataService.popupPauseTimeMachine = false;
+					_self.isRunning = true;
+				};
+				
+				/**
+				 * Stop the time machine
+				 */
+				_self.stop = function() {
+					_self.isRunning = false;
+				};
+				
 			} ]);
 	
 	
