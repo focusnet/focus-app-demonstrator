@@ -44,7 +44,8 @@
             },
             xaxis: {
             	show: true,
-            	mode: "time"
+            	mode: "time",
+            	timezone: "browser"
         	}
         };
 
@@ -53,26 +54,32 @@
 
         var _set_machine_path = function() {
 
-            // angular.copy({}, self.datapoints[0].data);
+            angular.copy([], _self.myData[0].data);
 
+            var starttime = DataService.startDateTime.getTime();
+            var currenttime = DataService.startDateTime.getTime() + DataService.currentTimeIncrement * 2 * 1000;
+           
+            var diff = currenttime - starttime;
 
-            console.info(DataService.startDateTime.getTime());
-            console.info(DataService);
-            for (var i = 0; i < DataService.currentTimeIncrement; i++) { //DataService.currentTimeIncrement
-
-                // console.info("data");
-                // console.info(DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]);
-
-                _self.datapoints[0].data.push([
-                        DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i] * 2 * 1000,
-                        DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]
-                    ]
-
-
-                    // "time": ,
-                    // "top-1": ,
-                );
+            var x =0;
+            for (var i = diff ; i <= 1800000; i=i+2000) {
+            	_self.myData[0].data.push([
+                        DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i/2000] * 2 * 1000,
+                        null,
+                    ])
             };
+
+            // for (var i = 0; i < DataService.currentTimeIncrement; i++) { //DataService.currentTimeIncrement
+
+            //     // console.info("data");
+            //     // console.info(DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]);
+
+            //     _self.myData[0].data.push([
+            //             DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i] * 2 * 1000,
+            //             DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i],
+            //         ]
+            //     );
+            // };
 
         };
         _set_machine_path();
