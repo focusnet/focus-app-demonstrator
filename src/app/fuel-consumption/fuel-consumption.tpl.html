@@ -1,14 +1,23 @@
-<div class="fuel-consumption"
-	ng-controller="FuelConsumptionController as fcCtrl">
-
-
-	<canvas-gauge under-color="{{fcCtrl.undercolor}}" width="100%"
-		over-color="{{fcCtrl.overcolor}}" value="fcCtrl.val"
-		min="{{fcCtrl.min}}" max="{{fcCtrl.max}}" mask="{{fcCtrl.mask}}"></canvas-gauge>
-
-
-	<div class="widget-container">
-		<flot id="myflot" dataset="fcCtrl.chartData"
-			options="fcCtrl.chartOptions"></flot>
-	</div>
+<div class="with-padding fuel-consumption" ng-controller="FuelConsumptionController as fcCtrl">
+	
+	<div class="col-1">
+		<div class="widget-container chart">
+    	    <flot id="fuel-consumption" dataset="fcCtrl.chartData" options="fcCtrl.chartOptions"></flot>
+    	</div>
+    </div>
+	
+	
+	<div class="col-2">
+    	<table class="raw-data">
+	    	<tr>
+	    		<th>Time</th>
+	    		<th>Value</th>
+	    	</tr>
+	    	<tr ng-repeat="x in fcCtrl.last_values" ng-class="{odd: $odd}">
+	    		<td ng-bind="x.date | date:'HH:mm:ss'"></td>
+	    		<td ng-bind="x.value === null ? 'N/A' : x.value + ' l/h'"></td>
+	    	</tr>
+    	</table>
+    </div>
+	
 </div>

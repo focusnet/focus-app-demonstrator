@@ -5,7 +5,7 @@
 			<div ng-class="{
 				'danger-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions >= 1700,
 				'warning-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions >= 1250 
-			}" class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions + ' rpm'"></div>
+			}" class="value" ng-bind="mdoCtrl.round(mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions) + ' rpm'"></div>
 			<div class="title" >Engine revolutions</div>
 			<div class="link"><a ng-href="#/machine/{{mdoCtrl.currentMachineId}}/technical-data/engine-revolution">More details</a></div>
 		</div>

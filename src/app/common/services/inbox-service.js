@@ -39,7 +39,7 @@
 				submit: 'denied'
 			},
 			{
-				reception_datetime_from_simulation_starttime: -3*86400-500, // FIXME set dates
+				reception_datetime_from_simulation_starttime: -3*86400-500,
 				subject: 'Delay?',
 				task: 'Forwarding, HSM 208F',
 				comment: '',

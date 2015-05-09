@@ -183,7 +183,6 @@
 			_self.currentTimeIncrement = increment;
 			_self.datetime = _self.getFutureDate(increment);
 			
-			// callbacks FIXME does not work if we go in past (payload chart)
 			_self.runCallbacks();
 			
 		};

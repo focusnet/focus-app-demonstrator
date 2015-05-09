@@ -6,15 +6,16 @@
     	</div>
     </div>
 	
+	
 	<div class="col-2">
     	<table class="raw-data">
 	    	<tr>
 	    		<th>Time</th>
 	    		<th>Value</th>
 	    	</tr>
-	    	<tr xng-repeat="x in vpCtrl.dataSvc.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>']" ng-class="{odd: $odd}">
-	    		<td xng-bind="x">x</td>
-	    		<td xng-bind="x"></td>
+	    	<tr ng-repeat="x in vpCtrl.last_values" ng-class="{odd: $odd}">
+	    		<td ng-bind="x.date | date:'HH:mm:ss'"></td>
+	    		<td ng-bind="x.value === null ? 'N/A' : x.value + ' kg'"></td>
 	    	</tr>
     	</table>
     </div>

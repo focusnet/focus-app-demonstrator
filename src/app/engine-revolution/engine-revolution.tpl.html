@@ -1,12 +1,23 @@
-<!-- <div class="engineRevolution" ng-controller="EngineRevolutionController as EngineRevolutionCtrl">
-	<div class="widget-container-engine-revolution">
-		<flot id="engine-revolution-flot" dataset="EngineRevolutionCtrl.data2" options="EngineRevolutionCtrl.options2"  ></flot>
-	</div>
-</div>  -->
-
-<div class="engineRevolution" ng-controller="engineRevolutionController as engineRevolutionCtrl">
-<!--  You must set a widget-container around the flot -->
-	<div class="widget-container">
-		<flot id="myflot" dataset="engineRevolutionCtrl.data2" options="engineRevolutionCtrl.options2"  ></flot>
-	</div>
-</div> 
+<div class="with-padding engine-revolutions" ng-controller="EngineRevolutionController as erCtrl">
+	
+	<div class="col-1">
+		<div class="widget-container chart">
+    	    <flot id="engine-revolutions" dataset="erCtrl.chartData" options="erCtrl.chartOptions"></flot>
+    	</div>
+    </div>
+	
+	
+	<div class="col-2">
+    	<table class="raw-data">
+	    	<tr>
+	    		<th>Time</th>
+	    		<th>Value</th>
+	    	</tr>
+	    	<tr ng-repeat="x in erCtrl.last_values" ng-class="{odd: $odd}">
+	    		<td ng-bind="x.date | date:'HH:mm:ss'"></td>
+	    		<td ng-bind="x.value === null ? 'N/A' : erCtrl.round(x.value) + ' rpm'"></td>
+	    	</tr>
+    	</table>
+    </div>
+	
+</div>

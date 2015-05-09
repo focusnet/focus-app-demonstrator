@@ -45,6 +45,11 @@
 				NavigationService.currentTitle = 'Vehicle payload - ' + _self.dataMachine.name;
 
 				/**
+				 * Table with latest values
+				 */
+				_self.last_values = [];
+				
+				/**
 				 * Initialize everything.
 				 */
 				var _init = function() {
@@ -85,48 +90,67 @@
 							xaxis : {
 								show : true,
 								mode : "time",
-								timezone : "browser"
+								timezone : "browser",
+								ticks: 6
 							},
 							yaxis : {
 								min : 0,
 								max : max_value
 							},
 							legend: {
-								position: 'nw'
+								position: 'nw',
+								margin: [12, 6]
+							},
+							grid:
+							{
+								labelMargin: 12
+								
 							}
 						};
 				};
 				_init();
 		
-
-
 				/**
 				 * Update the drawing of the map
-				 * 
-				 * FIXME start of time is incorrect !!!! 
 				 */
 				_self.drawDynamicData = function() {
 
-					angular.copy([], _self.chartData[0].data);
+					// we store the new data in a tmp array, otherwise flot/angularjs will try to update the view on every data change
+					// and that's very CPU demanding
+					var new_data = [[],[]];
 
 					var TOTAL_SPAN_IN_INCREMENTS = 30 * 60 / 2;
 
 					// we want to always display a 30min timeline, so let's fill
 					// empty values if necessary
-					var num_empty = Math.max(TOTAL_SPAN_IN_INCREMENTS	- DataService.currentTimeIncrement, 0);
+					var num_empty = Math.max(TOTAL_SPAN_IN_INCREMENTS - DataService.currentTimeIncrement, 0);
 
 					for (var i = num_empty; i > 0; --i) {
 						var cur = DataService.startDateTime.getTime() - 2 * i	* 1000;
-						_self.chartData[0].data.push([ cur, null ]);
-						_self.chartData[1].data.push([ cur, 10000 ]);
+						new_data[0].push([ cur, null ]);
+						new_data[1].push([ cur, 10000 ]);
 					}
 
 					for (var i = 0; i < DataService.currentTimeIncrement; ++i) {
 						var cur = DataService.startDateTime.getTime() + 2 * i	* 1000;
 						var val = DataService.dataSet.timedependent['<TIME:machine[' + _self.currentMachineId + '].technical_data.vehicle_payload>'][i];
-						_self.chartData[0].data.push([ cur, val ]);
-						_self.chartData[1].data.push([ cur, 10000 ]);
+						new_data[0].push([ cur, val ]);
+						new_data[1].push([ cur, 10000 ]);
 					}
+					
+					// do fill the new 'last values'
+					var last_elem = new_data[0].length - 1;
+					_self.last_values = [];
+					for (var i = 0; i < 10; ++i) {
+						_self.last_values.push({
+							date: new_data[0][last_elem - i*30][0],
+							value: new_data[0][last_elem - i*30][1] 
+						});
+					}
+					
+					angular.copy(new_data[0], _self.chartData[0].data);
+					angular.copy(new_data[1], _self.chartData[1].data);
+					
 				};
 				_self.drawDynamicData();
 

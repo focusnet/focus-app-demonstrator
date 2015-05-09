@@ -11,9 +11,6 @@
 		
 		<link href="contrib/leaflet/dist/leaflet.css" rel="stylesheet" />
 		<link href="css/focus.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="contrib/ngCanvasGauge/ngCanvasGauge.css" />
-		
-		
   
 	</head>
 	
@@ -47,22 +44,7 @@
     	
 		<nav id="sidr" class="focus-intro">
 	
-	<ul class="list-group" >
-				<li><a ng-href="#/">Terrain overview</a></li>
-				<li><a ng-href="#/inbox">Notifications inbox</a></li>
-				<li><a ng-href="#/machine/3">Machine overview</a></li>
-				<li><a ng-href="#/machine/3/order-status">Order status</a></li>
-				<li><a ng-href="#/machine/3/silvicultural-planning">Silvicultural planning</a></li>
-				<li><a ng-href="#/machine/3/timecontrol">Time control</a></li>
-				<li><a ng-href="#/machine/3/technical-data">Machine data overview</a></li>
-				<li><a ng-href="#/machine/3/technical-data/engine-revolution">Engine revolution</a></li>
-				<li><a ng-href="#/machine/3/technical-data/fuel-consumption">Fuel consumption</a></li>
-				<li><a ng-href="#/machine/3/technical-data/vehicle-payload">Vehicle payload</a></li>
-				<li><a ng-href="#/stand/0/information">Stand information</a></li>
-				<li><a ng-href="#/stand/0/map">Stand map</a></li>
-				<li><a ng-href="#/woodpile/0">Woodpile information</a></li>
-				<li><a ng-href="#/woodpile/1">Woodpile information 2</a></li>
-			</ul>
+
 			
 			
 			<h1>FOCUS - Advances in Forestry Control &amp; Automation Systems in Europe</h1>
@@ -91,6 +73,26 @@
 				<li>VTT Technical Research Centre of Finland</li>
 				<li>Landesbetrieb Wald und Holz NRW</li>
 			</ul>
+			
+			
+			<h2>Quick links</h2>
+			
+			<ul>
+				<li><a ng-href="#/inbox">Notifications inbox</a></li>
+				<li><a ng-href="#/">Terrain overview</a></li>
+				<li><a ng-href="#/machine/3">Machine overview</a></li>
+				<li><a ng-href="#/machine/3/order-status">Order status</a></li>
+				<li><a ng-href="#/machine/3/silvicultural-planning">Silvicultural planning</a></li>
+				<li><a ng-href="#/machine/3/timecontrol">Time control</a></li>
+				<li><a ng-href="#/machine/3/technical-data">Machine data overview</a></li>
+				<li><a ng-href="#/machine/3/technical-data/engine-revolution">Engine revolution</a></li>
+				<li><a ng-href="#/machine/3/technical-data/fuel-consumption">Fuel consumption</a></li>
+				<li><a ng-href="#/machine/3/technical-data/vehicle-payload">Vehicle payload</a></li>
+				<li><a ng-href="#/stand/0/information">Stand information</a></li>
+				<li><a ng-href="#/stand/0/map">Stand map</a></li>
+				<li><a ng-href="#/woodpile/0">Woodpile information</a></li>
+				<li><a ng-href="#/woodpile/1">Woodpile information 2</a></li>
+			</ul>
 		</nav>
 		
 		<aside id="time-machine" ng-include="'app/common/controllers/time-machine-controller.tpl.html'"></aside>
@@ -113,7 +115,6 @@
 	<script type="text/javascript" src="contrib/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-leaflet-directive/dist/angular-leaflet-directive.min.js"></script>
 	<script type="text/javascript" src="contrib/angular-flot/angular-flot.js"></script> 
-	<script type="text/javascript" src="contrib/ngCanvasGauge/ngCanvasGauge.js" type="text/javascript"></script>
 	
 	<script type="text/javascript" src="app/common/services/data-service.js"></script>
 	<script type="text/javascript" src="app/common/services/inbox-service.js"></script>

@@ -26,7 +26,7 @@
 
 (function() {
 	angular.module('focusApp.machineDataOverview',
-			['ngCanvasGauge', 'focusApp.dataService', 'focusApp.navigationService' ])
+			['focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('MachineDataOverviewController',
 			[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
@@ -49,6 +49,13 @@
 				 */
 				NavigationService.currentTitle = 'Technical data - ' + _self.data.machine[_self.currentMachineId].name;
 
+				/**
+				 * Helper function to round (too lazy to write a proper filter
+				 */
+				_self.round = function(i) {
+					return Math.round(i);
+				};
+				
 			} ]);
 
 }());

@@ -16,87 +16,150 @@
 
 (function() {
  
-    angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'ngCanvasGauge'])
+    angular.module('focusApp.fuelConsumption', ['focusApp.dataService', 'focusApp.navigationService'])
 
-    .controller('FuelConsumptionController', ['$scope', 'DataService', function($scope, DataService) {
+    .controller('FuelConsumptionController',
+    		[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
 
-        var _self = this;
+				var _self = this;
+				
+				/**
+				 * Reference to DataService
+				 */
+				_self.dataSvc = DataService;
 
-        /**
-         * Reference to the current data sample being rendered
-         */
-        _self.data = DataService.data;
+				/**
+				 * Get the id of the currently accessed machine
+				 */
+				var parts = $location.path().split(/\//);
+				_self.currentMachineId = parts[2] || 0;
+				
+				/**
+				 * Reference to the current data sample being rendered
+				 */
+				_self.dataSvc = DataService;
+				_self.data = DataService.data;
+				_self.dataMachine = DataService.data.machine[_self.currentMachineId];
+	
+				/**
+				 * Set the title of the page
+				 */
+				NavigationService.currentTitle = 'Fuel consumption - ' + _self.dataMachine.name;
 
-        _self.myData = [{
-                label: "Fuel Consumption ",
-                data: [], // add machine[mid].technical_data.engine_revolutions
-            },
-            // {
-            // 	label : "Bar2",
-            // 	data : [ [ 11, 13 ], [ 19, 11 ], [ 30, -7 ] ]
-            // } 
-        ];
+				/**
+				 * Table with latest values
+				 */
+				_self.last_values = [];
+				
+				/**
+				 * Initialize everything.
+				 */
+				var _init = function() {
+					
+					// infer max value for yAxis
+					var max_value = 25 * 1.15;
+					angular
+							.forEach(
+									DataService.dataSet.timedependent['<TIME:machine[' + _self.currentMachineId + '].technical_data.fuel_consumption>'],
+									function(v) {
+										if (v > max_value) {
+											max_value = v * 1.3;
+										}
+									});
+					
+					// init data array
+					_self.chartData = [ {
+						label : ' Fuel consumption: ' + _self.dataMachine.name,
+						color: '#4444ff',
+						data : [ [ DataService.startDateTime.getTime(), 0 ] ]
+					},
+					{
+						label : ' Excessive consumption',
+						color: '#ff0000',
+						data : [ [ DataService.startDateTime.getTime(), 25 ] ]
+					}];
+					
+					// init chart options
+					_self.chartOptions = {
+							series : {
+								lines : {
+									show : true
+								},
+								points : {
+									show : false
+								},
+							},
+							xaxis : {
+								show : true,
+								mode : "time",
+								timezone : "browser",
+								ticks: 6
+							},
+							yaxis : {
+								min : 0,
+								max : max_value
+							},
+							legend: {
+								position: 'nw',
+								margin: [12, 6]
+							},
+							grid:
+							{
+								labelMargin: 12
+								
+							}
+						};
+				};
+				_init();
+		
+				/**
+				 * Update the drawing of the map
+				 */
+				_self.drawDynamicData = function() {
 
-        _self.myChartOptions = {
-            series: {
-                lines: { show: true},
-                points: { show: false },
-            },
-            xaxis: {
-            	show: true,
-            	mode: "time",
-            	timezone: "browser"
-        	}
-        };
+					// we store the new data in a tmp array, otherwise flot/angularjs will try to update the view on every data change
+					// and that's very CPU demanding
+					var new_data = [[],[]];
 
-        _self.undercolor = 'black';
+					var TOTAL_SPAN_IN_INCREMENTS = 30 * 60 / 2;
 
-        _self.overcolor = 'green';
+					// we want to always display a 30min timeline, so let's fill
+					// empty values if necessary
+					var num_empty = Math.max(TOTAL_SPAN_IN_INCREMENTS - DataService.currentTimeIncrement, 0);
 
-        _self.val = 10;
+					for (var i = num_empty; i > 0; --i) {
+						var cur = DataService.startDateTime.getTime() - 2 * i	* 1000;
+						new_data[0].push([ cur, null ]);
+						new_data[1].push([ cur, 25 ]);
+					}
 
-        _self.min = 0;
+					for (var i = 0; i < DataService.currentTimeIncrement; ++i) {
+						var cur = DataService.startDateTime.getTime() + 2 * i	* 1000;
+						var val = DataService.dataSet.timedependent['<TIME:machine[' + _self.currentMachineId + '].technical_data.fuel_consumption>'][i];
+						new_data[0].push([ cur, val ]);
+						new_data[1].push([ cur, 25 ]);
+					}
+					
+					// do fill the new 'last values'
+					var last_elem = new_data[0].length - 1;
+					_self.last_values = [];
+					for (var i = 0; i < 10; ++i) {
+						_self.last_values.push({
+							date: new_data[0][last_elem - i*30][0],
+							value: new_data[0][last_elem - i*30][1] 
+						});
+					}
+					
+					angular.copy(new_data[0], _self.chartData[0].data);
+					angular.copy(new_data[1], _self.chartData[1].data);
+					
+				};
+				_self.drawDynamicData();
 
-        _self.max = 99;
-
-        // _self.placeholder = "te";
-
-        _self.mask = _self.val +" C°";
-
-
-        // END OF FIXME DEBUG
-
-        var _set_machine_path = function() {
-
-            angular.copy([], _self.myData[0].data);
-
-            var starttime = DataService.startDateTime.getTime();
-            var currenttime = DataService.startDateTime.getTime() + DataService.currentTimeIncrement * 2 * 1000;
-          
-            var diff = currenttime - starttime;
-
-            var x =0;
-            for (var i = diff ; i <= 1800000; i=i+2000) {
-            	_self.myData[0].data.push([
-                        DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i/2000] * 2 * 1000,
-                        null,
-                    ])
-            };
-
-            // for (var i = 0; i < DataService.currentTimeIncrement; i++) { //DataService.currentTimeIncrement
-
-            //     // console.info("data");
-            //     // console.info(DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i]);
-
-            //     _self.myData[0].data.push([
-            //             DataService.startDateTime.getTime() + DataService.dataSet.timedependent['<TIME:time_increment>'][i] * 2 * 1000,
-            //             DataService.dataSet.timedependent['<TIME:machine[3].technical_data.vehicle_payload>'][i],
-            //         ]
-            //     );
-            // };
-
-        };
-        _set_machine_path();
+				/**
+				 * Register refresh callback
+				 */
+				DataService.registerRefreshCallback(_self.drawDynamicData);
 
     }]);
 
