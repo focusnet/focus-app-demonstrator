@@ -62,6 +62,7 @@
 			$("#sidr a").on('click', function(e) {
 				$.sidr('close', 'sidr');
 			});
+
 		};
 
 		/**

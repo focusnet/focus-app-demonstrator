@@ -134,7 +134,11 @@
 	 * Disable right clicking
 	 */
 	document.oncontextmenu = function() {
+		if ($('body').hasClass('touch-screen')) {
+			console.log('test');
+		}
 		//return false; // FIXME enable
 	};
+	
 
 }());

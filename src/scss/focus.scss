@@ -6,12 +6,12 @@
 @import "sidr";
 
 
-FIXMEbody *
-{ // even  better: cancel if user presses key // body.canceled
+body.touch-screen *
+{
 	 cursor: none !important;
 }
 
-body
+body.touch-screen
 {	
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -135,15 +135,15 @@ body
 		
 		div.slider
 		{
-			@include span-columns(6);
+			@include span-columns(5);
 			
 		}
 		
-		div.controls
+		div.controls,
+		div.controls-2
 		{
-				@include span-columns(3);
-				@include omega;
-				
+				@include span-columns(2);
+
 				i
 				{
 					margin-left: 0.75em;
@@ -154,6 +154,11 @@ body
 				{
 					color: $grey-dark;
 				}
+		}
+		
+		div.control-2
+		{
+			@include omega;
 		}
 
 		input[type=range]

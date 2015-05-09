@@ -25,7 +25,7 @@
 								/**
 								 * Move to next increment at the following frequency
 								 */
-								_self.update_frequency = 200;
+								_self.update_frequency = 500;
 
 								/**
 								 * Do update the data every n milliseconds
@@ -61,6 +61,11 @@
 								_self.timeIncrement = DataService.currentTimeIncrement;
 
 								/**
+								 * Are we in tablet mode?
+								 */
+								_self.is_tablet_mode = false;
+								
+								/**
 								 * Displayed date
 								 */
 								_self.currentDate = function() {
@@ -90,6 +95,23 @@
 								_self.stop = function() {
 									_self.isRunning = false;
 								};
+								
+								/**
+								 * Close the app
+								 */
+								_self.close = function() {
+									console.log('WARNING: does not work on Firefox')
+									window.open('', '_self');
+									window.close();
+								};
+								
+								/**
+								 * Toggle the display mode: tablet or desktop
+								 */
+								_self.toggleDisplayMode = function() {
+									_self.is_tablet_mode = !_self.is_tablet_mode;
+									$('body').toggleClass('touch-screen');
+								};
 
 								/**
 								 * UI-related init
@@ -108,6 +130,9 @@
 									$("#time-machine, a.time-machine").on("click", function(e) {
 										e.stopPropagation();
 									});
+									
+									
+									
 								}
 								ui_init();
 

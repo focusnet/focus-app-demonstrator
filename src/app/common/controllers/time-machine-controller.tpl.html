@@ -11,5 +11,11 @@
 		<i class="fa fa-play" ng-click="timeCtrl.start()" ng-class="{inactive: timeCtrl.isRunning}"></i>
 	</div>
 	
+	<div class="controls-2">
+		<i class="fa fa-fw" ng-class="{'fa-keyboard-o': !timeCtrl.is_tablet_mode, 'fa-hand-o-up': timeCtrl.is_tablet_mode}" 
+				ng-click="timeCtrl.toggleDisplayMode()"></i>
+		<i class="fa fa-times" ng-click="timeCtrl.close()"></i>
+	</div>
+	
 </div>
 			
