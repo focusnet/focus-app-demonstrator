@@ -130,9 +130,6 @@
 									$("#time-machine, a.time-machine").on("click", function(e) {
 										e.stopPropagation();
 									});
-									
-									
-									
 								}
 								ui_init();
 

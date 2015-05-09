@@ -135,9 +135,8 @@
 	 */
 	document.oncontextmenu = function() {
 		if ($('body').hasClass('touch-screen')) {
-			console.log('test');
+			return false;
 		}
-		//return false; // FIXME enable
 	};
 	
 

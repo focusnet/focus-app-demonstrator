@@ -715,9 +715,9 @@ article
 		
 		ol.shorten
 		{
-			width: 70%;
+			width: 85%;
 			list-style-type: decimal;
-			padding-left: 2*$mobile-payload-padding;
+			padding-left: 2 * $mobile-payload-padding;
 		}
 		
 		table
@@ -810,8 +810,9 @@ article
 			
 			img
 			{
-				height: 100%;
-				width: auto;
+				//height: auto;
+				max-width: 100%;
+				max-height: 100%;
 			}
 		}
 		
@@ -870,19 +871,28 @@ article
 		}
 	}
 	
-	.xstand-mapFIXME FIXME
+	.stand-map
 	{
-		@include outer-container;
-		
-		div.col-1
+		div.map-container
 		{
-			@include span-columns(8);
-		}
-		
-		div.col-2
-		{
-			@include span-columns(4);
-			@include omega;
+			position: relative;
+			
+			div.pictures
+			{
+				position: absolute;
+				top: 40px;
+				right: 50px;
+				width: 30%;
+				border: 5px solid $grey-light;
+				
+				img
+				{
+					width: 100%;
+					height: auto;
+					max-height: 0.8 * $mobile-payload-height;
+				}
+				
+			}
 		}
 	}
 	
