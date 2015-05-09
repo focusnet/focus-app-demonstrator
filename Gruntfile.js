@@ -157,8 +157,7 @@ module.exports = function(grunt) {
 							'angular-flot/angular-flot.js' : 'angular-flot/angular-flot.js',
 							// Leaflet.awesome-markers
 							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.css': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.css',
-							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js',
-							// FIXME ngGauge thing
+							'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js': 'Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js'
 						}
 					}
 				},

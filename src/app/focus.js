@@ -14,7 +14,7 @@
 	angular
 			.module(
 					'focusApp',
-					[ 'ngRoute', 'gettext', 'leaflet-directive', 'angular-flot',
+					[ 'ngRoute', 'gettext', 'leaflet-directive', 'angular-flot', 'ngCanvasGauge',
 							'focusApp.dataService', 'focusApp.inboxService',
 							'focusApp.navigationService', 'focusApp.goBack',
 							'focusApp.actionBar', 'focusApp.timeMachine',

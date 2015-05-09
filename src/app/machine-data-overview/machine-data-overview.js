@@ -26,18 +26,28 @@
 
 (function() {
 	angular.module('focusApp.machineDataOverview',
-			['focusApp.dataService' ])
+			['ngCanvasGauge', 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('MachineDataOverviewController',
-			[ '$scope', 'DataService', function($scope, DataService) {
+			[ '$location', 'DataService', 'NavigationService', function($location, DataService, NavigationService) {
 
 				var _self = this;
+
+				/**
+				 * Get the id of the currently accessed machine
+				 */
+				var parts = $location.path().split(/\//);
+				_self.currentMachineId = parts[2] || 0;
 
 				/**
 				 * Reference to the current data sample being rendered
 				 */
 				_self.data = DataService.data;
-
+				
+				/**
+				 * Set the title of the page
+				 */
+				NavigationService.currentTitle = 'Technical data - ' + _self.data.machine[_self.currentMachineId].name;
 
 			} ]);
 

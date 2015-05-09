@@ -786,7 +786,7 @@ article
 	.woodpile-information
 	{
 		@include outer-container;
-		
+		/*
 		ul
 		{			
 			li
@@ -801,7 +801,7 @@ article
 					margin-right: 1em;
 				}
 			}
-		}
+		}*/
 		
 		div.image
 		{
@@ -825,41 +825,46 @@ article
 			
 			
 			@include outer-container;
-				
-			li // FIXME completely buggy
-			{
-				padding-bottom: 0.5em;
-			//	clear: both;
 			
-				span 
-				{
-					display: inline-block;
-	//				width: 45%;
-					margin-left: 50%;
-				}
-				
-				span.label
-				{
-					font-weight: bold;
-					padding-right: 1em;
-					float: left;
-					width: 50%;
-					margin: 0;
-				}
-			}
-				
 			div.col-1
 			{
-				@include shift(1.5 of 12);
-				@include span-columns(4.5 of 12);
+				@include shift(0.5 of 12);
+				@include span-columns(5.5 of 12);
 			}
 			
 			div.col-2
 			{
-				@include shift(1 of 12);
-				@include span-columns(4.5 of 12);
+				@include shift(0.5 of 12);
+				@include span-columns(5.5 of 12);
 				@include omega;
 			}
+		
+			ul,
+			{			
+				li
+				{
+					line-height: 1.3em;
+					margin-bottom: 0.5em;
+					
+					@include outer-container;
+					
+					span 
+					{
+						display: inline-block;
+						@include span-columns(2 of 5.5);
+					}
+					
+					span.label
+					{
+						@include span-columns(3.5 of 5.5);
+						@include omega;
+						font-weight: bold;
+						padding-right: 1em;
+					}
+				}
+			}
+		
+		
 		}
 	}
 	
@@ -882,7 +887,8 @@ article
 				position: absolute;
 				top: 40px;
 				right: 50px;
-				width: 30%;
+				max-width: 30%;
+				height: auto;
 				border: 5px solid $grey-light;
 				
 				img
@@ -934,11 +940,68 @@ article
 				
 			}
 			
-		}
+		}	
+	}
 	
+	.machine-data-overview
+	{
+		.row
+		{
+			@include outer-container;
+			height: 0.45 * $mobile-payload-height;
+		}
 		
+		.row.first
+		{
+			margin-bottom: 0.1 * $mobile-payload-height;		
+		}
 		
+		.col-1,
+		.col-2,
+		.col-3,
+		.col-4
+		{
+			@include span-columns(3);
+			height: 100%;
+			text-align: center;
+			
+			.value
+			{
+				padding-top: 0.07 * $mobile-payload-height;
+				padding-bottom: 0.07 * $mobile-payload-height;
+				font-size: 0.08 * $mobile-payload-height;
+				line-height: 1em;
+				font-weight: bold;
+				height: 0.225 * $mobile-payload-height;
+			}
+			
+			.warning-zone
+			{
+				color: $orange;
+			}
+			
+			.danger-zone
+			{
+				color: $red;
+			}
+			
+			.title
+			{
+				padding-bottom: 1em;
+				height: 3em;
+			}
+			
+			.link
+			{
+				font-size: 0.8em;
+				color: $green;
+			}
+		}
 		
+		.col-4
+		{
+			@include omega;
+		}
 	}
 }
 

@@ -1,13 +1,84 @@
-<!-- machine data overview
+<div class="with-padding machine-data-overview" ng-controller="MachineDataOverviewController as mdoCtrl">
 
-Sth like http://stackoverflow.com/questions/19397394/gauge-chart-in-javascript-or-jquery-flot
+	<div class="row first">
+		<div class="col-1">
+			<div ng-class="{
+				'danger-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions >= 1700,
+				'warning-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions >= 1250 
+			}" class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions + ' rpm'"></div>
+			<div class="title" >Engine revolutions</div>
+			<div class="link"><a ng-href="#/machine/{{mdoCtrl.currentMachineId}}/technical-data/engine-revolution">More details</a></div>
+		</div>
+		<div class="col-2">
+			<div ng-class="{
+				'danger-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.fuel_consumption >= 25,
+				'warning-zone': false 
+			}" class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.fuel_consumption + ' l/h'"></div>
+			<div class="title" >Fuel consumption</div>
+			<div class="link"><a ng-href="#/machine/{{mdoCtrl.currentMachineId}}/technical-data/fuel-consumption">More details</a></div>
+		</div>
+		<div class="col-3 only-three">
+			<div ng-class="{
+				'danger-zone': mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.vehicle_payload >= 10000,
+				'warning-zone': false 
+			}" class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.vehicle_payload + ' kg'"></div>
+			<div class="title" >Vehicle payload</div>
+			<div class="link"><a ng-href="#/machine/{{mdoCtrl.currentMachineId}}/technical-data/vehicle-payload">More details</a></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-1">
+			<div class="value" ng-bind="(mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.engine_revolutions ? mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.battery_voltage : '0') + ' V'"></div>
+			<div class="title" >Battery voltage</div>
+		</div>
+		<div class="col-2">
+			<div class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.hydraulic_oil_temperature + ' °C'"></div>
+			<div class="title" >Hydraulic oil temperature</div>
+		</div>
+		<div class="col-3">
+			<div class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.water_temperature + ' °C'"></div>
+			<div class="title" >Water<br/>temperature</div>		
+		</div>
+		<div class="col-4">
+			<div class="value" ng-bind="mdoCtrl.data.machine[mdoCtrl.currentMachineId].technical_data.total_machining_hours + ' h'"></div>
+			<div class="title" >Total<br/>machining hours</div>			
+		</div>
+	</div>
+	
+	<!-- 
+	battery_voltage
+	
+	"28"
+engine_revolutions
+	
+	"1"
+fuel_consumption
+	
+	"1"
+hydraulic_oil_temperature
+	
+	"55"
+total_machining_hours
+	
+	"1225"
+vehicle_payload
+	
+	"0"
+water_temperature
+	
+	"90"
+	
+	 -->
 
-gauge with button -> View details
 
-if no data, disable button -->
+</div>
+<!-- 
+<canvas-gauge under-color="{{fcCtrl.undercolor}}"
+		over-color="{{fcCtrl.overcolor}}" value="fcCtrl.val"
+		min="{{fcCtrl.min}}" max="{{fcCtrl.max}}" mask="{{fcCtrl.mask}}"></canvas-gauge>
 
 <div class="machineDataOverview" ng-controller="MachineDataOverviewController as machineDataOverviewCtrl">
-<!--  You must set a widget-container around the flot -->
+
 	<div class="widget-container">
 		<table border="1" style="width: 100%" >
 		    <tr>
@@ -44,3 +115,4 @@ if no data, disable button -->
 		</table>
 	</div>
 </div> 
+-->

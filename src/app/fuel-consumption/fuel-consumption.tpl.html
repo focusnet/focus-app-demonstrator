@@ -1,17 +1,14 @@
-<div class="fuel-consumption" ng-controller="FuelConsumptionController as fcCtrl">
- 
-    
-    <canvas-gauge  
-    	under-color="{{fcCtrl.undercolor}}" 
-    	over-color="{{fcCtrl.overcolor}}" 
-    	value="fcCtrl.val" 
-    	min="{{fcCtrl.min}}"
-    	max="{{fcCtrl.max}}"
-    	mask="{{fcCtrl.mask}}"
-    ></canvas-gauge>
-    
+<div class="fuel-consumption"
+	ng-controller="FuelConsumptionController as fcCtrl">
 
-    <div class="widget-container">
-        <flot id="myflot" dataset="fcCtrl.chartData" options="fcCtrl.chartOptions"></flot>
-    </div>
+
+	<canvas-gauge under-color="{{fcCtrl.undercolor}}" width="100%"
+		over-color="{{fcCtrl.overcolor}}" value="fcCtrl.val"
+		min="{{fcCtrl.min}}" max="{{fcCtrl.max}}" mask="{{fcCtrl.mask}}"></canvas-gauge>
+
+
+	<div class="widget-container">
+		<flot id="myflot" dataset="fcCtrl.chartData"
+			options="fcCtrl.chartOptions"></flot>
+	</div>
 </div>
