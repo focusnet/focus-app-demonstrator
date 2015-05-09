@@ -121,7 +121,7 @@
 							markerColor: '#2980b9',
 							lat: parseFloat(_self.dataService.data.machine[3].lat),
 							lng: parseFloat(_self.dataService.data.machine[3].lng),
-							message: "<strong>HSM 208F 6WD 10to</strong> <br> Forwarder <a ng-href='#/machine/3'>details</a>",
+							message: "<strong>HSM 208F FIXME</strong> <br> Forwarder - <a ng-href='#/machine/3'>Details</a>",
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
@@ -133,7 +133,7 @@
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lat), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[0].lng),
-							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>details</a>",
+							message: "<strong>Woodpile #10</strong> <br> <a ng-href='#/woodpile/0'>Details</a>",
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
@@ -145,7 +145,7 @@
 							markerColor: '#27ae60',
 							lat: parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lat), 
 							lng:  parseFloat(_self.dataService.dataSet.timeindependent.woodpile[1].lng),
-							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>details</a>",
+							message: "<strong>Woodpile #9</strong> <br> <a ng-href='#/woodpile/1'>Details</a>",
 							focus: false,
 							icon: {
 							    type: 'awesomeMarker',

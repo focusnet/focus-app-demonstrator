@@ -1,6 +1,6 @@
 <div class="stand-map" ng-controller="StandMapController as standmapCtrl">
 	
-	<div class="col-1">
+	<div class="map-container">
 		<div class="widget-container-Stand-Map">
 			<leaflet id="StandMapMap" layers="standmapCtrl.tiles" 
 					center="standmapCtrl.center" 
@@ -8,8 +8,9 @@
 					markers="standmapCtrl.markers" 
 					paths="standmapCtrl.paths"></leaflet> 
 		</div>
-	</div>
-	<div class="col-2">
-	pictures
+		<div class="pictures">
+			pictures
+		</div>
+		
 	</div>
 </div> 
