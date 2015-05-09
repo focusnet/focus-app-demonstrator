@@ -1,1 +1,25 @@
-time control
+<div class="with-padding time-control" ng-controller="TimeControlController as tcCtrl">
+
+	<div class="data">
+		<div class="col-1">		
+			<h2>General information</h2>
+			<ul>
+				<li><span class="label">Daily work:</span> <span ng-bind="tcCtrl.data.timecontrol.start_of_day + ' - ' + tcCtrl.data.timecontrol.end_of_day"></span></li>
+				<li><span class="label">Machine work for today:</span> <span ng-bind="tcCtrl.dataMachine.productivity.mean_daily_working_time + ' h'"></span></li>
+				<li><span class="label">Repair time:</span> <span ng-bind="tcCtrl.dataMachine.productivity.total_repair_time + ' h'"></span></li>
+				<li><span class="label">Break time:</span> <span ng-bind="tcCtrl.dataMachine.productivity.total_break_time + ' h'"></span></li>
+				<li><span class="label">Moving time:</span> <span ng-bind="tcCtrl.dataMachine.productivity.total_moving_time + ' h'"></span></li>
+			</ul>
+			
+		</div>
+		
+		<div class="col-2">
+			<h2>Productivity</h2>
+			<ul>
+				<li><span class="label">Per hour:</span> <span ng-bind="tcCtrl.dataMachine.productivity.eradication_hourly + ' m3/h'"></span></li>
+				<li><span class="label">Per day:</span> <span ng-bind="tcCtrl.dataMachine.productivity.eradication_daily + ' m3/day'"></span></li>
+			</ul>
+		</div>
+	</div>
+
+</div>

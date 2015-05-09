@@ -47,7 +47,7 @@
 				/**
 				 * Set the title of the page
 				 */
-				NavigationService.currentTitle = _self.data.name + ' 38  c - Stand information'
+				NavigationService.currentTitle = 'Stand information' + _self.data.name
 
 			} ]);
 

@@ -16,19 +16,6 @@
  * 				No need to draw the machine trace
  * 		Legend: Machine types (1 icon per machine type)
  * 
- * Input variables:
- * 		parcel geometries 
- *		areacenter.lat
- * 		areacenter.lng
- * 		areacenter.zoomfactor = int
- * 		machine[].name
- * 		machine[].type = F | H
- * 		machine[].lat
- * 		machine[].lng 
- * 		machine[].status = WORKING | NOT_WORKING
- * 		woodpile[].lat
- * 		woodpile[].lng
- * 
  * @@source_header
  * 
  */
@@ -37,10 +24,10 @@
 
 (function() {
 	angular.module('focusApp.terrainOverview',
-			[ 'leaflet-directive', 'focusApp.dataService' ])
+			[ 'leaflet-directive', 'focusApp.dataService', 'focusApp.navigationService' ])
 
 	.controller('TerrainOverviewController',
-			[ '$scope', 'leafletData', "DataService", function($scope, leafletData, DataService) {
+			[ '$scope', 'leafletData', 'DataService', 'NavigationService', function($scope, leafletData, DataService, NavigationService) {
 
 				var _self = this;
 				_self.testvar = parseFloat(DataService.data.machine[3].lat);
@@ -48,8 +35,15 @@
 				_self.dataService = DataService;
 
 
+				
+				// set the  page title
+				NavigationService.currentTitle = 'Terrain overview - ' + DataService.data.areaname;
+				
 				var redMarker;
 
+				/**
+				 * Setup awesome markers
+				 */
 				leafletData.getMap('TerrainOverviewMap').then(function(map) {
       				L.AwesomeMarkers.Icon.prototype.options.prefix = 'fa';
 				});
@@ -72,7 +66,6 @@
 						scrollWheelZoom : false,
 						zoomControl: false,
 						attributionControl: false,
-						scrollWheelZoom: false,
 						dragging: false,
 						touchZoom: false,
 						doubleClickZoom: false,
@@ -209,12 +202,10 @@
 				
 				_self.test = function() {
 					// self.dataService.data.machine[3].lat
-					console.log('test');
 					_self.dataService.data.machine[3].lat +=1;
 					_self.testvar += 1;
 					leafletData.getMap('mymap').then(function(map) {
 						// anything here
-						console.log(map);
 						map._onResize();
 	      //    L.GeoIP.centerMapOnPosition(map, 15);
 					});

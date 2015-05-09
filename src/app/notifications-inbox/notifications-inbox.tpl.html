@@ -13,7 +13,7 @@
 					<span class="subject" ng-bind="msg.subject"></span>
 				</div>
 				<div class="col-3">
-					<span class="processed" ng-show="!msg.submit">unknown</span>
+					<span class="processed" ng-show="!msg.submit">open</span>
 					<span class="processed" ng-show="msg.submit" ng-bind="msg.submit"></span>
 				</div>
 			</div>
@@ -21,7 +21,8 @@
 				<p class="task">Task: <span ng-bind="inboxCtrl.modal.task"></span></p>
 				<label for="comment">Comment:</label>
 				<div ng-if="msg.submit" class="comment" ng-bind="inboxCtrl.modal.comment"></div>
-				<textarea ng-if="!msg.submit" name="comment" class="comment" ng-model="inboxCtrl.modal.comment"></textarea>
+				<textarea ng-if="!msg.submit" name="comment" class="comment" 
+						ng-model="inboxCtrl.modal.comment" ng-click="inboxCtrl.modal.comment = 'Terrain very wet, but still sticking to the schedule'"></textarea>
 				<div class="buttons" ng-show="!msg.submit">
 					<div class="col-button-1"><button ng-click="inboxCtrl.submit($index, 'denied')">Deny</button></div>
 					<div class="col-button-2"><button ng-click="inboxCtrl.submit($index, 'approved')">Approve</button></div>

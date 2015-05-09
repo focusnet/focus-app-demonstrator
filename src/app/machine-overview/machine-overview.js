@@ -40,8 +40,7 @@
 				 */
 				var parts = $location.path().split(/\//);
 				_self.currentMachineId = parts[2] || 0;
-				console.log('aaaa');
-				console.log(_self.dataSvc);
+
 				/**
 				 * Reference to the current data sample being rendered
 				 */

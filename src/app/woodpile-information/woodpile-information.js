@@ -39,7 +39,6 @@
 				 * Get the id of the currently accessed woodpile
 				 */
 				var parts = $location.path().split(/\//);
-				console.log(parts);
 				_self.currentWoodpileId = parts[2] || 0;
 				
 				/**
