@@ -43,7 +43,7 @@
 				_self.currentStandId = parts[2] || 0;
 				
 				/**
-				 * Reference to the current data sample being rendered
+				 * Reference to the current data sample being rende#7f8c8d
 				 */
 				_self.data = DataService.data.stand[_self.currentStandId];
 
@@ -88,7 +88,7 @@
 						    focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-truck',
+							    icon: 'fa-square',
 							    markerColor: 'blue'
 							},
 							
@@ -101,7 +101,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-truck',
+							    icon: 'fa-square',
 							    markerColor: 'blue'
 							},
 						},
@@ -113,8 +113,8 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-check-circle-o',
-							    markerColor: 'red'
+							    icon: 'fa-dot-circle-o',
+							    markerColor: '#7f8c8d'
 							}, 
 						},
 						forwarder3: {
@@ -125,8 +125,8 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-check-circle-o',
-							    markerColor: 'red'
+							    icon: 'fa-dot-circle-o',
+							    markerColor: '#7f8c8d'
 							},
 						},
 						loadingpoint1: {
@@ -137,7 +137,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-tree',
+							    icon: 'fa-bullseye',
 							    markerColor: 'green'
 							},
 						},
@@ -149,14 +149,14 @@
 							focus: false,
 							icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-tree',
+							    icon: 'fa-bullseye',
 							    markerColor: 'green'
 							},
 						},
 					},
 					paths: {
                         border2: {
-		                    color: '#27ae60',
+		                    color: '#2ecc71',
 		                   	stroke: true,
 		                    type: 'polygon',
 		                    weight: 6,
@@ -172,7 +172,7 @@
                             ]
                         },
                         alley2: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.396904115565036, lng: 8.263861897337376},
@@ -182,7 +182,7 @@
 	                        ],
                     	},
                     	alley3: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.396570747405825, lng: 8.263369160254395},
@@ -192,7 +192,7 @@
 	                        ],
                     	},
                     	alley4: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.396230343464865, lng: 8.262767548547458},
@@ -202,7 +202,7 @@
 	                        ],
                     	},
                     	alley5: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.395299781410479, lng: 8.262873958506407},
@@ -212,7 +212,7 @@
 	                        ],
                     	},
                     	alley6: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.394914147091711, lng: 8.263259476626505},
@@ -222,7 +222,7 @@
 	                        ],
                     	},
                     	alley7: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.394480152082792, lng: 8.26369333150946},
@@ -232,7 +232,7 @@
 	                        ],
                     	},
                     	alley8: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.394462943390387, lng: 8.26375068002646},
@@ -242,7 +242,7 @@
 	                        ],
                     	},
                     	alley9: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.395883218468747, lng: 8.262579840377347},
@@ -254,7 +254,7 @@
 	                        ],
                     	},
                     	alley10: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.397202655787424, lng: 8.264845576112458},
@@ -267,7 +267,7 @@
 	                        ],
                     	},
                     	alley11: {
-	                        color: 'red',
+	                        color: '#7f8c8d',
 	                        weight: 4,
 	                        latlngs: [
 	                            {lat: 51.394480152082792, lng: 8.263693331509453},
@@ -282,7 +282,7 @@
 	                        ],
                     	},
                     	forwarder3Path: {
-                    		color: '#3498db',
+                    		color: 'red',
 	                        weight: 4,
 	                        latlngs: [
 	                            {

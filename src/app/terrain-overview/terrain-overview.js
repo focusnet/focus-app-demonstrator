@@ -78,7 +78,7 @@
 						    focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-truck',
+							    icon: 'fa-square',
 							    markerColor: 'blue'
 							},
 						},
@@ -90,7 +90,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-truck',
+							    icon: 'fa-square',
 							    markerColor: 'blue'
 							},
 						},
@@ -102,7 +102,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-check-circle-o',
+							    icon: 'fa-dot-circle-o',
 							    markerColor: 'red'
 							}, 
 						},
@@ -114,7 +114,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-check-circle-o',
+							    icon: 'fa-dot-circle-o',
 							    markerColor: 'red'
 							},
 						},
@@ -126,7 +126,7 @@
 							focus: false,
 						    icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-tree',
+							    icon: 'fa-bullseye',
 							    markerColor: 'green'
 							},
 						},
@@ -138,7 +138,7 @@
 							focus: false,
 							icon: {
 							    type: 'awesomeMarker',
-							    icon: 'fa-tree',
+							    icon: 'fa-bullseye',
 							    markerColor: 'green'
 							},
 						},
@@ -146,7 +146,7 @@
 					paths: {
                         border1: {
                             // color: '#2ecc71',
-                            color: '#d35400',
+                            color: '#ecf0f1',
                             stroke: true,
 		                    type: 'polygon',
 		                    weight: 3,
@@ -168,7 +168,7 @@
                         border2: {
                             // color: '#3498db',
                             stroke: false,
-		                    fillColor: '#27ae60',
+		                    fillColor: '#2ecc71',
 		                    type: 'polygon',
 		                    weight: 1,
 		                    fillOpacity: 0.7,
