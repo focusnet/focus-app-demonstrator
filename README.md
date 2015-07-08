@@ -1,13 +1,21 @@
-
-=====================================
-
 # FOCUS mobile application demonstrator
 
 Demonstrator for the LIGNA 2015 fair. Only the minimal requirements for this
 event have been implemented.
 
 There are still probably many bugs, but due to the short life time of this 
-demonstrator, we didn't put too much effort in finalizing everything. 
+demonstrator, we didn't put too much effort in finalizing everything. However, 
+it is ready to accept other scenarios quite easily. 
+
+## Build process
+
+````
+$ cd focus-mobile-app-demonstrator
+$ npm install 
+$ ./grunt build-dev
+````
+
+See `Gruntfile.js` for other possible build tasks.
 
 ## License
 

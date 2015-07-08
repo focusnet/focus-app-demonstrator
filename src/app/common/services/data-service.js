@@ -2,6 +2,14 @@
  * Service responsible for delivering data to the different controllers
  * 
  * @@source_header
+ *
+ * --
+ * 
+ * This file is part of the focus-mobile-app-demonstrator package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * 
  */
 
 'use strict';

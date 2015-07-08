@@ -5,6 +5,14 @@
  * application-friendly JS structure.
  * 
  * The output can then be run in nodejs to produce a JSON string.
+ * 
+ * -- 
+ * 
+ * This file is part of the focus-mobile-app-demonstrator package.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ * 
  */
 
 $command = isset($argv[1]) && $argv[1] ? $argv[1] : 'help';
