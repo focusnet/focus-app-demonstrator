@@ -10,7 +10,7 @@ it is ready to accept other scenarios quite easily.
 ## Build process
 
 ````
-$ cd focus-mobile-app-demonstrator
+$ cd focus-app-demonstrator
 $ npm install 
 $ ./grunt build-dev
 ````

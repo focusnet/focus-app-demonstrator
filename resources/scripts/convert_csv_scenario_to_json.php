@@ -8,7 +8,7 @@
  * 
  * -- 
  * 
- * This file is part of the focus-mobile-app-demonstrator package.
+ * This file is part of the focus-app-demonstrator package.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
